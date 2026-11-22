@@ -11,7 +11,7 @@ Custom WordPress theme for Slow Karma. The theme lives in `slowkarma/`.
 | Season One | `page-season-one.php` | Voodoo Rooms finale: film, live album, photos, singles, credits and setlist |
 | Season Two | `page-season-two.php` | Liquid Room: how it was made, Twin players, the release run, photos, credits, stage plot |
 | Videos | `page-videos.php` | Every YouTube video, grouped by season |
-| Music | `page-music.php` | Every release with Spotify / Apple Music / Bandcamp |
+| Music | `page-music.php` | Every release (links to Bandcamp), then Spotify, Apple Music, Tidal, Bandcamp, YouTube |
 | Press kit | `page-press.php` | EPK: facts, live and booking (`/press/#live`, for festival applications), full show, bio, quotes, line-up, downloads, contact |
 
 Pages are matched by slug (`story`, `season-one`, `season-two`, `videos`, `music`, `press`). Those URLs work even if the WordPress pages don't exist (see `inc/routing.php`). On activation, and on the first dashboard visit after each theme update, the theme creates any missing pages so they appear in the editor. Anything typed into a page in the WordPress editor appears below the designed sections.
@@ -26,7 +26,7 @@ Almost everything lives in **`slowkarma/inc/data.php`**:
 - `sk_members()`, `sk_family()`, `sk_finales()`: line-ups, collaborators, credits and setlists.
 - `sk_page_meta()`: SEO titles and descriptions per page.
 
-Images are WebP in `assets/img/` named `<slug>-<width>.webp`; the theme builds `srcset` automatically from whatever widths exist. Knockout headings use `<slug>-ko.webp` when present (the photo with its shadows lifted to orange).
+Page headers use `sk_page_hero()` (title plus three drifting photo columns) and galleries use `sk_reel()` (a row of photos that slides sideways as you scroll), both in `inc/helpers.php`. Images are WebP in `assets/img/` named `<slug>-<width>.webp`; the theme builds `srcset` automatically from whatever widths exist. Knockout headings use `<slug>-ko.webp` when present (the photo with its shadows lifted to orange).
 
 ## Performance and SEO
 

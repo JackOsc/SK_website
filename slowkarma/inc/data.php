@@ -23,6 +23,10 @@ function sk_links() {
 			'label' => 'Apple Music',
 			'url'   => 'https://music.apple.com/gb/artist/slow-karma/1738924779',
 		),
+		'tidal'     => array(
+			'label' => 'Tidal',
+			'url'   => 'https://tidal.com/artist/46883581',
+		),
 		'bandcamp'  => array(
 			'label' => 'Bandcamp',
 			'url'   => 'https://slowkarma.bandcamp.com/',
@@ -336,9 +340,9 @@ function sk_videos() {
 			),
 		),
 		'finale'      => array(
-			'title'  => 'The Season One finale',
+			'title'  => 'Season One finale',
 			'videos' => array(
-				array( 'UXPGUexqhyo', 'Tell Them Slow Karma Sent You: the full concert film', '1:01:50', 'Sold out at the Voodoo Rooms, Edinburgh, 29 March 2025.' ),
+				array( 'UXPGUexqhyo', 'Tell Them Slow Karma Sent You', '1:01:50', 'The full concert film. Voodoo Rooms, Edinburgh, 29 March 2025.' ),
 				array( '0vWwf4h83LM', 'Adoring Host, with Stillhound (live)', '3:33', 'From the Voodoo Rooms film.' ),
 			),
 		),
@@ -429,33 +433,33 @@ function sk_finales() {
 function sk_page_meta() {
 	return array(
 		''           => array(
-			'title' => 'Slow Karma | Jazz chops, punk ethos, high production. Edinburgh.',
-			'desc'  => 'Slow Karma are an Edinburgh band and an extended family of Scotland\'s most exciting musicians. Season Two is out now, starting with Twin.',
+			'title' => 'Slow Karma | Jazz chops, punk ethos, high production',
+			'desc'  => 'Edinburgh band Slow Karma and their extended family. Season Two is out now, starting with Twin.',
 			'image' => 'og-default.jpg',
 		),
 		'story'      => array(
-			'title' => 'The story of Slow Karma',
-			'desc'  => 'Five musicians from Leith, a studio, and an extended family of collaborators. How Slow Karma started, what drives them and how the Seasons work.',
+			'title' => 'Story',
+			'desc'  => 'Five musicians from Leith, a studio, and an extended family of collaborators. How Slow Karma started and how the Seasons work.',
 		),
 		'season-one' => array(
 			'title' => 'Season One: Tell Them Slow Karma Sent You',
-			'desc'  => 'Slow Karma\'s first season: nine singles, a band finding its feet, and a sold-out finale at Edinburgh\'s Voodoo Rooms with 14 musicians on stage.',
+			'desc'  => 'Slow Karma\'s first season: ten singles, then a sold-out Voodoo Rooms with 14 musicians on stage. Watch the full concert film.',
 		),
 		'season-two' => array(
 			'title' => 'Season Two: The Liquid Room',
-			'desc'  => 'Slow Karma booked Edinburgh\'s Liquid Room a year out, wrote an all-new set, filled the stage with guests and filmed it all. Twin is the first studio release.',
+			'desc'  => 'Slow Karma booked the Liquid Room a year out, wrote a new set and filmed it. Twin is the first studio release.',
 		),
 		'videos'     => array(
 			'title' => 'Videos',
-			'desc'  => 'Watch Slow Karma: Twin, the full Season One concert film from the Voodoo Rooms, and every single and live session so far.',
+			'desc'  => 'Twin, the Season One concert film from the Voodoo Rooms, and every Slow Karma single and live session.',
 		),
 		'music'      => array(
 			'title' => 'Music',
-			'desc'  => 'Every Slow Karma release, from Still Here with Dara Dubh to Twin. Listen on Spotify, Apple Music and Bandcamp.',
+			'desc'  => 'Every Slow Karma release, from Still Here with Dara Dubh to Twin. On Bandcamp, Spotify, Apple Music and Tidal.',
 		),
 		'press'      => array(
-			'title' => 'Press kit (EPK)',
-			'desc'  => 'Slow Karma electronic press kit: biography, key facts, press photos, logos, stage plot and booking contact.',
+			'title' => 'Press kit',
+			'desc'  => 'Slow Karma press kit: bio, live and booking info, photos, logos, stage plot and contact.',
 		),
 	);
 }

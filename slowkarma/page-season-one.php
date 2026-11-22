@@ -21,81 +21,62 @@ usort(
 		return strcmp( $a['date'], $b['date'] );
 	}
 );
+
+echo sk_page_hero( // phpcs:ignore
+	array(
+		'title'  => 'Season One',
+		'fill'   => 'vr-singer',
+		'photos' => array( 'vr-harp', 'vr-singer', 'vr-cello', 'vr-bass-green', 'vr-keys-blue', 'vr-perc-smile', 'vr-strings', 'vr-drums', 'vr-jurnalist', 'vr-bass-vocal', 'vr-crowd-wide', 'vr-guitars' ),
+		'intro'  => 'Tell Them Slow Karma Sent You. From our first single in 2024 to a sold-out Voodoo Rooms in March 2025.',
+		'aside'  => array( 'Ten singles', 'A live album and concert film', 'Voodoo Rooms, Edinburgh, ' . esc_html( sk_finales()[1]['when'] ) ),
+		'class'  => 'mosaic-hero--s1',
+	)
+);
 ?>
 
-<header class="page-hero">
-	<div class="wrap">
-		<img class="s1-mark" src="<?php echo esc_url( sk_img_url( 's1-wavy-logo' ) ); ?>" width="700" height="700" alt="Slow Karma Season One wavy logo">
-		<h1 class="knockout page-hero__title" style="<?php echo esc_attr( sk_fill_style( 'vr-crowd-smile' ) ); ?>" data-parallax-fill>Season One</h1>
-		<div class="page-hero__intro">
-			<p class="lede">Tell Them Slow Karma Sent You. The joyful collisions and unexpected harmonies of a band&rsquo;s first wild steps, from the first single in early 2024 to a sold-out Voodoo Rooms in March 2025.</p>
-			<div class="page-hero__aside">
-				<p>2024 to March 2025</p>
-				<p>Ten singles, a live album and a concert film</p>
-				<p>Finale: The Voodoo Rooms, Edinburgh, <?php echo esc_html( sk_finales()[1]['when'] ); ?></p>
-			</div>
-		</div>
-	</div>
-</header>
-
-<section class="section">
-	<div class="wrap split split--center">
-		<div class="prose">
-			<h2 class="h-display" style="margin-bottom:1.5rem">A stick of incense in one hand. A stick of dynamite in the other.</h2>
-			<p>Season One was about finding out what this band could be. We released every track as a &ldquo;loosie&rdquo;: a single with full support, its own video and its own campaign. Each one brought in someone new. Dara Dubh&rsquo;s harp on <em>Still Here</em>. Loam on <em>Fast Money</em>. Sithu Aye on <em>Sober</em>. Emma Jane Lloyd and Justyna Jablonska&rsquo;s strings on <em>Ride Out</em>. Jurnalist&rsquo;s bars on <em>Price Check</em>.</p>
-			<p>Spiritual and explosive, meditative and unruly. Underground spirit, stadium vision.</p>
-		</div>
-		<div class="split__media">
-			<?php echo sk_img( 's1-art', 'Season One artwork: Tell Them Slow Karma Sent You', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
-		</div>
-	</div>
-</section>
-
-<section class="section section--alt" aria-labelledby="film-title">
+<section class="section" aria-labelledby="film-title">
 	<div class="wrap">
 		<div class="video-lead">
 			<?php echo sk_youtube( 'UXPGUexqhyo', 'Tell Them Slow Karma Sent You: Season One finale concert film' ); // phpcs:ignore ?>
 			<div>
 				<h2 id="film-title" class="h-section">The finale</h2>
-				<p>On <?php echo esc_html( sk_finales()[1]['when'] ); ?> we sold out the Voodoo Rooms with fourteen musicians on stage, and filmed the whole thing. This is the night, start to finish.</p>
-				<p class="voice" style="color:var(--accent)">A very special evening.</p>
+				<p>On <?php echo esc_html( sk_finales()[1]['when'] ); ?> we sold out the Voodoo Rooms with 14 musicians on stage. Asking people to come out is a big ask, so we wanted it to be a real spectacle. We filmed and recorded the whole night.</p>
+				<ul class="cta-row">
+					<li><a class="btn btn--solid" href="https://open.spotify.com/album/3K4C71GZkeWYCMVRhsueW7" target="_blank" rel="noopener"><?php echo sk_icon( 'spotify' ); // phpcs:ignore ?>Live album</a></li>
+					<li><a class="btn" href="https://slowkarma.bandcamp.com/album/tell-them-slow-karma-sent-you-live-at-voodoo-rooms" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Bandcamp</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="section" aria-labelledby="album-title">
-	<div class="wrap split">
-		<div>
-			<h2 id="album-title" class="h-section">The live album</h2>
-			<p>The whole night, recorded live by Laurie Corlett-Donald and produced by David Lloyd and Jack Elliot.</p>
-			<ul class="cta-row">
-				<li><a class="btn btn--solid" href="https://open.spotify.com/album/3K4C71GZkeWYCMVRhsueW7" target="_blank" rel="noopener"><?php echo sk_icon( 'spotify' ); // phpcs:ignore ?>Spotify</a></li>
-				<li><a class="btn" href="https://slowkarma.bandcamp.com/album/tell-them-slow-karma-sent-you-live-at-voodoo-rooms" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Bandcamp</a></li>
-				<li><a class="btn" href="<?php echo esc_url( sk_links()['apple']['url'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'apple' ); // phpcs:ignore ?>Apple Music</a></li>
-			</ul>
-			<div class="poster" style="margin-top:2.5rem;max-width:340px">
-				<?php echo sk_img( 's1-poster', 'Poster for Slow Karma live at the Voodoo Rooms, 29 March 2025', array( 'sizes' => '340px' ) ); // phpcs:ignore ?>
-			</div>
-		</div>
-		<div>
-			<?php echo sk_spotify( 'album', '3K4C71GZkeWYCMVRhsueW7', 'Tell Them Slow Karma Sent You (Live at Voodoo Rooms)', 552 ); // phpcs:ignore ?>
-		</div>
-	</div>
-</section>
+<?php
+echo sk_reel( // phpcs:ignore
+	'On the night',
+	array(
+		array( 'vr-crowd-smile', 'The crowd at the Voodoo Rooms' ),
+		array( 'vr-strings', 'Emma Jane Lloyd and Justyna Jablonska on strings' ),
+		array( 'vr-jurnalist', 'Jurnalist on the mic' ),
+		array( 'vr-singer', 'A guest vocalist under the Voodoo Rooms ceiling' ),
+		array( 'vr-keys-blue', 'Keys in blue light' ),
+		array( 'vr-band-keys', 'The band in full flow' ),
+		array( 'vr-guitars', 'Guitars' ),
+		array( 'vr-crowd', 'A full room' ),
+	),
+	'Voodoo Rooms, Edinburgh, ' . sk_finales()[1]['when']
+);
+?>
 
-<section class="section section--alt" aria-labelledby="photos-title">
-	<div class="wrap">
-		<h2 id="photos-title" class="h-section">On the night</h2>
-		<ul class="gallery">
-			<li class="g-wide"><?php echo sk_img( 'vr-crowd-smile', 'The crowd at the Voodoo Rooms', array( 'sizes' => '(min-width: 700px) 66vw, 100vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'vr-jurnalist', 'Jurnalist on the mic', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'vr-band-keys', 'The band in full flow', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'vr-keys-hands', 'Keys', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'vr-kyle-perc', 'Percussion', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'vr-guitars', 'Guitars', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li class="g-wide"><?php echo sk_img( 'vr-crowd', 'A full room at the Voodoo Rooms', array( 'sizes' => '(min-width: 700px) 66vw, 100vw' ) ); // phpcs:ignore ?></li>
-		</ul>
+<section class="section section--alt" aria-labelledby="art-title">
+	<div class="wrap split split--center">
+		<div class="split__media">
+			<?php echo sk_img( 's1-art', 'Season One artwork: Tell Them Slow Karma Sent You', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
+		</div>
+		<div class="prose">
+			<img class="s1-mark" src="<?php echo esc_url( sk_img_url( 's1-wavy-logo' ) ); ?>" width="700" height="700" alt="Slow Karma Season One wavy logo" loading="lazy">
+			<h2 id="art-title" class="h-section">Incense and dynamite</h2>
+			<p>Every track came out as a single with its own video, and each one brought someone new into the family. Dara Dubh's harp on <em>Still Here</em>. Sithu Aye on <em>Sober</em>. Emma Jane Lloyd and Justyna Jablonska on <em>Ride Out</em>. Jurnalist on <em>Price Check</em>, where he just smashed it.</p>
+		</div>
 	</div>
 </section>
 
@@ -103,7 +84,7 @@ usort(
 	<div class="wrap">
 		<div class="section-head">
 			<h2 id="singles-title" class="h-section">The singles</h2>
-			<p class="voice" style="margin:0;color:var(--muted)">In the order they came out</p>
+			<p class="reel__note">In order of release</p>
 		</div>
 		<ul class="release-grid">
 			<?php
@@ -115,16 +96,24 @@ usort(
 	</div>
 </section>
 
-<section class="section section--alt" aria-labelledby="credits-title">
+<section class="section section--paper section--tight" aria-label="Press">
+	<div class="wrap press-link">
+		<p class="press-link__source">The Skinny, July 2025</p>
+		<a class="press-link__title" href="https://www.theskinny.co.uk/music/interviews/spotlight-on-slow-karma" target="_blank" rel="noopener">Spotlight On... Slow Karma</a>
+		<p>Jack and Dave on the extended family, putting 14 musicians on one stage, and Edinburgh's jazz community.</p>
+	</div>
+</section>
+
+<section class="section credits-wrap" aria-labelledby="credits-title">
 	<div class="wrap">
-		<h2 id="credits-title" class="h-section">Credits</h2>
+		<h2 id="credits-title" class="h-section credits-wrap__title">Credits</h2>
 		<?php get_template_part( 'template-parts/finale-credits', null, array( 'season' => 1 ) ); ?>
 	</div>
 </section>
 
-<section class="section section--tight">
+<section class="section section--alt section--tight">
 	<div class="wrap section-head" style="margin:0">
-		<p class="lede" style="margin:0">Then the wheel turned.</p>
+		<p class="lede" style="margin:0">Next came the Liquid Room.</p>
 		<a class="text-link" href="<?php echo esc_url( sk_page_url( 'season-two' ) ); ?>">Season Two</a>
 	</div>
 </section>

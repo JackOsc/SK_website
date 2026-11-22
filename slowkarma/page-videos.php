@@ -8,18 +8,17 @@
 get_header();
 ?>
 
-<header class="page-hero">
-	<div class="wrap">
-		<h1 class="knockout page-hero__title" style="<?php echo esc_attr( sk_fill_style( 'lr-guitar-lights' ) ); ?>" data-parallax-fill>Videos</h1>
-		<div class="page-hero__intro">
-			<p class="lede">Everything we release comes with a film: live sessions at LOSTOSC, two full concert films, and the odd director&rsquo;s cut.</p>
-			<div class="page-hero__aside">
-				<p><a href="<?php echo esc_url( sk_links()['youtube']['url'] ); ?>" target="_blank" rel="noopener">Subscribe on YouTube</a></p>
-				<p>Videos play from YouTube when you press play.</p>
-			</div>
-		</div>
-	</div>
-</header>
+<?php
+echo sk_page_hero( // phpcs:ignore
+	array(
+		'title'  => 'Videos',
+		'fill'   => 'lr-guitar-lights',
+		'photos' => array( 'lr-guitar-vocal', 'vr-singer', 'lr-violin', 'vr-keys-blue', 'lr-dara-harp', 'vr-strings', 'lr-congas-lamp', 'vr-drums', 'lr-vocal-close', 'vr-bass-green', 'lr-keys-bass', 'vr-cello' ),
+		'intro'  => 'Every release comes with a film. Live sessions at LOSTOSC and a full concert film.',
+		'aside'  => array( '<a href="' . esc_url( sk_links()['youtube']['url'] ) . '" target="_blank" rel="noopener">Subscribe on YouTube</a>' ),
+	)
+);
+?>
 
 <section class="section">
 	<div class="wrap">
@@ -58,7 +57,7 @@ get_header();
 
 <section class="section section--alt section--tight">
 	<div class="wrap section-head" style="margin:0">
-		<p class="lede" style="margin:0">The Liquid Room film arrives in 2027, on the anniversary of the show.</p>
+		<p class="lede" style="margin:0">The Liquid Room film comes out in 2027.</p>
 		<a class="text-link" href="<?php echo esc_url( sk_page_url( 'season-two' ) ); ?>">Season Two</a>
 	</div>
 </section>

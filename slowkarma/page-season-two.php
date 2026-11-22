@@ -16,42 +16,32 @@ $sk_out = count(
 		}
 	)
 );
-?>
 
-<header class="page-hero">
-	<div class="wrap">
-		<h1 class="knockout page-hero__title" style="<?php echo esc_attr( sk_fill_style( 'lr-bass-vocal' ) ); ?>" data-parallax-fill>Season Two</h1>
-		<div class="page-hero__intro">
-			<p class="lede">The Liquid Room. A 700-capacity room booked a year out, a whole set of new music nobody had heard, eleven guests, and a film crew. Then back into the studio to make the records.</p>
-			<div class="page-hero__aside">
-				<p>Finale: The Liquid Room, Edinburgh, <?php echo esc_html( sk_finales()[2]['when'] ); ?></p>
-				<p>Studio versions arriving now</p>
-				<p>First release: Twin</p>
-			</div>
-		</div>
-	</div>
-</header>
+echo sk_page_hero( // phpcs:ignore
+	array(
+		'title'  => 'Season Two',
+		'fill'   => 'lr-bass-vocal',
+		'photos' => array( 'lr-dara-harp', 'lr-guitar-vocal', 'lr-violin', 'lr-crowd', 'lr-vocal-duo', 'lr-keys-bass', 'lr-congas-lamp', 'lr-guitar-lights', 'lr-vocal-close', 'lr-band-bow', 'lr-crowd-seated', 'lr-line-up' ),
+		'intro'  => 'The Liquid Room. A new set, eleven guests and a film crew, then back into the studio to make the records.',
+		'aside'  => array( 'The Liquid Room, Edinburgh, ' . esc_html( sk_finales()[2]['when'] ), 'Studio versions out now', 'First release: Twin' ),
+	)
+);
+?>
 
 <section class="section" aria-labelledby="how-title">
 	<div class="wrap split">
 		<div>
-			<h2 id="how-title" class="h-section">How we made it</h2>
+			<h2 id="how-title" class="h-section">We did something a little crazy</h2>
 			<ol class="steps">
-				<li><span><strong>We booked the Liquid Room a year out,</strong> with no idea if we could sell anything like it.</span></li>
-				<li><span><strong>We wrote a whole new set for the show.</strong> All new material, all untested. Loads of guests, loads of improvisation.</span></li>
-				<li><span><strong>We hired an incredible crew</strong> to record and film the whole night.</span></li>
-				<li><span><strong>We used the show as our demos,</strong> taking the recordings back into the studio to build the season.</span></li>
-				<li><span><strong>Twin is the first release from the studio versions.</strong> It&rsquo;s the best thing we&rsquo;ve ever made.</span></li>
+				<li><span>We booked the Liquid Room, an iconic 700-cap room, a year out. We had no idea if we could sell anything like that.</span></li>
+				<li><span>We wrote a whole new set for the show. All new material, all untested. Loads of guests, loads of improv.</span></li>
+				<li><span>We hired an incredible crew to record and film the whole night.</span></li>
+				<li><span>We used the recordings as demos and took them back into the studio.</span></li>
+				<li><span><em>Twin</em> is the first of the studio versions. It's the best thing we've ever made.</span></li>
 			</ol>
 		</div>
-		<div>
-			<blockquote class="quote">
-				<p>We booked The Liquid Room a year out, with no material in mind and no guarantee we&rsquo;d get near filling it. As it was, we packed the place out, had a bunch of amazing guests join us on stage and were really stoked with the film.</p>
-				<footer>Jack Elliot, Slow Karma</footer>
-			</blockquote>
-			<div class="poster" style="max-width:420px">
-				<?php echo sk_img( 's2-poster', 'Poster for Slow Karma at the Liquid Room, Edinburgh, 21 March 2026', array( 'sizes' => '420px' ) ); // phpcs:ignore ?>
-			</div>
+		<div class="poster">
+			<?php echo sk_img( 's2-poster', 'Poster for Slow Karma at the Liquid Room, Edinburgh, 21 March 2026', array( 'sizes' => '(min-width: 900px) 40vw, 100vw' ) ); // phpcs:ignore ?>
 		</div>
 	</div>
 </section>
@@ -63,7 +53,7 @@ $sk_out = count(
 			<div>
 				<p class="kicker">Out now</p>
 				<h2 id="twin-title" class="h-section">Twin</h2>
-				<p>Jazz virtuosity, punk intensity, and the rhythms of UK dancefloors. It owes as much to breakbeats and UK garage as it does to Miles and Bird. Played and filmed live in one take at LOSTOSC in Leith.</p>
+				<p>Jazz chops, punk energy and UK dancefloor rhythms. Played and filmed live in one take at LOSTOSC.</p>
 				<p class="voice" style="color:var(--accent)">Twin is a heater like.</p>
 			</div>
 		</div>
@@ -78,9 +68,9 @@ $sk_out = count(
 	<div class="wrap">
 		<div class="section-head">
 			<h2 id="run-title" class="h-section">The run</h2>
-			<p class="voice" style="margin:0;color:var(--muted)"><?php echo esc_html( sprintf( '%1$d of %2$d out', $sk_out, count( $sk_run ) ) ); ?></p>
+			<p class="reel__note"><?php echo esc_html( sprintf( '%1$d of %2$d out', $sk_out, count( $sk_run ) ) ); ?></p>
 		</div>
-		<p class="lede" style="margin-bottom:2rem">The studio versions of the Liquid Room set arrive one at a time, each with its own video, through 2027. Each square lights up as it lands.</p>
+		<p class="lede" style="margin-bottom:2rem">The studio versions come out one at a time, each with a video. A square lights up when each one lands.</p>
 		<ol class="run">
 			<?php foreach ( $sk_run as $sk_r ) : ?>
 				<?php if ( $sk_r['out'] ) : ?>
@@ -93,88 +83,73 @@ $sk_out = count(
 	</div>
 </section>
 
-<figure class="bleed" aria-label="The Liquid Room">
-	<div class="bleed__img" data-parallax>
-		<?php echo sk_img( 'lr-stage-wide', 'Slow Karma and guests on stage at the Liquid Room', array( 'sizes' => '100vw' ) ); // phpcs:ignore ?>
-	</div>
-</figure>
-
-<section class="section" aria-labelledby="night-title">
-	<div class="wrap">
-		<div class="section-head">
-			<h2 id="night-title" class="h-section">On the night</h2>
-			<p class="voice" style="margin:0;color:var(--muted)">The Liquid Room, <?php echo esc_html( sk_finales()[2]['when'] ); ?></p>
-		</div>
-		<ul class="gallery">
-			<li class="g-wide"><?php echo sk_img( 'lr-guitar-vocal', 'Guitar and vocals under purple light', array( 'sizes' => '(min-width: 700px) 66vw, 100vw' ) ); // phpcs:ignore ?></li>
-			<li class="g-tall"><?php echo sk_img( 'lr-dara-harp', 'Dara Dubh on harp', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'lr-keys-bass', 'Keys and bass', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'lr-crowd', 'A packed room', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li class="g-tall"><?php echo sk_img( 'lr-vocal-duo', 'Guest vocalist', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'lr-crowd-seated', 'The crowd at the Liquid Room', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'lr-guitar-lights', 'Guitar under the lighting rig', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li class="g-tall"><?php echo sk_img( 'lr-violin', 'Strings', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li class="g-tall"><?php echo sk_img( 'lr-congas-lamp', 'Percussion by lamplight', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li class="g-tall"><?php echo sk_img( 'lr-vocal-close', 'Guest vocalist', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li class="g-wide"><?php echo sk_img( 'lr-band-bow', 'The band take a bow', array( 'sizes' => '(min-width: 700px) 66vw, 100vw' ) ); // phpcs:ignore ?></li>
-		</ul>
-	</div>
-</section>
+<?php
+echo sk_reel( // phpcs:ignore
+	'On the night',
+	array(
+		array( 'lr-stage-wide', 'Slow Karma and guests on stage at the Liquid Room' ),
+		array( 'lr-guitar-vocal', 'Guitar and vocals under purple light' ),
+		array( 'lr-dara-harp', 'Dara Dubh on harp' ),
+		array( 'lr-keys-bass', 'Keys and bass' ),
+		array( 'lr-violin', 'Strings' ),
+		array( 'lr-crowd', 'A packed Liquid Room' ),
+		array( 'lr-congas-lamp', 'Jose Rojas on percussion' ),
+		array( 'lr-guitar-lights', 'Guitar under the lighting rig' ),
+		array( 'lr-band-bow', 'The band take a bow' ),
+	),
+	'The Liquid Room, Edinburgh, ' . sk_finales()[2]['when']
+);
+?>
 
 <section class="section section--alt" aria-labelledby="film-title">
 	<div class="wrap split split--center">
 		<div>
 			<h2 id="film-title" class="h-section">The film</h2>
-			<p class="lede">The full Liquid Room film arrives in 2027, on the anniversary of the show.</p>
-			<p>Until then, the studio versions are coming out one by one. Follow along on <a href="<?php echo esc_url( sk_links()['youtube']['url'] ); ?>" target="_blank" rel="noopener">YouTube</a> and <a href="<?php echo esc_url( sk_links()['instagram']['url'] ); ?>" target="_blank" rel="noopener">Instagram</a>.</p>
+			<p class="lede">The full Liquid Room film comes out in 2027, on the anniversary of the show.</p>
+			<p>Follow on <a href="<?php echo esc_url( sk_links()['youtube']['url'] ); ?>" target="_blank" rel="noopener">YouTube</a> and <a href="<?php echo esc_url( sk_links()['instagram']['url'] ); ?>" target="_blank" rel="noopener">Instagram</a> for each new release.</p>
 		</div>
 		<div class="split__media">
-			<?php echo sk_img( 'lr-crowd', 'A packed Liquid Room', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
+			<?php echo sk_img( 'lr-crowd-seated', 'The Liquid Room crowd', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
 		</div>
 	</div>
 </section>
 
 <section class="section" aria-labelledby="road-title">
-	<div class="wrap">
-		<h2 id="road-title" class="h-section">The road to the Liquid Room</h2>
-		<div class="split">
-			<div class="prose">
-				<p>The road ran through a sold-out Slow Karma &amp; Friends at The Jazz Bar in August 2025, with Sithu Aye, Ayla Ersoy, Dara Dubh, Jurnalist and more, and <em>Vogelen</em>, released that October. In March 2026, just before the show, we put out <em>Mystery Of Love</em> with Aki Remally, recorded live.</p>
-				<ul class="cta-row">
-					<li><a class="btn" href="https://slowkarma.bandcamp.com/track/vogelen" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Vogelen</a></li>
-					<li><a class="btn" href="https://slowkarma.bandcamp.com/track/mystery-of-love-w-aki-remally-live" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Mystery Of Love</a></li>
-				</ul>
-			</div>
-			<ul class="gallery" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-				<li style="grid-column:span 1"><?php echo sk_img( 'jb-ayla-cj-sithu', 'Ayla Ersoy, Callum Stevenson and Sithu Aye at The Jazz Bar', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
-				<li style="grid-column:span 1"><?php echo sk_img( 'jb-bass-face-band', 'The band at The Jazz Bar', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
-				<li style="grid-column:span 1"><?php echo sk_img( 'jb-dave-harp', 'David Lloyd, seen through the harp', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
-				<li style="grid-column:span 1"><?php echo sk_img( 'jb-jack-kyle-jurn', 'Jack, Kyle and Jurnalist', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
+	<div class="wrap split">
+		<div class="prose">
+			<h2 id="road-title" class="h-section">Before the show</h2>
+			<p>In August 2025 we sold out Slow Karma &amp; Friends at The Jazz Bar, with Sithu Aye, Ayla Ersoy, Dara Dubh, Jurnalist and more. <em>Vogelen</em> came out that October. In March 2026, just before the show, we put out a live recording of <em>Mystery Of Love</em> with Aki Remally.</p>
+			<ul class="cta-row">
+				<li><a class="btn" href="https://slowkarma.bandcamp.com/track/vogelen" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Vogelen</a></li>
+				<li><a class="btn" href="https://slowkarma.bandcamp.com/track/mystery-of-love-w-aki-remally-live" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Mystery Of Love</a></li>
 			</ul>
 		</div>
+		<ul class="duo">
+			<li><?php echo sk_img( 'jb-ayla-cj-sithu', 'Ayla Ersoy, Callum Stevenson and Sithu Aye at The Jazz Bar', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
+			<li><?php echo sk_img( 'jb-dave-harp', 'David Lloyd, seen through the harp', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
+			<li><?php echo sk_img( 'jb-bass-face-band', 'The band at The Jazz Bar', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
+			<li><?php echo sk_img( 'jb-jack-kyle-jurn', 'Jack, Kyle and Jurnalist', array( 'sizes' => '(min-width: 900px) 25vw, 50vw' ) ); // phpcs:ignore ?></li>
+		</ul>
 	</div>
 </section>
 
-<section class="section section--alt" aria-labelledby="credits-title">
+<section class="section section--alt credits-wrap" aria-labelledby="credits-title">
 	<div class="wrap">
-		<h2 id="credits-title" class="h-section">Credits</h2>
+		<h2 id="credits-title" class="h-section credits-wrap__title">Credits</h2>
 		<?php get_template_part( 'template-parts/finale-credits', null, array( 'season' => 2 ) ); ?>
-		<div class="split" style="margin-top:4rem">
-			<div>
-				<h3 class="h-sub">The stage plot</h3>
-				<p>The plan for getting the band, the guests and all those lamps onto one stage.</p>
-			</div>
+		<figure class="plot">
 			<a href="<?php echo esc_url( sk_img_url( 's2-stage-plot', 1600 ) ); ?>" target="_blank" rel="noopener">
-				<?php echo sk_img( 's2-stage-plot', 'Liquid Room stage plot', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
+				<?php echo sk_img( 's2-stage-plot', 'Liquid Room stage plot', array( 'sizes' => '(min-width: 900px) 60vw, 100vw' ) ); // phpcs:ignore ?>
 			</a>
-		</div>
+			<figcaption>Stage plot</figcaption>
+		</figure>
 	</div>
 </section>
 
 <section class="section section--tight">
 	<div class="wrap section-head" style="margin:0">
-		<p class="lede" style="margin:0">And now, Season Three: wintering in the studio, live from spring 2027.</p>
-		<a class="text-link" href="<?php echo esc_url( sk_page_url( 'story' ) ); ?>">The whole story</a>
+		<p class="lede" style="margin:0">Season Three is in the studio. Live from spring 2027.</p>
+		<a class="text-link" href="<?php echo esc_url( sk_page_url( 'press' ) . '#live' ); ?>">Booking info</a>
 	</div>
 </section>
 

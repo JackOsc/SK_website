@@ -304,3 +304,93 @@ function sk_release_card( $r ) {
 	<?php
 	return ob_get_clean();
 }
+
+/**
+ * Page header: big knockout title beside columns of photos that drift
+ * at different speeds as the page scrolls.
+ *
+ * @param array $args title, fill, photos (slugs), intro, aside (array of lines), class.
+ */
+function sk_page_hero( $args ) {
+	$args   = wp_parse_args(
+		$args,
+		array(
+			'title'  => '',
+			'fill'   => 'lr-stage-wide',
+			'photos' => array(),
+			'intro'  => '',
+			'aside'  => array(),
+			'class'  => '',
+			'cover'  => false,
+		)
+	);
+	$photos = array_values( $args['photos'] );
+	$cols   = array( array(), array(), array() );
+	foreach ( $photos as $i => $p ) {
+		$cols[ $i % 3 ][] = $p;
+	}
+	$words = preg_split( '/\s+/', $args['title'] );
+	ob_start();
+	?>
+	<header class="mosaic-hero <?php echo esc_attr( $args['class'] ); ?>">
+		<div class="mosaic-hero__text">
+			<h1 class="knockout mosaic-hero__title" style="<?php echo esc_attr( sk_fill_style( $args['fill'] ) ); ?>" data-parallax-fill>
+				<?php foreach ( $words as $w ) : ?>
+					<span><?php echo esc_html( $w ); ?></span>
+				<?php endforeach; ?>
+			</h1>
+			<?php if ( $args['intro'] ) : ?>
+				<p class="mosaic-hero__intro"><?php echo wp_kses_post( $args['intro'] ); ?></p>
+			<?php endif; ?>
+			<?php if ( $args['aside'] ) : ?>
+				<ul class="mosaic-hero__aside">
+					<?php foreach ( $args['aside'] as $line ) : ?>
+						<li><?php echo wp_kses_post( $line ); ?></li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+		</div>
+		<div class="mosaic-hero__photos<?php echo $args['cover'] ? ' mosaic-hero__photos--covers' : ''; ?>" aria-hidden="true">
+			<?php foreach ( $cols as $ci => $col ) : ?>
+				<div class="mosaic-col" data-drift="<?php echo esc_attr( array( '-0.12', '0.1', '-0.22' )[ $ci ] ); ?>">
+					<?php foreach ( $col as $j => $p ) : ?>
+						<?php echo sk_img( $p, '', array( 'sizes' => '(min-width: 900px) 20vw, 40vw', 'eager' => ( 0 === $j && 0 === $ci ) ) ); // phpcs:ignore ?>
+					<?php endforeach; ?>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</header>
+	<?php
+	return ob_get_clean();
+}
+
+/**
+ * Photo reel: a row of large photos that moves sideways as you scroll
+ * down. Falls back to a swipeable row on touch screens and for reduced
+ * motion.
+ *
+ * @param string $title Heading.
+ * @param array  $items Arrays of slug, alt.
+ * @param string $note  Small line under the heading.
+ */
+function sk_reel( $title, $items, $note = '' ) {
+	ob_start();
+	?>
+	<section class="reel" data-reel aria-label="<?php echo esc_attr( $title ); ?>">
+		<div class="reel__sticky">
+			<div class="reel__head wrap">
+				<h2 class="h-section"><?php echo esc_html( $title ); ?></h2>
+				<?php if ( $note ) : ?>
+					<p class="reel__note"><?php echo esc_html( $note ); ?></p>
+				<?php endif; ?>
+			</div>
+			<ul class="reel__track" data-reel-track>
+				<?php foreach ( $items as $it ) : ?>
+					<li><?php echo sk_img( $it[0], $it[1], array( 'sizes' => '(min-width: 900px) 50vw, 85vw' ) ); // phpcs:ignore ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</section>
+	<?php
+	return ob_get_clean();
+}
