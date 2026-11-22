@@ -39,7 +39,7 @@
 
 	--wrap: 1320px;
 	--gutter: clamp(1.15rem, 0.6rem + 2.6vw, 3rem);
-	--space: clamp(4.5rem, 3rem + 7vw, 10rem);
+	--space: clamp(3rem, 2.2rem + 3.6vw, 6rem);
 	--ease: cubic-bezier(0.2, 0.7, 0.1, 1);
 }
 
@@ -381,8 +381,8 @@ ol {
 }
 
 .links--platforms {
-	margin-top: 2.5rem;
-	padding-top: 1.5rem;
+	margin-top: 1.8rem;
+	padding-top: 1rem;
 	border-top: 1px solid var(--line);
 }
 
@@ -586,7 +586,7 @@ body.menu-open .menu-toggle {
 
 .hero {
 	position: relative;
-	min-height: 100svh;
+	min-height: 84svh;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -1552,10 +1552,10 @@ body.menu-open .menu-toggle {
 	display: grid;
 	grid-template-columns: 3.2rem 1fr;
 	gap: 0 1rem;
-	padding-bottom: 1.4rem;
+	padding-bottom: 1.3rem;
 	border-bottom: 1px solid var(--line);
 	font-size: var(--step-1);
-	line-height: 1.4;
+	line-height: 1.45;
 }
 
 .steps li::before {
@@ -2342,5 +2342,57 @@ body.menu-open .menu-toggle {
 @media (max-width: 560px) {
 	.roster {
 		columns: 1;
+	}
+}
+
+.family .h-section {
+	color: var(--accent);
+}
+
+.live__sofar {
+	margin: 1.8rem 0 0;
+	font-family: var(--display);
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	font-size: var(--h-2);
+	line-height: 1;
+	color: var(--accent);
+}
+
+.live__sofar + .proof {
+	margin-top: 0.6rem;
+}
+
+.steps-art {
+	display: grid;
+	gap: 1.5rem;
+	align-content: start;
+	position: sticky;
+	top: 6rem;
+}
+
+.steps-art__plot {
+	margin: 0;
+	background: var(--bone);
+	padding: 0.8rem;
+}
+
+.steps-art__plot img {
+	width: 100%;
+}
+
+.steps-art__plot figcaption {
+	margin-top: 0.5rem;
+	font-size: var(--step--1);
+	color: var(--deep);
+}
+
+.steps-art .poster {
+	max-width: 70%;
+}
+
+@media (max-width: 899px) {
+	.steps-art {
+		position: static;
 	}
 }

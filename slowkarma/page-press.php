@@ -46,7 +46,7 @@ echo sk_page_hero( // phpcs:ignore
 	<div class="wrap">
 		<div class="live-pitch">
 			<div>
-				<p class="kicker">Booking now for spring and summer 2027</p>
+				<p class="kicker">Next: spring and summer 2027. Booking now</p>
 				<h2 id="live-title" class="h-section">Live</h2>
 				<p class="lede">Our shows are improvised within an architecture, so no two are the same. In 2027 we'll play the best of the first two seasons and the first of Season Three.</p>
 				<ul class="cta-row">
@@ -57,13 +57,13 @@ echo sk_page_hero( // phpcs:ignore
 			</div>
 			<div class="live-pitch__cols">
 				<div>
-					<h3 class="h-sub">Track record</h3>
+					<h3 class="h-sub">So far</h3>
 					<ul class="proof">
 						<li>Sold out the Voodoo Rooms, Edinburgh, with 14 musicians on stage (March 2025)</li>
 						<li>Packed the Liquid Room, Edinburgh (700 cap) with an all-new set and 11 guests (March 2026)</li>
 						<li>Sold-out headline show at The Jazz Bar, Edinburgh, after a monthly residency (August 2025)</li>
-						<li>Kelburn Garden Party and Hidden Door festivals</li>
-						<li>Support for Mercury Prize nominated Knats</li>
+						<li>Kelburn Garden Party and Hidden Door festivals (2025)</li>
+						<li>Support for Mercury Prize nominated Knats (2025)</li>
 						<li>We promote our own headline shows</li>
 					</ul>
 				</div>

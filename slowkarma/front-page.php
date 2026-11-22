@@ -12,7 +12,6 @@ $sk_twin     = $sk_releases[0];
 ?>
 
 <section class="hero" aria-labelledby="hero-title">
-	<p class="hero__now">Season Two <a href="#twin-title">Twin, out now</a></p>
 	<h1 id="hero-title" class="knockout knockout--hero" style="<?php echo esc_attr( sk_fill_style( 'hero-fill', 2600 ) ); ?>" data-parallax-fill>Slow Karma</h1>
 	<div class="hero__foot wrap">
 		<p class="hero__creed">Jazz chops. Punk ethos. High production.</p>
@@ -140,13 +139,14 @@ $sk_twin     = $sk_releases[0];
 	<div class="wrap live__grid">
 		<h2 id="live-title" class="knockout knockout--live" style="<?php echo esc_attr( sk_fill_style( 'lr-bass-vocal' ) ); ?>" data-parallax-fill>Live</h2>
 		<div class="live__text">
-			<p class="kicker">Spring and summer 2027</p>
-			<p class="lede">The best of the first two seasons and the first of Season Three. We play as the core five or with the extended family, up to fifteen on stage.</p>
+			<p class="kicker">Next: spring and summer 2027</p>
+			<p class="lede">The first of Season Three and the best of the first two seasons. Dates to be announced.</p>
+			<h3 class="live__sofar">So far</h3>
 			<ul class="proof">
-				<li>Sold out the Voodoo Rooms with 14 on stage</li>
-				<li>Packed the Liquid Room (700 cap) with an all-new set</li>
-				<li>Sold out The Jazz Bar</li>
-				<li>Kelburn Garden Party, Hidden Door, support for Knats</li>
+				<li>2026: packed the Liquid Room (700 cap) with an all-new set and 11 guests</li>
+				<li>2025: sold out the Voodoo Rooms with 14 musicians on stage</li>
+				<li>2025: sold out The Jazz Bar after a monthly residency</li>
+				<li>2025: Kelburn Garden Party, Hidden Door, and support for Knats</li>
 			</ul>
 			<ul class="cta-row">
 				<li><a class="btn btn--solid" href="<?php echo esc_url( sk_page_url( 'press' ) . '#live' ); ?>">Booking info</a></li>

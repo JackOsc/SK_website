@@ -31,17 +31,26 @@ echo sk_page_hero( // phpcs:ignore
 <section class="section" aria-labelledby="how-title">
 	<div class="wrap split">
 		<div>
-			<h2 id="how-title" class="h-section">We did something a little crazy</h2>
+			<h2 id="how-title" class="screen-reader-text">How we made Season Two</h2>
 			<ol class="steps">
-				<li><span>We booked the Liquid Room, an iconic 700-cap room, a year out. We had no idea if we could sell anything like that.</span></li>
-				<li><span>We wrote a whole new set for the show. All new material, all untested. Loads of guests, loads of improv.</span></li>
-				<li><span>We hired an incredible crew to record and film the whole night.</span></li>
-				<li><span>We used the recordings as demos and took them back into the studio.</span></li>
-				<li><span><em>Twin</em> is the first of the studio versions. It's the best thing we've ever made.</span></li>
+				<li><span>Book an iconic 700-capacity room, a year out. Pay the large booking deposit yourselves, with no evidence you can sell anything like that.</span></li>
+				<li><span>Discard all of the material you know works. Write a whole new set. Invite radical musical change. Hone the work but leave it untested for the show.</span></li>
+				<li><span>Jump on Insta and DM all of your favourite musicians, poets and vocalists and line them up for collaborations. Loads of guests, loads of improv.</span></li>
+				<li><span>Do all the PR, promo, logistics, ticketing and stage management yourselves.</span></li>
+				<li><span>Hire an incredible crew of your best pals to record and film the show. Pack the place out and put on an unforgettable show. Then use the live recordings as demos and raw material.</span></li>
+				<li><span>Go to the studio. Close the door. Develop the material. Have all the guests in to visit. Make the best stuff you've ever made.</span></li>
 			</ol>
 		</div>
-		<div class="poster">
-			<?php echo sk_img( 's2-poster', 'Poster for Slow Karma at the Liquid Room, Edinburgh, 21 March 2026', array( 'sizes' => '(min-width: 900px) 40vw, 100vw' ) ); // phpcs:ignore ?>
+		<div class="steps-art">
+			<figure class="steps-art__plot">
+				<a href="<?php echo esc_url( sk_img_url( 's2-stage-plot', 1600 ) ); ?>" target="_blank" rel="noopener">
+					<?php echo sk_img( 's2-stage-plot', 'Stage plot for the Liquid Room show', array( 'sizes' => '(min-width: 900px) 45vw, 100vw' ) ); // phpcs:ignore ?>
+				</a>
+				<figcaption>The stage plot</figcaption>
+			</figure>
+			<div class="poster">
+				<?php echo sk_img( 's2-poster', 'Poster for Slow Karma at the Liquid Room, Edinburgh, 21 March 2026', array( 'sizes' => '(min-width: 900px) 30vw, 70vw' ) ); // phpcs:ignore ?>
+			</div>
 		</div>
 	</div>
 </section>
@@ -137,12 +146,6 @@ echo sk_reel( // phpcs:ignore
 	<div class="wrap">
 		<h2 id="credits-title" class="h-section credits-wrap__title">Credits</h2>
 		<?php get_template_part( 'template-parts/finale-credits', null, array( 'season' => 2 ) ); ?>
-		<figure class="plot">
-			<a href="<?php echo esc_url( sk_img_url( 's2-stage-plot', 1600 ) ); ?>" target="_blank" rel="noopener">
-				<?php echo sk_img( 's2-stage-plot', 'Liquid Room stage plot', array( 'sizes' => '(min-width: 900px) 60vw, 100vw' ) ); // phpcs:ignore ?>
-			</a>
-			<figcaption>Stage plot</figcaption>
-		</figure>
 	</div>
 </section>
 
