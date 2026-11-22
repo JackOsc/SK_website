@@ -21,7 +21,7 @@ Pages are matched by slug (`story`, `season-one`, `season-two`, `videos`, `music
 Almost everything lives in **`slowkarma/inc/data.php`**:
 
 - `sk_releases()`: add a new release at any position (they sort by `date`). Put its cover in `assets/img/cover-<slug>.webp` (400x400).
-- `sk_season_two_run()`: set `'out' => true` and add a `link` as each Season Two track lands. Titles stay hidden until then.
+- `sk_season_two_run()`: Season Two release order, with title cards from the Liquid Room film (`assets/img/title-*.webp`, all scaled to the same letter height). Set `'out' => true` and add the YouTube `link` as each track lands.
 - `sk_videos()`: YouTube IDs, titles, lengths.
 - `sk_members()`, `sk_family()`, `sk_finales()`: line-ups, collaborators, credits and setlists. `sk_people_links()`: where each collaborator's name links to.
 - `sk_page_meta()`: SEO titles and descriptions per page.

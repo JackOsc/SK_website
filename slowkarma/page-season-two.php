@@ -79,13 +79,22 @@ echo sk_page_hero( // phpcs:ignore
 			<h2 id="run-title" class="h-section">The run</h2>
 			<p class="reel__note"><?php echo esc_html( sprintf( '%1$d of %2$d out', $sk_out, count( $sk_run ) ) ); ?></p>
 		</div>
-		<p class="lede" style="margin-bottom:2rem">The studio versions come out one at a time, each with a video. A square lights up when each one lands.</p>
+		<p class="lede" style="margin-bottom:2rem">The studio versions come out one at a time, each with a video. Titles from the Liquid Room film.</p>
 		<ol class="run">
 			<?php foreach ( $sk_run as $sk_r ) : ?>
+				<?php
+				$sk_title = sprintf(
+					'<img class="run__title" src="%1$s" alt="%2$s" width="%3$d" loading="lazy" decoding="async" style="width:%4$s%%">',
+					esc_url( sk_asset( 'img/' . $sk_r['img'] . '.webp' ) ),
+					esc_attr( $sk_r['title'] ),
+					(int) $sk_r['w'],
+					esc_attr( round( $sk_r['w'] / 500 * 100, 1 ) )
+				);
+				?>
 				<?php if ( $sk_r['out'] ) : ?>
-					<li class="is-out"><a href="<?php echo esc_url( $sk_r['link'] ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $sk_r['title'] ); ?></a></li>
+					<li class="is-out"><a href="<?php echo esc_url( $sk_r['link'] ); ?>" target="_blank" rel="noopener"><?php echo $sk_title; // phpcs:ignore ?><span class="run__state"><?php echo sk_icon( 'play' ); // phpcs:ignore ?>Out now. Watch</span></a></li>
 				<?php else : ?>
-					<li><span>Coming</span></li>
+					<li><?php echo $sk_title; // phpcs:ignore ?><span class="run__state">Coming</span></li>
 				<?php endif; ?>
 			<?php endforeach; ?>
 		</ol>

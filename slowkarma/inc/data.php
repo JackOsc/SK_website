@@ -461,21 +461,24 @@ function sk_page_meta() {
 }
 
 /**
- * Season Two release order. The order is fixed; dates are not, so none
- * are shown. Titles stay hidden on the site until 'out' is true.
+ * Season Two release order (from the release schedule). The order is
+ * fixed; dates are not, so none are shown. 'img' is the title card from
+ * the Liquid Room film; 'w' is its width in pixels, used to keep every
+ * title at the same letter height. Set 'out' to true and add 'link'
+ * (the YouTube video) as each one lands.
  */
 function sk_season_two_run() {
 	return array(
-		array( 'title' => 'Twin', 'out' => true, 'link' => 'https://slowkarma.bandcamp.com/track/twin' ),
-		array( 'title' => 'Get Free', 'out' => false ),
-		array( 'title' => 'Unravel', 'out' => false ),
-		array( 'title' => 'Firstborn', 'out' => false ),
-		array( 'title' => 'Cathal', 'out' => false ),
-		array( 'title' => 'Sleepwalker', 'out' => false ),
-		array( 'title' => 'Sour', 'out' => false ),
-		array( 'title' => 'Foreverchanging', 'out' => false ),
-		array( 'title' => 'New Money', 'out' => false ),
-		array( 'title' => 'Remix EP', 'out' => false ),
+		array( 'title' => 'Twin', 'img' => 'title-twin', 'w' => 249, 'out' => true, 'link' => 'https://www.youtube.com/watch?v=-nSLUTwDvPc' ),
+		array( 'title' => 'Get Free', 'img' => 'title-get-free', 'w' => 404, 'out' => false ),
+		array( 'title' => 'Unravel', 'img' => 'title-unravel', 'w' => 368, 'out' => false ),
+		array( 'title' => 'Firstborn', 'img' => 'title-firstborn', 'w' => 455, 'out' => false ),
+		array( 'title' => 'Cathal', 'img' => 'title-cathal', 'w' => 313, 'out' => false ),
+		array( 'title' => 'Sleepwalker', 'img' => 'title-sleepwalker', 'w' => 483, 'out' => false ),
+		array( 'title' => 'Sour', 'img' => 'title-sour', 'w' => 224, 'out' => false ),
+		array( 'title' => 'Foreverchanging', 'img' => 'title-foreverchanging', 'w' => 444, 'out' => false ),
+		array( 'title' => 'New Money', 'img' => 'title-new-money', 'w' => 298, 'out' => false ),
+		array( 'title' => 'Remix EP', 'img' => 'title-remix-ep', 'w' => 469, 'out' => false ),
 	);
 }
 
