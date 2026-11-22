@@ -1,0 +1,5 @@
+Fonts bundled with this theme are licensed under the SIL Open Font License 1.1 (https://openfontlicense.org):
+- Inter / Inter Display (c) The Inter Project Authors (https://github.com/rsms/inter)
+- Anton (c) The Anton Project Authors (https://github.com/googlefonts/AntonFont)
+- Crimson Text (c) The Crimson Text Project Authors (https://github.com/googlefonts/Crimson)
+Files have been subset to Latin characters and converted to WOFF.
