@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SK_VERSION', '1.2.0' );
+define( 'SK_VERSION', '1.3.0' );
 
 require get_template_directory() . '/inc/data.php';
 require get_template_directory() . '/inc/helpers.php';
@@ -59,7 +59,7 @@ add_action( 'wp_enqueue_scripts', 'sk_assets', 20 );
  * Preload the fonts used above the fold.
  */
 function sk_preload() {
-	foreach ( array( 'niagara-solid', 'bricolage-400' ) as $font ) {
+	foreach ( array( 'niagara-solid', 'literata-400' ) as $font ) {
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff" crossorigin>' . "\n",
 			esc_url( sk_asset( 'fonts/' . $font . '.woff' ) )
@@ -78,9 +78,9 @@ add_action( 'wp_head', 'sk_preload', 1 );
 function sk_font_faces() {
 	$fonts = array(
 		array( 'Niagara Solid', 'niagara-solid', 400, 'normal' ),
-		array( 'Bricolage Grotesque', 'bricolage-400', 400, 'normal' ),
-		array( 'Bricolage Grotesque', 'bricolage-600', 600, 'normal' ),
-		array( 'Fraunces', 'fraunces-400i', 400, 'italic' ),
+		array( 'Literata', 'literata-400', 400, 'normal' ),
+		array( 'Literata', 'literata-600', 600, 'normal' ),
+		array( 'Literata', 'literata-400i', 400, 'italic' ),
 	);
 	$css = '';
 	foreach ( $fonts as $f ) {

@@ -394,3 +394,16 @@ function sk_reel( $title, $items, $note = '' ) {
 	<?php
 	return ob_get_clean();
 }
+
+/**
+ * A collaborator's name, linked to their site if we have one.
+ *
+ * @param string $name Name.
+ */
+function sk_person( $name ) {
+	$links = sk_people_links();
+	if ( empty( $links[ $name ] ) ) {
+		return esc_html( $name );
+	}
+	return sprintf( '<a class="person" href="%1$s" target="_blank" rel="noopener">%2$s</a>', esc_url( $links[ $name ] ), esc_html( $name ) );
+}

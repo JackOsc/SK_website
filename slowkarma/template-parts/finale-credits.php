@@ -39,7 +39,7 @@ $sk_lineup = 1 === $sk_season ? sk_members_s1() : array_map(
 			<h3><?php echo 2 === $sk_season ? 'Guest musicians, in order of appearance' : 'Guest musicians'; ?></h3>
 			<dl class="credits__pairs">
 				<?php foreach ( $sk_f['guests'] as $sk_p ) : ?>
-					<dt><?php echo esc_html( $sk_p[0] ); ?></dt><dd><?php echo esc_html( $sk_p[1] ); ?></dd>
+					<dt><?php echo sk_person( $sk_p[0] ); // phpcs:ignore ?></dt><dd><?php echo esc_html( $sk_p[1] ); ?></dd>
 				<?php endforeach; ?>
 			</dl>
 		</div>

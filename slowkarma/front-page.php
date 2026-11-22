@@ -129,7 +129,7 @@ $sk_twin     = $sk_releases[0];
 		<h2 id="family-title" class="h-section">The extended family</h2>
 		<ul class="family__list">
 			<?php foreach ( sk_family() as $sk_f ) : ?>
-				<li><span class="family__name"><?php echo esc_html( $sk_f[0] ); ?></span> <span class="family__role"><?php echo esc_html( $sk_f[1] ); ?></span></li>
+				<li><span class="family__name"><?php echo sk_person( $sk_f[0] ); // phpcs:ignore ?></span> <span class="family__role"><?php echo esc_html( $sk_f[1] ); ?></span></li>
 			<?php endforeach; ?>
 		</ul>
 		<p class="family__love">It's all love.</p>

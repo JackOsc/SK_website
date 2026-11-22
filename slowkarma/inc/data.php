@@ -116,13 +116,10 @@ function sk_family() {
 		array( 'Iona Lee', 'Vocals' ),
 		array( 'Gloria Black', 'Vocals' ),
 		array( 'Cathal Murphy', 'Vocals' ),
-		array( 'Fergus Cook', 'Vocals' ),
 		array( 'Lesley Wilson', 'Trumpet' ),
 		array( 'KC e\'Silva', 'Saxophone' ),
 		array( 'Nemo Ganguli', 'Percussion' ),
-		array( 'Daniel Parry', 'Guitar' ),
-		array( 'Laurie Corlett-Donald', 'Synthesiser' ),
-		array( 'Daniel d\'Lion', 'Percussion' ),
+		array( 'Daniel d\'Lion', 'Guitar & percussion' ),
 		array( 'Loam', 'on Fast Money' ),
 		array( 'Stillhound', 'on Adoring Host' ),
 	);
@@ -381,19 +378,18 @@ function sk_finales() {
 			'guests'  => array(
 				array( 'Dara Dubh', 'Harp' ),
 				array( 'Ayla Ersoy', 'Vocals' ),
-				array( 'Fergus Cook', 'Vocals' ),
-				array( 'Laurie Corlett-Donald', 'Synthesiser' ),
+				array( 'Stillhound', 'Vocals & synthesiser' ),
 				array( 'Jurnalist', 'Vocals' ),
 				array( 'Lesley Wilson', 'Trumpet' ),
 				array( 'KC e\'Silva', 'Saxophone' ),
 				array( 'Nemo Ganguli', 'Percussion' ),
 				array( 'Sithu Aye', 'Guitar' ),
-				array( 'Daniel Parry', 'Guitar' ),
+				array( 'Daniel d\'Lion', 'Guitar' ),
 				array( 'Emma Jane Lloyd', 'Violin' ),
 				array( 'Justyna Jablonska', 'Cello' ),
 			),
 			'set'     => array( 'Gold Aura', 'Still Here', 'Drifting Away', 'Adoring Host', 'Tea Ceremony', 'Love Jones (cover)', 'Price Check', 'Playing For Keeps', 'Ride Out', 'Hot Club', 'Sober', 'Everything Everywhere' ),
-			'thanks'  => 'Daniel Parry, Laurence De Clippele, Fergus Cook, Jamie McLardy, The Voodoo Rooms, and most importantly everyone who came along to a very special evening.',
+			'thanks'  => 'Daniel d\'Lion, Laurence De Clippele, Fergus Cook, Jamie McLardy, The Voodoo Rooms, and most importantly everyone who came along to a very special evening.',
 		),
 		2 => array(
 			'venue'   => 'The Liquid Room',
@@ -480,5 +476,31 @@ function sk_season_two_run() {
 		array( 'title' => 'Foreverchanging', 'out' => false ),
 		array( 'title' => 'New Money', 'out' => false ),
 		array( 'title' => 'Remix EP', 'out' => false ),
+	);
+}
+
+/**
+ * Where to find the extended family. Names in lists link here.
+ */
+function sk_people_links() {
+	return array(
+		'Dara Dubh'         => 'https://www.daraplaysharp.com/',
+		'Sithu Aye'         => 'https://sithuaye.scot/',
+		'Jurnalist'         => 'https://www.youtube.com/@jurnalist_',
+		'Ayla Ersoy'        => 'https://www.instagram.com/dreamonenight/',
+		'Emma Jane Lloyd'   => 'https://emmajanelloyd.com/',
+		'Justyna Jablonska' => 'https://justynacello.com/home',
+		'Luci Holland'      => 'https://luciholland.com/',
+		'Aki Remally'       => 'https://akiremally.com/',
+		'Becca Sloan'       => 'https://www.instagram.com/beccasloan_',
+		'Iona Lee'          => 'https://www.ionalee.com/',
+		'Gloria Black'      => 'https://www.instagram.com/glo.black/',
+		'Cathal Murphy'     => 'https://www.instagram.com/cathalmurphy_music',
+		'Lesley Wilson'     => 'https://www.instagram.com/wilson_imsorry/',
+		'KC e\'Silva'       => 'https://www.instagram.com/kclou_25/',
+		'Nemo Ganguli'      => 'https://www.youtube.com/watch?v=K6V4MWsHqoU&t=249',
+		'Daniel d\'Lion'    => 'https://open.spotify.com/artist/6MWP6N6l5uQ3vFbmLLAwYs',
+		'Loam'              => 'https://loam-music.bandcamp.com/',
+		'Stillhound'        => 'https://stillhound.start.page/',
 	);
 }

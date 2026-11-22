@@ -123,7 +123,7 @@ echo sk_page_hero( // phpcs:ignore
 		</div>
 		<ul class="roster">
 			<?php foreach ( sk_family() as $sk_f ) : ?>
-				<li><span><?php echo esc_html( $sk_f[0] ); ?></span><span><?php echo esc_html( $sk_f[1] ); ?></span></li>
+				<li><span><?php echo sk_person( $sk_f[0] ); // phpcs:ignore ?></span><span><?php echo esc_html( $sk_f[1] ); ?></span></li>
 			<?php endforeach; ?>
 		</ul>
 	</div>

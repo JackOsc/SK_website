@@ -1,6 +1,5 @@
 Fonts in this folder:
-- Bricolage Grotesque (c) The Bricolage Grotesque Project Authors. SIL Open Font License 1.1 (OFL-bricolage.txt).
-- Fraunces (c) The Fraunces Project Authors (Undercase Type). SIL Open Font License 1.1 (OFL-fraunces.txt).
-  Both subset to Latin and converted to WOFF.
+- Literata (c) The Literata Project Authors (TypeTogether). SIL Open Font License 1.1 (OFL-literata.txt).
+  Subset to Latin and converted to WOFF.
 - Niagara Solid (c) The Font Bureau / Tobias Frere-Jones. Commercial font supplied by Slow Karma;
   web use requires a webfont licence from the rights holder (Monotype / Font Bureau).
