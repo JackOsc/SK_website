@@ -21,7 +21,7 @@ echo sk_page_hero( // phpcs:ignore
 	array(
 		'title'  => 'Season Two',
 		'fill'   => 'lr-bass-vocal',
-		'photos' => array( 'lr-dara-harp', 'lr-guitar-vocal', 'lr-violin', 'lr-crowd', 'lr-vocal-duo', 'lr-keys-bass', 'lr-congas-lamp', 'lr-guitar-lights', 'lr-vocal-close', 'lr-band-bow', 'lr-crowd-seated', 'lr-line-up' ),
+		'photos' => array( 'lr-dara-harp', 'lr-guitar-vocal', 'lr-violin', 'lr-crowd', 'lr-vocal-duo', 'lr-keys-bass', 'lr-congas-lamp', 'lr-guitar-lights', 'lr-vocal-close', 'lr-band-bow', 'lr-line-up' ),
 		'intro'  => 'The Liquid Room. A new set, eleven guests and a film crew, then back into the studio to make the records.',
 		'aside'  => array( 'The Liquid Room, Edinburgh, ' . esc_html( sk_finales()[2]['when'] ), 'Studio versions out now', 'First release: Twin' ),
 	)
@@ -101,23 +101,6 @@ echo sk_page_hero( // phpcs:ignore
 	</div>
 </section>
 
-<?php
-echo sk_reel( // phpcs:ignore
-	'On the night',
-	array(
-		array( 'lr-stage-wide', 'Slow Karma and guests on stage at the Liquid Room' ),
-		array( 'lr-guitar-vocal', 'Guitar and vocals under purple light' ),
-		array( 'lr-dara-harp', 'Dara Dubh on harp' ),
-		array( 'lr-keys-bass', 'Keys and bass' ),
-		array( 'lr-violin', 'Strings' ),
-		array( 'lr-crowd', 'A packed Liquid Room' ),
-		array( 'lr-congas-lamp', 'Jose Rojas on percussion' ),
-		array( 'lr-guitar-lights', 'Guitar under the lighting rig' ),
-		array( 'lr-band-bow', 'The band take a bow' ),
-	),
-	'The Liquid Room, Edinburgh, ' . sk_finales()[2]['when']
-);
-?>
 
 <section class="section section--alt" aria-labelledby="film-title">
 	<div class="wrap split split--center">
@@ -157,6 +140,24 @@ echo sk_reel( // phpcs:ignore
 		<?php get_template_part( 'template-parts/finale-credits', null, array( 'season' => 2 ) ); ?>
 	</div>
 </section>
+
+<?php
+echo sk_reel( // phpcs:ignore
+	'On the night',
+	array(
+		array( 'lr-stage-wide', 'Slow Karma and guests on stage at the Liquid Room' ),
+		array( 'lr-vocal-blue', 'A guest vocalist in blue light' ),
+		array( 'lr-violin-pink', 'Emma Jane Lloyd on violin' ),
+		array( 'lr-keys-mic', 'At the mic' ),
+		array( 'lr-clarinet-red', 'Clarinet in red light' ),
+		array( 'lr-perc-purple', 'Percussion through the haze' ),
+		array( 'lr-drums-blue', 'Kyle Grieve on drums' ),
+		array( 'lr-guitar-green', 'Guitar in silhouette' ),
+		array( 'lr-guitar-lamp', 'Callum Stevenson on guitar' ),
+	),
+	'The Liquid Room, Edinburgh, ' . sk_finales()[2]['when']
+);
+?>
 
 <section class="section section--tight">
 	<div class="wrap section-head" style="margin:0">

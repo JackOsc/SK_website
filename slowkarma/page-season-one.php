@@ -26,7 +26,7 @@ echo sk_page_hero( // phpcs:ignore
 	array(
 		'title'  => 'Season One',
 		'fill'   => 'vr-singer',
-		'photos' => array( 'vr-harp', 'vr-singer', 'vr-cello', 'vr-bass-green', 'vr-keys-blue', 'vr-perc-smile', 'vr-strings', 'vr-drums', 'vr-jurnalist', 'vr-bass-vocal', 'vr-crowd-wide', 'vr-guitars' ),
+		'photos' => array( 'vr-harp', 'vr-cello', 'vr-bass-green', 'vr-keys-blue', 'vr-perc-smile', 'vr-drums', 'vr-bass-vocal', 'vr-crowd-wide' ),
 		'intro'  => 'Tell Them Slow Karma Sent You. From our first single in 2024 to a sold-out Voodoo Rooms in March 2025.',
 		'aside'  => array( 'Ten singles', 'A live album and concert film', 'Voodoo Rooms, Edinburgh, ' . esc_html( sk_finales()[1]['when'] ) ),
 		'class'  => 'mosaic-hero--s1',
@@ -50,22 +50,6 @@ echo sk_page_hero( // phpcs:ignore
 	</div>
 </section>
 
-<?php
-echo sk_reel( // phpcs:ignore
-	'On the night',
-	array(
-		array( 'vr-crowd-smile', 'The crowd at the Voodoo Rooms' ),
-		array( 'vr-strings', 'Emma Jane Lloyd and Justyna Jablonska on strings' ),
-		array( 'vr-jurnalist', 'Jurnalist on the mic' ),
-		array( 'vr-singer', 'A guest vocalist under the Voodoo Rooms ceiling' ),
-		array( 'vr-keys-blue', 'Keys in blue light' ),
-		array( 'vr-band-keys', 'The band in full flow' ),
-		array( 'vr-guitars', 'Guitars' ),
-		array( 'vr-crowd', 'A full room' ),
-	),
-	'Voodoo Rooms, Edinburgh, ' . sk_finales()[1]['when']
-);
-?>
 
 <section class="section section--alt" aria-labelledby="art-title">
 	<div class="wrap split split--center">
@@ -110,6 +94,21 @@ echo sk_reel( // phpcs:ignore
 		<?php get_template_part( 'template-parts/finale-credits', null, array( 'season' => 1 ) ); ?>
 	</div>
 </section>
+
+<?php
+echo sk_reel( // phpcs:ignore
+	'On the night',
+	array(
+		array( 'vr-crowd-smile', 'The crowd at the Voodoo Rooms' ),
+		array( 'vr-singer', 'Jurnalist on the mic under the Voodoo Rooms ceiling' ),
+		array( 'vr-strings', 'Emma Jane Lloyd and Justyna Jablonska on strings' ),
+		array( 'vr-band-keys', 'The band in full flow' ),
+		array( 'vr-guitars', 'Guitars' ),
+		array( 'vr-crowd', 'A full room' ),
+	),
+	'Voodoo Rooms, Edinburgh, ' . sk_finales()[1]['when']
+);
+?>
 
 <section class="section section--alt section--tight">
 	<div class="wrap section-head" style="margin:0">

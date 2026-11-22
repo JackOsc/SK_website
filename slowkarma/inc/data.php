@@ -473,12 +473,11 @@ function sk_season_two_run() {
 		array( 'title' => 'Get Free', 'img' => 'title-get-free', 'w' => 404, 'out' => false ),
 		array( 'title' => 'Unravel', 'img' => 'title-unravel', 'w' => 368, 'out' => false ),
 		array( 'title' => 'Firstborn', 'img' => 'title-firstborn', 'w' => 455, 'out' => false ),
-		array( 'title' => 'Cathal', 'img' => 'title-cathal', 'w' => 313, 'out' => false ),
+		array( 'title' => 'In a Bad Way', 'img' => 'title-in-a-bad-way', 'w' => 614, 'out' => false ),
 		array( 'title' => 'Sleepwalker', 'img' => 'title-sleepwalker', 'w' => 483, 'out' => false ),
 		array( 'title' => 'Sour', 'img' => 'title-sour', 'w' => 224, 'out' => false ),
 		array( 'title' => 'Foreverchanging', 'img' => 'title-foreverchanging', 'w' => 444, 'out' => false ),
 		array( 'title' => 'New Money', 'img' => 'title-new-money', 'w' => 298, 'out' => false ),
-		array( 'title' => 'Remix EP', 'img' => 'title-remix-ep', 'w' => 469, 'out' => false ),
 	);
 }
 

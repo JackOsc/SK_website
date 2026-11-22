@@ -1568,9 +1568,26 @@ body.menu-open .menu-toggle {
 	background: color-mix(in srgb, var(--gold) 10%, var(--deep));
 }
 
+.run .is-out:first-child {
+	grid-row: span 2;
+}
+
+.run .is-out:first-child .run__title {
+	width: 70% !important;
+}
+
 @media (max-width: 899px) {
 	.run {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.run .is-out:first-child {
+		grid-row: auto;
+		grid-column: 1 / -1;
+	}
+
+	.run .is-out:first-child .run__title {
+		width: 40% !important;
 	}
 }
 
