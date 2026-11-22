@@ -77,7 +77,7 @@ function sk_members() {
 		array(
 			'name'  => 'Jose Rojas',
 			'role'  => 'Percussion',
-			'photo' => 'lr-congas-lamp',
+			'photo' => 'member-jose',
 		),
 	);
 }

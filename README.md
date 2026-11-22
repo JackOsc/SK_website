@@ -12,9 +12,9 @@ Custom WordPress theme for Slow Karma. The theme lives in `slowkarma/`.
 | Season Two | `page-season-two.php` | Liquid Room: how it was made, Twin players, the release run, photos, credits, stage plot |
 | Videos | `page-videos.php` | Every YouTube video, grouped by season |
 | Music | `page-music.php` | Every release with Spotify / Apple Music / Bandcamp |
-| Press kit | `page-press.php` | EPK: facts, short and long bio, quotes, line-up, downloads, contact |
+| Press kit | `page-press.php` | EPK: facts, live and booking (`/press/#live`, for festival applications), full show, bio, quotes, line-up, downloads, contact |
 
-Pages are matched by slug (`story`, `season-one`, `season-two`, `videos`, `music`, `press`). When the theme is activated it creates any missing pages, sets a static home page and turns on pretty permalinks. Anything typed into a page in the WordPress editor appears below the designed sections.
+Pages are matched by slug (`story`, `season-one`, `season-two`, `videos`, `music`, `press`). Those URLs work even if the WordPress pages don't exist (see `inc/routing.php`). On activation, and on the first dashboard visit after each theme update, the theme creates any missing pages so they appear in the editor. Anything typed into a page in the WordPress editor appears below the designed sections.
 
 ## Updating content
 
@@ -31,7 +31,7 @@ Images are WebP in `assets/img/` named `<slug>-<width>.webp`; the theme builds `
 ## Performance and SEO
 
 - No jQuery, no page builder, no block CSS on the front end. One CSS file (~30KB) and one small deferred script.
-- Fonts self-hosted and subset (Inter, Anton, Crimson Text; all SIL OFL).
+- Fonts self-hosted and subset: Niagara Solid (headings, the band's own font; needs a webfont licence), Bricolage Grotesque (body) and Fraunces italic (quotes), both SIL OFL.
 - YouTube, Spotify and Bandcamp players load nothing from those sites until someone presses play.
 - Titles, meta descriptions, canonical links, Open Graph / Twitter cards, and JSON-LD (`MusicGroup`, members, `sameAs` socials, releases, breadcrumbs). Stands down if Yoast, Rank Math or Jetpack SEO is active.
 - Images have width/height set, so there is no layout shift.

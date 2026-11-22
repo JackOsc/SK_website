@@ -30,7 +30,7 @@ get_header();
 			<p>The phrase we keep coming back to is <em class="voice">the music that only we can make</em>. Our influences run from spiritual jazz to experimental hip-hop to stadium pop, and the band is what happens when they collide.</p>
 		</div>
 		<div class="split__media">
-			<?php echo sk_img( 'studio-live-room', 'The band and friends in the live room at Lost Oscillation, Leith', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
+			<?php echo sk_img( 'l1-54', 'Slow Karma around a candlelit table, Season Two photoshoot', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
 		</div>
 	</div>
 </section>
@@ -79,7 +79,7 @@ get_header();
 			<div class="chapter__body prose">
 				<h3 class="h-sub">Tell Them Slow Karma Sent You</h3>
 				<p>In March 2025 we sold out the Voodoo Rooms with 14 musicians on stage. We filmed and recorded the whole night; it became a feature-length concert film and a live album, and it closed Season One.</p>
-				<p>Along the way we played Kelburn Garden Party and Hidden Door, supported the Mercury-nominated Knats, and sharpened the sound in a monthly slot at The Jazz Bar that ended in a sold-out headline show there.</p>
+				<p>Along the way we played Kelburn Garden Party and Hidden Door, supported the Mercury-nominated Knats, and sharpened the sound in a monthly slot at The Jazz Bar. That ended in August 2025 with a sold-out headline show there, packed with friends from the extended family.</p>
 				<p><a class="text-link" href="<?php echo esc_url( sk_page_url( 'season-one' ) ); ?>">Season One</a></p>
 			</div>
 		</article>
@@ -98,7 +98,7 @@ get_header();
 			<p class="chapter__when">Now<small>Season Three</small></p>
 			<div class="chapter__body prose">
 				<h3 class="h-sub">Wintering</h3>
-				<p>We&rsquo;re in the studio developing new sounds, building towards a big spring and summer: all the hits from the first two seasons, and new work with all new sounds.</p>
+				<p>We&rsquo;re in the studio developing new sounds, building towards a big spring and summer 2027: all the hits from the first two seasons, and new work with all new sounds. If you book stages, <a href="<?php echo esc_url( sk_page_url( 'press' ) . '#live' ); ?>">we&rsquo;d love to hear from you</a>.</p>
 			</div>
 		</article>
 	</div>

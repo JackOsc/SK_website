@@ -25,6 +25,8 @@ function sk_current_meta() {
 	$slug = '';
 	if ( is_front_page() ) {
 		$slug = '';
+	} elseif ( sk_current_slug() ) {
+		$slug = sk_current_slug();
 	} elseif ( is_page() ) {
 		$slug = get_post_field( 'post_name', get_queried_object_id() );
 	} else {
@@ -57,8 +59,8 @@ function sk_title( $title ) {
 	if ( is_front_page() ) {
 		return $all['']['title'];
 	}
-	if ( is_page() ) {
-		$slug = get_post_field( 'post_name', get_queried_object_id() );
+	if ( sk_current_slug() || is_page() ) {
+		$slug = sk_current_slug() ? sk_current_slug() : get_post_field( 'post_name', get_queried_object_id() );
 		if ( isset( $all[ $slug ] ) ) {
 			return $all[ $slug ]['title'] . ' | Slow Karma';
 		}
@@ -75,7 +77,7 @@ function sk_head_meta() {
 		return;
 	}
 	$meta = sk_current_meta();
-	$url  = is_front_page() ? home_url( '/' ) : ( is_singular() ? get_permalink() : '' );
+	$url  = is_front_page() ? home_url( '/' ) : ( sk_current_slug() ? sk_page_url( sk_current_slug() ) : ( is_singular() ? get_permalink() : '' ) );
 	$out  = array();
 
 	$out[] = sprintf( '<meta name="description" content="%s">', esc_attr( $meta['desc'] ) );
@@ -164,7 +166,7 @@ function sk_schema() {
 		),
 	);
 
-	if ( is_page( 'music' ) || is_front_page() ) {
+	if ( sk_is( 'music' ) || is_front_page() ) {
 		foreach ( sk_releases() as $r ) {
 			$item = array(
 				'@type'    => 'album' === strtolower( substr( $r['type'], -5 ) ) ? 'MusicAlbum' : 'MusicRecording',
@@ -181,7 +183,7 @@ function sk_schema() {
 		}
 	}
 
-	if ( is_page() && ! is_front_page() ) {
+	if ( sk_current_slug() ) {
 		$graph[] = array(
 			'@type'           => 'BreadcrumbList',
 			'itemListElement' => array(
@@ -194,8 +196,8 @@ function sk_schema() {
 				array(
 					'@type'    => 'ListItem',
 					'position' => 2,
-					'name'     => get_the_title(),
-					'item'     => get_permalink(),
+					'name'     => sk_required_pages()[ sk_current_slug() ],
+					'item'     => sk_page_url( sk_current_slug() ),
 				),
 			),
 		);

@@ -26,6 +26,7 @@ $sk_dl      = array(
 			<p class="lede">Everything for press, radio, promoters and festivals: biography, facts, photos, logos, the stage plot and how to reach us.</p>
 			<div class="page-hero__aside">
 				<p><a href="#downloads">Photos and logos</a></p>
+				<p><a href="#live">Live and booking</a></p>
 				<p><a href="#bio">Biography</a></p>
 				<p><a href="mailto:<?php echo esc_attr( $sk_contact['email'] ); ?>"><?php echo esc_html( $sk_contact['email'] ); ?></a></p>
 			</div>
@@ -44,6 +45,60 @@ $sk_dl      = array(
 	</div>
 </section>
 
+<section class="section section--alt" id="live" aria-labelledby="live-title">
+	<div class="wrap">
+		<div class="live-pitch">
+			<div>
+				<p class="kicker">Booking now for spring and summer 2027</p>
+				<h2 id="live-title" class="h-section">Live</h2>
+				<p class="lede">A Slow Karma show is improvised within an architecture: virtuosic, loud, and different every night. Expect the hits of the first two seasons and the first sounds of Season Three.</p>
+				<ul class="cta-row">
+					<li><a class="btn btn--solid" href="mailto:<?php echo esc_attr( $sk_contact['email'] ); ?>?subject=<?php echo rawurlencode( 'Booking Slow Karma 2027' ); ?>"><?php echo sk_icon( 'mail' ); // phpcs:ignore ?>Booking enquiries</a></li>
+					<li><a class="btn" href="<?php echo esc_url( sk_asset( 'press/slow-karma-stage-plot.jpg' ) ); ?>" download><?php echo sk_icon( 'download' ); // phpcs:ignore ?>Stage plot</a></li>
+					<li><a class="btn" href="#full-show"><?php echo sk_icon( 'play' ); // phpcs:ignore ?>Watch a full show</a></li>
+				</ul>
+			</div>
+			<div class="live-pitch__cols">
+				<div>
+					<h3 class="h-sub">Track record</h3>
+					<ul class="proof">
+						<li>Sold out the Voodoo Rooms, Edinburgh, with 14 musicians on stage (March 2025)</li>
+						<li>Packed The Liquid Room, Edinburgh (700 capacity) with an all-new set and 11 guests (March 2026)</li>
+						<li>Sold-out headline show at The Jazz Bar, Edinburgh, after a monthly residency (August 2025)</li>
+						<li>Kelburn Garden Party and Hidden Door festivals</li>
+						<li>Support for Mercury Prize nominated Knats</li>
+						<li>Self-promoted headline shows, built on a loyal hometown crowd</li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="h-sub">Formats</h3>
+					<dl class="formats">
+						<dt>Core five</dt>
+						<dd>Bass, drums, keys, guitar, percussion. Club stages and supports.</dd>
+						<dt>Extended</dt>
+						<dd>Plus strings, horns and guest vocalists. Festival stages and headline shows.</dd>
+						<dt>Full family</dt>
+						<dd>A dozen or more on stage, as at the Voodoo Rooms and the Liquid Room. Special events.</dd>
+					</dl>
+					<p class="formats__note">Full tech spec on request. Concert films of both season finales are available to programmers.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="full-show" aria-labelledby="fullshow-title">
+	<div class="wrap">
+		<div class="video-lead">
+			<?php echo sk_youtube( 'UXPGUexqhyo', 'Tell Them Slow Karma Sent You: Season One finale concert film' ); // phpcs:ignore ?>
+			<div>
+				<h2 id="fullshow-title" class="h-sub">Watch a full show</h2>
+				<p>The Season One finale, sold out at the Voodoo Rooms: sixty-one minutes, fourteen musicians, filmed in full.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="section" id="bio" aria-labelledby="bio-title">
 	<div class="wrap bios">
 		<div>
@@ -56,9 +111,9 @@ $sk_dl      = array(
 			<h3 class="h-sub">Long</h3>
 			<p>Slow Karma formed in Edinburgh in 2024. At the core are Jack Elliot (bass) and David Lloyd (keys), who run Lost Oscillation, a recording studio in Leith, with Kyle Grieve on drums, Callum Stevenson on guitar and Jose Rojas on percussion. Around them is an &ldquo;extended family&rdquo; of string and horn players and guests, including the harpist Dara Dubh, guitarist Sithu Aye and rapper Jurnalist.</p>
 			<p>Drawing on influences from spiritual jazz to experimental hip-hop to stadium pop, their sound is both sincere and irreverent, community-oriented and artist-first. They put on their own shows, release their own music and record everything at their own studio.</p>
-			<p>The band works in Seasons. Each year builds to one ambitious hometown finale every March, then everything starts again with new music and new collaborators. Season One brought nine singles in a year, national radio play and over 50,000 streams. It ended with a sold-out Voodoo Rooms with 14 musicians on stage, released as a feature-length concert film and live album. Along the way they played Kelburn Garden Party and Hidden Door, supported Mercury Prize nominated Knats, and sold out a headline show at The Jazz Bar.</p>
+			<p>The band works in Seasons. Each year builds to one ambitious hometown finale every March, then everything starts again with new music and new collaborators. Season One brought nine singles in a year, national radio play and over 50,000 streams. It ended with a sold-out Voodoo Rooms with 14 musicians on stage, released as a feature-length concert film and live album. Along the way they played Kelburn Garden Party and Hidden Door and supported Mercury Prize nominated Knats. A monthly residency at The Jazz Bar ended in a sold-out headline show there in August 2025.</p>
 			<p>For Season Two they booked The Liquid Room, Edinburgh&rsquo;s iconic 700-capacity venue, a year ahead and wrote a completely new set. On 21 March 2026 they played it to a packed room with eleven guest musicians, some joining without a single rehearsal. The show was filmed and recorded as demos, then taken back into the studio. <em>Twin</em>, released 13 November 2026, is the first of the studio versions, played and filmed live in one take at LOSTOSC. The rest follow through 2027, with the Liquid Room film due on the anniversary of the show.</p>
-			<p>Their shows have drawn comparisons with Snarky Puppy, Yussef Dayes and corto.alto.</p>
+			<p>Their shows have drawn comparisons with Snarky Puppy, Yussef Dayes and corto.alto. The band are now in the studio developing Season Three, and taking the show further afield in spring and summer 2027.</p>
 		</div>
 	</div>
 </section>

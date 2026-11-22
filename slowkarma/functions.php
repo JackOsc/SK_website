@@ -7,12 +7,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SK_VERSION', '1.0.0' );
+define( 'SK_VERSION', '1.1.0' );
 
 require get_template_directory() . '/inc/data.php';
 require get_template_directory() . '/inc/helpers.php';
 require get_template_directory() . '/inc/seo.php';
 require get_template_directory() . '/inc/setup-pages.php';
+require get_template_directory() . '/inc/routing.php';
 
 /**
  * Theme supports.
@@ -58,7 +59,7 @@ add_action( 'wp_enqueue_scripts', 'sk_assets', 20 );
  * Preload the fonts used above the fold.
  */
 function sk_preload() {
-	foreach ( array( 'anton-400', 'inter-400' ) as $font ) {
+	foreach ( array( 'niagara-solid', 'bricolage-400' ) as $font ) {
 		printf(
 			'<link rel="preload" href="%s" as="font" type="font/woff" crossorigin>' . "\n",
 			esc_url( sk_asset( 'fonts/' . $font . '.woff' ) )
@@ -76,10 +77,10 @@ add_action( 'wp_head', 'sk_preload', 1 );
  */
 function sk_font_faces() {
 	$fonts = array(
-		array( 'Anton', 'anton-400', 400, 'normal' ),
-		array( 'Inter', 'inter-400', 400, 'normal' ),
-		array( 'Inter', 'inter-600', 600, 'normal' ),
-		array( 'Crimson', 'crimson-400i', 400, 'italic' ),
+		array( 'Niagara Solid', 'niagara-solid', 400, 'normal' ),
+		array( 'Bricolage Grotesque', 'bricolage-400', 400, 'normal' ),
+		array( 'Bricolage Grotesque', 'bricolage-600', 600, 'normal' ),
+		array( 'Fraunces', 'fraunces-400i', 400, 'italic' ),
 	);
 	$css = '';
 	foreach ( $fonts as $f ) {
@@ -119,9 +120,9 @@ add_action( 'init', 'sk_cleanup' );
  * @param array $classes Classes.
  */
 function sk_body_class( $classes ) {
-	if ( is_page( 'season-one' ) ) {
+	if ( sk_is( 'season-one' ) ) {
 		$classes[] = 'theme-s1';
-	} elseif ( is_page( 'season-two' ) ) {
+	} elseif ( sk_is( 'season-two' ) ) {
 		$classes[] = 'theme-s2';
 	}
 	return $classes;
@@ -162,7 +163,7 @@ function sk_nav( $class = 'nav__list' ) {
 	}
 	echo '<ul class="' . esc_attr( $class ) . '">';
 	foreach ( sk_nav_items() as $slug => $label ) {
-		$current = is_page( $slug ) ? ' aria-current="page"' : '';
+		$current = sk_is( $slug ) ? ' aria-current="page"' : '';
 		printf( '<li><a href="%1$s"%2$s>%3$s</a></li>', esc_url( sk_page_url( $slug ) ), $current, esc_html( $label ) ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
 	echo '</ul>';

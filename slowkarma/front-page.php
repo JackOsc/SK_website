@@ -43,7 +43,7 @@ $sk_twin     = $sk_releases[0];
 
 <figure class="bleed" aria-label="The band">
 	<div class="bleed__img" data-parallax>
-		<?php echo sk_img( 'hero-main', 'Slow Karma: Jack Elliot, Kyle Grieve, David Lloyd, Callum Stevenson and friends, photographed in Leith', array( 'sizes' => '100vw' ) ); // phpcs:ignore ?>
+		<?php echo sk_img( 'x-131', 'Slow Karma photographed in Leith for Season Two', array( 'sizes' => '100vw' ) ); // phpcs:ignore ?>
 	</div>
 </figure>
 
@@ -73,10 +73,10 @@ $sk_twin     = $sk_releases[0];
 			</li>
 			<li class="season-card season-card--s3">
 				<div>
-					<span class="season-card__art season-card__art--blank" aria-hidden="true"><?php echo sk_img( 'studio-live-room', '', array( 'sizes' => '(min-width: 900px) 33vw, 100vw' ) ); // phpcs:ignore ?></span>
+					<span class="season-card__art" aria-hidden="true"><?php echo sk_img( 'l1-40', '', array( 'sizes' => '(min-width: 900px) 33vw, 100vw' ) ); // phpcs:ignore ?></span>
 					<span class="season-card__num">Season Three</span>
 					<span class="season-card__title">Wintering</span>
-					<span class="season-card__desc">Back in the studio, building new sounds for a big spring and summer: the hits from the first two seasons and all new work.</span>
+					<span class="season-card__desc">Back in the studio building new sounds for a big spring and summer 2027: the hits from the first two seasons, and all new work.</span>
 				</div>
 			</li>
 		</ol>
@@ -86,7 +86,7 @@ $sk_twin     = $sk_releases[0];
 <section class="story-teaser" aria-labelledby="story-title">
 	<div class="wrap story-teaser__grid">
 		<div class="story-teaser__img">
-			<?php echo sk_img( 'lr-harmonica', 'Slow Karma on stage at the Liquid Room, Edinburgh', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
+			<?php echo sk_img( 'l1-07', 'Jack Elliot pouring a drink over a chessboard, incense smoke behind him', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>
 		</div>
 		<div class="story-teaser__text">
 			<h2 id="story-title" class="h-display">A stick of incense in one hand, a stick of dynamite in the other.</h2>
@@ -143,9 +143,19 @@ $sk_twin     = $sk_releases[0];
 	<div class="wrap live__grid">
 		<?php echo sk_knockout( 'Live', 'lr-bass-vocal', 'h2', 'knockout--live' ); // phpcs:ignore ?>
 		<div class="live__text">
-			<p class="lede">Spring and summer dates are on the way: the hits of the first two seasons, and the first sounds of Season Three.</p>
-			<p>Promoters and festivals, get in touch: <a href="mailto:<?php echo esc_attr( sk_contact()['email'] ); ?>"><?php echo esc_html( sk_contact()['email'] ); ?></a></p>
-			<p>Follow <a href="<?php echo esc_url( sk_links()['instagram']['url'] ); ?>" target="_blank" rel="noopener">@slow_karma_</a> on Instagram to hear first.</p>
+			<p class="kicker">Spring and summer 2027</p>
+			<p class="lede">Two seasons of hits and the first sounds of Season Three. From a tight core five to a full extended-family show with a dozen or more on stage.</p>
+			<ul class="proof">
+				<li>Sold out the Voodoo Rooms with 14 on stage</li>
+				<li>Packed the 700-capacity Liquid Room with an all-new set</li>
+				<li>Sold out The Jazz Bar</li>
+				<li>Kelburn Garden Party, Hidden Door, support for Knats</li>
+			</ul>
+			<ul class="cta-row">
+				<li><a class="btn btn--solid" href="<?php echo esc_url( sk_page_url( 'press' ) . '#live' ); ?>">Booking info</a></li>
+				<li><a class="btn" href="mailto:<?php echo esc_attr( sk_contact()['email'] ); ?>?subject=<?php echo rawurlencode( 'Booking Slow Karma 2027' ); ?>"><?php echo sk_icon( 'mail' ); // phpcs:ignore ?>Get in touch</a></li>
+			</ul>
+			<p class="live__follow">Fans: follow <a href="<?php echo esc_url( sk_links()['instagram']['url'] ); ?>" target="_blank" rel="noopener">@slow_karma_</a> to hear about dates first.</p>
 		</div>
 	</div>
 </section>

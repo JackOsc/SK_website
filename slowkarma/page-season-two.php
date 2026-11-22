@@ -106,10 +106,10 @@ $sk_out = count(
 			<p class="voice" style="margin:0;color:var(--muted)">The Liquid Room, <?php echo esc_html( sk_finales()[2]['when'] ); ?></p>
 		</div>
 		<ul class="gallery">
-			<li class="g-wide"><?php echo sk_img( 'lr-harmonica', 'Slow Karma on stage under the lights', array( 'sizes' => '(min-width: 700px) 66vw, 100vw' ) ); // phpcs:ignore ?></li>
+			<li class="g-wide"><?php echo sk_img( 'lr-guitar-vocal', 'Guitar and vocals under purple light', array( 'sizes' => '(min-width: 700px) 66vw, 100vw' ) ); // phpcs:ignore ?></li>
 			<li class="g-tall"><?php echo sk_img( 'lr-dara-harp', 'Dara Dubh on harp', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
 			<li><?php echo sk_img( 'lr-keys-bass', 'Keys and bass', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
-			<li><?php echo sk_img( 'lr-guitar-vocal', 'Guitar and vocals', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
+			<li><?php echo sk_img( 'lr-crowd', 'A packed room', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
 			<li class="g-tall"><?php echo sk_img( 'lr-vocal-duo', 'Guest vocalist', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
 			<li><?php echo sk_img( 'lr-crowd-seated', 'The crowd at the Liquid Room', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
 			<li><?php echo sk_img( 'lr-guitar-lights', 'Guitar under the lighting rig', array( 'sizes' => '(min-width: 700px) 33vw, 50vw' ) ); // phpcs:ignore ?></li>
@@ -139,7 +139,7 @@ $sk_out = count(
 		<h2 id="road-title" class="h-section">The road to the Liquid Room</h2>
 		<div class="split">
 			<div class="prose">
-				<p>The road ran through Slow Karma &amp; Friends at The Jazz Bar in August 2025, with Sithu Aye, Ayla Ersoy, Dara Dubh, Jurnalist and more, and <em>Vogelen</em>, released that October. In March 2026, just before the show, we put out <em>Mystery Of Love</em> with Aki Remally, recorded live.</p>
+				<p>The road ran through a sold-out Slow Karma &amp; Friends at The Jazz Bar in August 2025, with Sithu Aye, Ayla Ersoy, Dara Dubh, Jurnalist and more, and <em>Vogelen</em>, released that October. In March 2026, just before the show, we put out <em>Mystery Of Love</em> with Aki Remally, recorded live.</p>
 				<ul class="cta-row">
 					<li><a class="btn" href="https://slowkarma.bandcamp.com/track/vogelen" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Vogelen</a></li>
 					<li><a class="btn" href="https://slowkarma.bandcamp.com/track/mystery-of-love-w-aki-remally-live" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Mystery Of Love</a></li>
@@ -173,7 +173,7 @@ $sk_out = count(
 
 <section class="section section--tight">
 	<div class="wrap section-head" style="margin:0">
-		<p class="lede" style="margin:0">And now, Season Three. We&rsquo;re wintering in the studio.</p>
+		<p class="lede" style="margin:0">And now, Season Three: wintering in the studio, live from spring 2027.</p>
 		<a class="text-link" href="<?php echo esc_url( sk_page_url( 'story' ) ); ?>">The whole story</a>
 	</div>
 </section>
