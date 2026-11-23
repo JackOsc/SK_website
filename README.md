@@ -28,6 +28,8 @@ Almost everything lives in **`slowkarma/inc/data.php`**:
 
 Page headers use `sk_page_hero()` (title plus three drifting photo columns) and galleries use `sk_reel()` (a row of photos that slides sideways as you scroll), both in `inc/helpers.php`. Images are WebP in `assets/img/` named `<slug>-<width>.webp`; the theme builds `srcset` automatically from whatever widths exist. Knockout headings use `<slug>-ko.webp` when present (the photo with its shadows lifted to orange).
 
+The Dynamite artwork on the homepage is a "magic painting" that comes alive as you scroll past it: the stars twinkle and light runs out along the rays, the two fuses catch and burn down to the sticks (scrolling back un-burns them), the incense smokes and the smoke bends with the scroll, the candles flicker, the snake's tail flicks when the page moves and its tongue tastes the air. The tail tip and tongue are separate images cut from the artwork (`magic-*.webp`), the rest is drawn on a canvas in `assets/js/main.js`. To rebuild those images from the original drawing, run `python3 tools/magic_painting.py`. Visitors with reduced motion turned on see the still artwork.
+
 ## Performance and SEO
 
 - No jQuery, no page builder, no block CSS on the front end. One CSS file (~30KB) and one small deferred script.
