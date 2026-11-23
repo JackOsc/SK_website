@@ -13,22 +13,20 @@ echo sk_page_hero( // phpcs:ignore
 	array(
 		'title'  => 'Music',
 		'fill'   => 'lr-keys-bass',
-		'photos' => array_map(
-			function ( $r ) {
-				return $r['cover'];
-			},
-			$sk_all
-		),
-		'intro'  => 'Recorded at Lost Oscillation in Leith and released ourselves.',
-		'aside'  => array( 'Buying on Bandcamp supports the band most directly' ),
-		'cover'  => true,
+		'photos' => array( 'lr-keys-mic', 'vr-bass-green', 'l1-07', 'press-fisheye-bw', 'lr-drums-blue', 'vr-keys-blue', 'x-96', 'lr-guitar-lamp', 'vr-cello', 's2-fisheye', 'jb-dara', 'vr-drums' ),
+		'intro'  => 'Recorded at LOSTOSC Studios in Leith and released ourselves.',
+		'aside'  => array( '<a href="#releases">Every release</a>', 'Buying on Bandcamp supports the band most directly' ),
 	)
 );
 ?>
 
-<section class="section" aria-label="Releases on Bandcamp">
+<section class="section" id="releases" aria-labelledby="releases-title">
 	<div class="wrap">
-		<ul class="release-grid">
+		<div class="section-head">
+			<h2 id="releases-title" class="h-section">Releases</h2>
+			<p class="reel__note">Newest first. Each one opens on Bandcamp.</p>
+		</div>
+		<ul class="release-grid release-grid--all">
 			<?php
 			foreach ( $sk_all as $sk_r ) {
 				echo sk_release_card( $sk_r ); // phpcs:ignore

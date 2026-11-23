@@ -24,7 +24,7 @@ $sk_contact = sk_contact();
 		<div class="footer__col">
 			<h2 class="footer__head">Bookings, press and everything else</h2>
 			<p><a class="footer__mail" href="mailto:<?php echo esc_attr( $sk_contact['email'] ); ?>"><?php echo esc_html( $sk_contact['email'] ); ?></a></p>
-			<p>Based at Lost Oscillation, <?php echo esc_html( $sk_contact['location'] ); ?>.</p>
+			<p>Based at Music Base, 125 Great Junction Street, <?php echo esc_html( $sk_contact['location'] ); ?>.</p>
 			<p><a href="<?php echo esc_url( sk_page_url( 'press' ) ); ?>">Press kit, photos and logos</a></p>
 		</div>
 	</div>

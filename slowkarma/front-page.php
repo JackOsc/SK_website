@@ -15,24 +15,24 @@ $sk_twin     = $sk_releases[0];
 	<h1 id="hero-title" class="knockout knockout--hero" style="<?php echo esc_attr( sk_fill_style( 'hero-fill', 2600 ) ); ?>" data-parallax-fill>Slow Karma</h1>
 	<div class="hero__foot wrap">
 		<p class="hero__creed">Jazz chops. Punk ethos. High production.</p>
-		<p class="hero__where">Edinburgh, and an extended family of Scotland's best musicians.</p>
+		<p class="hero__where"><a class="btn btn--solid btn--big" href="https://www.youtube.com/watch?v=-nSLUTwDvPc" target="_blank" rel="noopener"><?php echo sk_icon( 'play' ); // phpcs:ignore ?>Hear THE NEW now</a></p>
 	</div>
 </section>
 
 <section class="feature" aria-labelledby="twin-title">
-	<div class="wrap feature__grid">
-		<div class="feature__text">
+	<div class="wrap feature__grid feature__grid--split">
+		<div>
 			<p class="kicker">Out now</p>
 			<h2 id="twin-title" class="feature__title">Twin</h2>
-			<p class="lede">The first release of Season Two. Breakbeats, UK garage, Miles and Bird, played live in one take at LOSTOSC.</p>
+		</div>
+		<div class="feature__text">
+			<p class="lede">The first release of Season Two. Breakbeats, UK garage, Miles and Bird, played live in one take at LOSTOSC Studios.</p>
 			<ul class="cta-row">
-				<li><a class="btn btn--solid" href="<?php echo esc_url( $sk_twin['spotify'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'spotify' ); // phpcs:ignore ?>Spotify</a></li>
+				<li><a class="btn btn--solid" href="https://www.youtube.com/watch?v=-nSLUTwDvPc" target="_blank" rel="noopener"><?php echo sk_icon( 'youtube' ); // phpcs:ignore ?>Watch on YouTube</a></li>
+				<li><a class="btn" href="<?php echo esc_url( $sk_twin['spotify'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'spotify' ); // phpcs:ignore ?>Spotify</a></li>
 				<li><a class="btn" href="<?php echo esc_url( $sk_twin['bandcamp'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Bandcamp</a></li>
 				<li><a class="btn" href="<?php echo esc_url( sk_links()['apple']['url'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'apple' ); // phpcs:ignore ?>Apple Music</a></li>
 			</ul>
-		</div>
-		<div class="feature__media">
-			<?php echo sk_youtube( '-nSLUTwDvPc', 'Slow Karma, Twin', 'player--feature' ); // phpcs:ignore ?>
 		</div>
 	</div>
 </section>
@@ -61,10 +61,10 @@ $sk_twin     = $sk_releases[0];
 			</li>
 			<li class="season-card season-card--s2">
 				<a href="<?php echo esc_url( sk_page_url( 'season-two' ) ); ?>">
-					<span class="season-card__art"><?php echo sk_img( 's2-poster-alt', '', array( 'sizes' => '(min-width: 900px) 33vw, 100vw' ) ); // phpcs:ignore ?></span>
+					<span class="season-card__art"><?php echo sk_img( 's2-poster-sq', 'Season Two poster: an evening with Slow Karma at the Liquid Room, 21 March 2026', array( 'sizes' => '(min-width: 900px) 33vw, 100vw' ) ); // phpcs:ignore ?></span>
 					<span class="season-card__num">Season Two</span>
 					<span class="season-card__title">The Liquid Room</span>
-					<span class="season-card__desc">A new set, a packed 700-cap room, and the studio versions coming out now.</span>
+					<span class="season-card__desc">A new set, a packed 700-cap room, and studio versions out monthly from November.</span>
 				</a>
 			</li>
 			<li class="season-card season-card--s3">
@@ -82,11 +82,18 @@ $sk_twin     = $sk_releases[0];
 <section class="story-teaser" aria-labelledby="story-title">
 	<div class="wrap story-teaser__grid">
 		<div class="story-teaser__img story-teaser__img--art">
-			<?php echo sk_img( 'dynamite-art', 'Slow Karma artwork: a hand holding a stick of dynamite', array( 'sizes' => '(min-width: 900px) 45vw, 100vw' ) ); // phpcs:ignore ?>
+			<figure class="gilt" data-gilt>
+				<div class="gilt__frame">
+					<div class="gilt__mat">
+						<?php echo sk_img( 'dynamite-dark', 'Slow Karma artwork drawn in gold: a crate of dynamite and fireworks, a snake, a horseshoe, incense and candles', array( 'sizes' => '(min-width: 900px) 38vw, 80vw', 'class' => 'gilt__art' ) ); // phpcs:ignore ?>
+						<span class="gilt__glare" aria-hidden="true"></span>
+					</div>
+				</div>
+			</figure>
 		</div>
 		<div class="story-teaser__text">
 			<h2 id="story-title" class="h-display">Incense and dynamite</h2>
-			<p>We started in 2024 at Music Base in Leith, where we run studios and teach. Slow Karma is where we use everything we've learned to make the music only we can make.</p>
+			<p>We started in 2024 at Music Base in Leith, where we run studios and teach, and we record everything at LOSTOSC Studios. Slow Karma is where we use everything we've learned to make the music only we can make.</p>
 			<p>Around the core five is an extended family of harpists, MCs, string players, singers and poets, who come back season after season.</p>
 			<p><a class="text-link" href="<?php echo esc_url( sk_page_url( 'story' ) ); ?>">Our story</a></p>
 		</div>

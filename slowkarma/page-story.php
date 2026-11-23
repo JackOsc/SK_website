@@ -13,7 +13,7 @@ echo sk_page_hero( // phpcs:ignore
 		'fill'   => 'lr-harmonica',
 		'photos' => array( 'l1-11', 'member-kyle', 'l1-39', 'member-dave', 'l1-43', 'member-cj', 'l1-70', 'member-jack', 'l1-75', 'member-jose', 'x-105', 'l1-54' ),
 		'intro'  => 'Five musicians from Leith, a recording studio, and an extended family of collaborators.',
-		'aside'  => array( 'Formed 2024', 'Music Base, Leith', 'Home studio: Lost Oscillation' ),
+		'aside'  => array( 'Formed 2024', 'Music Base, Leith', 'Home studio: LOSTOSC Studios' ),
 	)
 );
 ?>
@@ -22,7 +22,7 @@ echo sk_page_hero( // phpcs:ignore
 	<div class="wrap split split--center">
 		<div class="prose">
 			<p class="lede">Between us we've toured the world and played on plenty of other people's records. Slow Karma is where we bring all that home.</p>
-			<p>Music Base in Leith is our base. Kyle runs Leith Drum Studio. Dave and Jack run Lost Oscillation, where we record everything. Callum teaches guitar and keys. We wanted a place with real artistic freedom, where we could push ourselves to make the best music we can.</p>
+			<p>We record everything at LOSTOSC Studios, the recording studio Jack and Dave run in Music Base, a building at 125 Great Junction Street that's home to a community of music businesses, including Leith Drum Studio, which Kyle runs. Callum teaches guitar and keys. We wanted a place with real artistic freedom, where we could push ourselves to make the best music we can.</p>
 			<p>We listen to everything, from spiritual jazz to hip-hop to stadium pop, and it all ends up in the band.</p>
 		</div>
 		<div class="split__media">
@@ -65,7 +65,7 @@ echo sk_page_hero( // phpcs:ignore
 			<p class="chapter__when">2024<small>Season One</small></p>
 			<div class="chapter__body prose">
 				<h3 class="h-sub">The first singles</h3>
-				<p>Our first collaborator was the harpist Dara Dubh, on <em>Still Here</em>. Loam, Sithu Aye, Emma Jane Lloyd, Justyna Jablonska and Jurnalist followed. Every track came out as a single with its own video. We got national radio play, festival bookings and over 50,000 streams in the first year.</p>
+				<p>Our first collaborator was the harpist Dara Dubh, on <em>Still Here</em>. Loam, Sithu Aye, Emma Jane Lloyd, Justyna Jablonska and Jurnalist followed. Every track came out as a single with its own video. Soweto Kinch played us on 'Round Midnight on BBC Radio 3, and we got plays on BBC Radio Scotland, BBC Introducing and Amazing Radio, festival bookings and over 50,000 streams in the first year.</p>
 			</div>
 		</article>
 

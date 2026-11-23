@@ -2450,3 +2450,262 @@ body.menu-open .menu-toggle {
 		position: static;
 	}
 }
+
+/* ---------- v1.7: hero button ---------- */
+
+.btn--big {
+	min-height: 56px;
+	padding: 0.85em 1.6em;
+	font-size: var(--step-0);
+}
+
+.hero__where .btn {
+	white-space: nowrap;
+}
+
+/* ---------- v1.7: the gilt frame (dynamite artwork) ----------
+   A print in a gold frame hanging on the wall. As the page scrolls it
+   tilts towards you and a band of light slides across the glass. */
+
+.story-teaser__img--art {
+	position: relative;
+	display: grid;
+	place-items: center;
+	padding-block: clamp(1rem, 3vw, 3rem);
+	perspective: 1400px;
+}
+
+/* A warm picture light on the wall above the frame. */
+.story-teaser__img--art::before {
+	content: "";
+	position: absolute;
+	inset: -10% -5% 10%;
+	background: radial-gradient(ellipse 55% 45% at 50% 8%, rgba(246, 159, 90, 0.2), transparent 70%);
+	pointer-events: none;
+}
+
+.gilt {
+	--tx: 0deg;
+	--ty: 0deg;
+	--lift: 0px;
+	--glare: 50%;
+	position: relative;
+	margin: 0;
+	width: min(100%, 34rem);
+	transform: translate3d(0, var(--lift), 0) rotateX(var(--tx)) rotateY(var(--ty));
+	transform-style: preserve-3d;
+	will-change: transform;
+}
+
+.gilt__frame {
+	position: relative;
+	padding: clamp(14px, 2.4vw, 30px);
+	background:
+		linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 40%, rgba(0, 0, 0, 0.25) 100%),
+		conic-gradient(from 210deg at 50% 50%, #8a5a20, #f6d58e, #b37b2c, #fff0b8, #a06c24, #e8bf6e, #6e4615, #d9a956, #8a5a20);
+	box-shadow:
+		inset 0 0 0 1px #4a2f0e,
+		inset 0 0 0 4px #e9c47a,
+		inset 0 0 0 6px #6b4518,
+		inset 0 2px 6px rgba(255, 240, 190, 0.6),
+		0 2px 0 #3d270b,
+		0 34px 60px -18px rgba(0, 0, 0, 0.85),
+		0 14px 26px rgba(0, 0, 0, 0.45);
+}
+
+/* The bevelled inner lip of the moulding. */
+.gilt__frame::before {
+	content: "";
+	position: absolute;
+	inset: calc(clamp(14px, 2.4vw, 30px) - 7px);
+	border: 7px solid transparent;
+	border-image: linear-gradient(160deg, #fff2c2, #a8742a 35%, #f3cf82 60%, #6e4615) 1;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+	pointer-events: none;
+}
+
+.gilt__mat {
+	position: relative;
+	padding: clamp(14px, 2.6vw, 34px);
+	background: #0a0a0a;
+	box-shadow:
+		inset 0 6px 14px rgba(0, 0, 0, 0.75),
+		inset 0 0 0 1px rgba(0, 0, 0, 0.6);
+	overflow: hidden;
+}
+
+.story-teaser__img .gilt__art {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1;
+	object-fit: contain;
+	transform: translate3d(0, calc(var(--lift) * -0.35), 0) scale(1.03);
+}
+
+/* Light moving across the glass. */
+.gilt__glare {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(115deg, transparent 30%, rgba(255, 244, 214, 0.13) 46%, rgba(255, 244, 214, 0.04) 52%, transparent 62%);
+	background-size: 260% 100%;
+	background-position: var(--glare) 0;
+	mix-blend-mode: screen;
+	pointer-events: none;
+}
+
+@media (max-width: 899px) {
+	.gilt {
+		width: min(100%, 26rem);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gilt {
+		transform: none;
+	}
+}
+
+/* ---------- v1.7: press kit top ---------- */
+
+.epk-top {
+	padding: clamp(7rem, 5rem + 5vw, 9.5rem) 0 clamp(2.5rem, 2rem + 2vw, 4rem);
+	background: var(--bg-alt);
+}
+
+.epk-top__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+	gap: 2.5rem clamp(2rem, 1rem + 4vw, 5rem);
+	align-items: center;
+}
+
+.epk-top__title {
+	/* Same size as the other page-header titles. */
+	font-size: min(22vw, 38svh);
+	line-height: 0.8;
+	margin: 0 0 1rem -0.02em;
+}
+
+.epk-top__creed {
+	font-family: var(--display);
+	text-transform: uppercase;
+	font-size: var(--step-2);
+	line-height: 1;
+	color: var(--accent);
+	margin-bottom: 1.2rem;
+}
+
+.epk-top__ffo {
+	margin-top: 1.2rem;
+	font-size: var(--step--1);
+	color: var(--muted);
+}
+
+.epk-top__ffo span {
+	display: inline-block;
+	margin-right: 0.6em;
+	padding: 0.15em 0.6em;
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.epk-top__caption {
+	margin-top: 0.7rem;
+	font-size: var(--step--1);
+	color: var(--muted);
+}
+
+.epk-top__caption strong {
+	color: var(--ink);
+}
+
+.epk-top__history {
+	margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--line);
+}
+
+.tickets {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tickets li {
+	display: grid;
+	grid-template-columns: 7rem minmax(0, 2.2fr) 7rem minmax(0, 3fr);
+	gap: 0.3rem 1.5rem;
+	align-items: baseline;
+	padding: 0.8rem 0;
+	border-bottom: 1px solid var(--line);
+}
+
+.tickets__when,
+.tickets__cap {
+	font-size: var(--step--1);
+	color: var(--muted);
+}
+
+.tickets__where {
+	font-family: var(--display);
+	text-transform: uppercase;
+	font-size: var(--step-2);
+	line-height: 1;
+}
+
+.tickets__result {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.tickets__note {
+	margin-top: 1rem;
+	font-size: var(--step--1);
+	color: var(--muted);
+}
+
+.epk-top__jump {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem 1.4rem;
+	margin-top: 1.4rem;
+	font-size: var(--step--1);
+}
+
+@media (max-width: 899px) {
+	.epk-top__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.tickets li {
+		grid-template-columns: 5.5rem minmax(0, 1fr);
+	}
+
+	.tickets__cap {
+		grid-column: 1;
+	}
+
+	.tickets__result {
+		grid-column: 2;
+	}
+}
+
+.quote--solo {
+	max-width: 30em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* v1.7: Twin on the homepage links out instead of embedding a player. */
+.feature__grid--split {
+	grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+	align-items: end;
+}
+
+.feature__grid--split .feature__title {
+	margin-bottom: 0;
+}

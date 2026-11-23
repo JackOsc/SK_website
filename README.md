@@ -1,4 +1,4 @@
-# slowkarma.uk
+# slowkarma.co.uk
 
 Custom WordPress theme for Slow Karma. The theme lives in `slowkarma/`.
 
@@ -11,8 +11,8 @@ Custom WordPress theme for Slow Karma. The theme lives in `slowkarma/`.
 | Season One | `page-season-one.php` | Voodoo Rooms finale: film, live album, photos, singles, credits and setlist |
 | Season Two | `page-season-two.php` | Liquid Room: how it was made, Twin players, the release run, photos, credits, stage plot |
 | Videos | `page-videos.php` | Every YouTube video, grouped by season |
-| Music | `page-music.php` | Every release (links to Bandcamp), then Spotify, Apple Music, Tidal, Bandcamp, YouTube |
-| Press kit | `page-press.php` | EPK: facts, live and booking (`/press/#live`, for festival applications), full show, bio, quotes, line-up, downloads, contact |
+| Music | `page-music.php` | Photo header, then every release as one grid (cover links to Bandcamp, title and year under it), then Spotify, Apple Music, Tidal, Bandcamp, YouTube |
+| Press kit | `page-press.php` | EPK. The top (`/press/#live`, for festival applications) has the pitch, a short clip, ticket history and the booking button. Then facts, live formats, full show, bio, press quote, line-up, downloads, contact |
 
 Pages are matched by slug (`story`, `season-one`, `season-two`, `videos`, `music`, `press`). Those URLs work even if the WordPress pages don't exist (see `inc/routing.php`). On activation, and on the first dashboard visit after each theme update, the theme creates any missing pages so they appear in the editor. Anything typed into a page in the WordPress editor appears below the designed sections.
 
@@ -35,6 +35,10 @@ Page headers use `sk_page_hero()` (title plus three drifting photo columns) and 
 - YouTube, Spotify and Bandcamp players load nothing from those sites until someone presses play.
 - Titles, meta descriptions, canonical links, Open Graph / Twitter cards, and JSON-LD (`MusicGroup`, members, `sameAs` socials, releases, breadcrumbs). Stands down if Yoast, Rank Math or Jetpack SEO is active.
 - Images have width/height set, so there is no layout shift.
+
+## Domain
+
+The site's address is **slowkarma.co.uk**. In WordPress.com, set it as the primary domain and add slowkarma.uk to the same site, so it redirects there. `sk_canonical_host()` in `inc/routing.php` also sends slowkarma.uk visitors to the site's own address, if the host ever serves both.
 
 ## Installing
 

@@ -143,7 +143,7 @@ function sk_releases() {
 			'bandcamp' => 'https://slowkarma.bandcamp.com/track/twin',
 			'spotify'  => 'https://open.spotify.com/album/5T6Hz4Z63i0VTUogOy0ct4',
 			'video'    => '-nSLUTwDvPc',
-			'note'     => 'The first studio version from the Liquid Room set. Played and filmed live in one take at LOSTOSC.',
+			'note'     => 'The first studio version from the Liquid Room set. Played and filmed live in one take at LOSTOSC Studios.',
 		),
 		array(
 			'title'    => 'Mystery Of Love',
@@ -332,7 +332,7 @@ function sk_videos() {
 		'season-two'  => array(
 			'title'  => 'Season Two',
 			'videos' => array(
-				array( '-nSLUTwDvPc', 'Twin', '4:26', 'Live in one take at LOSTOSC.' ),
+				array( '-nSLUTwDvPc', 'Twin', '4:26', 'Live in one take at LOSTOSC Studios.' ),
 				array( 'v9_36MHTrCI', 'Vogelen', '4:09', '' ),
 			),
 		),
@@ -355,7 +355,7 @@ function sk_videos() {
 				array( 'v29_0vhzLIw', 'Gold Aura', '4:42', '' ),
 				array( 'O9XObnV0BS4', 'Hot Club', '3:42', '' ),
 				array( 'bLuDLFJb-ds', 'Still Here, with Dara Dubh', '6:07', '' ),
-				array( 'NO5tqWzc5lU', 'Don\'t Believe (live at LOSTOSC)', '3:54', '' ),
+				array( 'NO5tqWzc5lU', 'Don\'t Believe (live at LOSTOSC Studios)', '3:54', '' ),
 			),
 		),
 	);

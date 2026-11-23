@@ -23,7 +23,7 @@ echo sk_page_hero( // phpcs:ignore
 		'fill'   => 'lr-bass-vocal',
 		'photos' => array( 'lr-dara-harp', 'lr-guitar-vocal', 'lr-violin', 'lr-crowd', 'lr-vocal-duo', 'lr-keys-bass', 'lr-congas-lamp', 'lr-guitar-lights', 'lr-vocal-close', 'lr-band-bow', 'lr-line-up' ),
 		'intro'  => 'The Liquid Room. A new set, eleven guests and a film crew, then back into the studio to make the records.',
-		'aside'  => array( 'The Liquid Room, Edinburgh, ' . esc_html( sk_finales()[2]['when'] ), 'Studio versions out now', 'First release: Twin' ),
+		'aside'  => array( 'The Liquid Room, Edinburgh, ' . esc_html( sk_finales()[2]['when'] ), 'Studio versions out monthly from November', 'First release: Twin' ),
 	)
 );
 ?>
@@ -62,7 +62,7 @@ echo sk_page_hero( // phpcs:ignore
 			<div>
 				<p class="kicker">Out now</p>
 				<h2 id="twin-title" class="h-section">Twin</h2>
-				<p>Jazz chops, punk energy and UK dancefloor rhythms. Played and filmed live in one take at LOSTOSC.</p>
+				<p>Jazz chops, punk energy and UK dancefloor rhythms. Played and filmed live in one take at LOSTOSC Studios.</p>
 				<p class="voice" style="color:var(--accent)">Twin is a heater like.</p>
 			</div>
 		</div>

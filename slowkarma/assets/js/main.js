@@ -42,6 +42,7 @@
 	var layers = [].slice.call(document.querySelectorAll('[data-parallax]'));
 	var cols = [].slice.call(document.querySelectorAll('[data-drift]'));
 	var reels = [].slice.call(document.querySelectorAll('[data-reel]'));
+	var gilts = [].slice.call(document.querySelectorAll('[data-gilt]'));
 	var coarse = window.matchMedia('(pointer: coarse), (max-width: 899px)');
 	var ticking = false;
 
@@ -80,6 +81,16 @@
 		cols.forEach(function (el) {
 			var d = parseFloat(el.getAttribute('data-drift')) || 0;
 			el.style.transform = 'translate3d(0,' + (window.scrollY * d).toFixed(1) + 'px,0)';
+		});
+		gilts.forEach(function (el) {
+			var r = el.getBoundingClientRect();
+			if (r.bottom < 0 || r.top > vh) return;
+			// -0.5 as it enters at the bottom, 0 centred, 0.5 leaving at the top.
+			var p = (vh - r.top) / (vh + r.height) - 0.5;
+			el.style.setProperty('--tx', (p * -14).toFixed(2) + 'deg');
+			el.style.setProperty('--ty', (p * 7).toFixed(2) + 'deg');
+			el.style.setProperty('--lift', (p * -40).toFixed(1) + 'px');
+			el.style.setProperty('--glare', (100 - (p + 0.5) * 100).toFixed(1) + '%');
 		});
 		reels.forEach(function (reel) {
 			if (reel.classList.contains('reel--native') || !reel._extra) return;

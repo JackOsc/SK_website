@@ -110,3 +110,28 @@ function sk_maybe_create_pages() {
 	update_option( 'sk_pages_version', SK_VERSION );
 }
 add_action( 'admin_init', 'sk_maybe_create_pages' );
+
+/**
+ * One address for the site: slowkarma.co.uk. Anyone arriving on another
+ * of the band's domains (slowkarma.uk, with or without www) is sent to the
+ * site's own address with a permanent redirect, keeping the path. On
+ * WordPress.com the primary domain setting does this already; this covers
+ * any host that doesn't.
+ */
+function sk_canonical_host() {
+	$primary = wp_parse_url( home_url(), PHP_URL_HOST );
+	// Only act when the site itself lives on slowkarma.co.uk, so a staging
+	// copy on another domain never bounces away.
+	if ( ! $primary || ! preg_match( '/(^|\.)slowkarma\.co\.uk$/', $primary ) ) {
+		return;
+	}
+	$aliases = array( 'slowkarma.uk', 'www.slowkarma.uk', 'slowkarma.co.uk', 'www.slowkarma.co.uk' );
+	$host    = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	if ( $host === $primary || ! in_array( $host, $aliases, true ) ) {
+		return;
+	}
+	$path = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '/'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	wp_redirect( 'https://' . $primary . $path, 301 ); // phpcs:ignore WordPress.Security.SafeRedirect
+	exit;
+}
+add_action( 'template_redirect', 'sk_canonical_host', 1 );

@@ -14,7 +14,7 @@ echo sk_page_hero( // phpcs:ignore
 		'title'  => 'Videos',
 		'fill'   => 'lr-guitar-lights',
 		'photos' => array( 'lr-guitar-vocal', 'vr-singer', 'lr-violin', 'vr-keys-blue', 'lr-dara-harp', 'vr-strings', 'lr-congas-lamp', 'vr-drums', 'lr-vocal-close', 'vr-bass-green', 'lr-keys-bass', 'vr-cello' ),
-		'intro'  => 'Every release comes with a film. Live sessions at LOSTOSC and a full concert film.',
+		'intro'  => 'Every release comes with a film. Live sessions at LOSTOSC Studios and a full concert film.',
 		'aside'  => array( '<a href="' . esc_url( sk_links()['youtube']['url'] ) . '" target="_blank" rel="noopener">Subscribe on YouTube</a>' ),
 	)
 );
