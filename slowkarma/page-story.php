@@ -11,7 +11,7 @@ echo sk_page_hero( // phpcs:ignore
 	array(
 		'title'  => 'The Story',
 		'fill'   => 'lr-harmonica',
-		'photos' => array( 'l1-11', 'member-kyle', 'l1-39', 'member-dave', 'l1-43', 'member-cj', 'l1-70', 'member-jack', 'l1-75', 'member-jose', 'x-105', 'l1-54' ),
+		'photos' => array( 'l1-11', 'member-kyle', 'l1-39', 'set-table', 'l1-43', 'member-cj', 'l1-70', 'member-jack', 'l1-75', 'member-jose', 'x-105', 'l1-54' ),
 		'intro'  => 'Five musicians from Leith, a recording studio, and an extended family of collaborators.',
 		'aside'  => array( 'Formed 2024', 'Music Base, Leith', 'Home studio: LOSTOSC Studios' ),
 	)
