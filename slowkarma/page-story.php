@@ -115,15 +115,13 @@ echo sk_page_hero( // phpcs:ignore
 	</div>
 </section>
 
-<section class="section">
-	<div class="wrap split">
-		<div>
-			<h2 class="h-section">The extended family</h2>
-			<p class="prose">Around the five of us are some of the best musicians in Scotland. They come back season after season and shape what the band becomes. We like sharing a stage with artists we love, and helping other musicians get on. It's all love.</p>
-		</div>
-		<ul class="roster">
+<section class="section family" aria-labelledby="family-title">
+	<div class="wrap">
+		<h2 id="family-title" class="h-section">The extended family</h2>
+		<p class="prose family__intro">Around the five of us are some of the best musicians in Scotland. They come back season after season and shape what the band becomes. We like sharing a stage with artists we love, and helping other musicians get on.</p>
+		<ul class="family__list">
 			<?php foreach ( sk_family() as $sk_f ) : ?>
-				<li><span><?php echo sk_person( $sk_f[0] ); // phpcs:ignore ?></span><span><?php echo esc_html( $sk_f[1] ); ?></span></li>
+				<li><span class="family__name"><?php echo sk_person( $sk_f[0] ); // phpcs:ignore ?></span> <span class="family__role"><?php echo esc_html( $sk_f[1] ); ?></span></li>
 			<?php endforeach; ?>
 		</ul>
 	</div>

@@ -15,33 +15,26 @@ $sk_twin     = $sk_releases[0];
 	<h1 id="hero-title" class="knockout knockout--hero" style="<?php echo esc_attr( sk_fill_style( 'hero-fill', 2600 ) ); ?>" data-parallax-fill>Slow Karma</h1>
 	<div class="hero__foot wrap">
 		<p class="hero__creed">Jazz chops. Punk ethos. High production.</p>
-		<p class="hero__where"><a class="btn btn--solid btn--big" href="https://www.youtube.com/watch?v=-nSLUTwDvPc" target="_blank" rel="noopener"><?php echo sk_icon( 'play' ); // phpcs:ignore ?>Hear THE NEW now</a></p>
+		<p class="hero__where"><a class="btn btn--solid btn--big" href="#twin"><?php echo sk_icon( 'play' ); // phpcs:ignore ?>Hear THE NEW now</a></p>
 	</div>
 </section>
 
-<section class="feature" aria-labelledby="twin-title">
-	<div class="wrap feature__grid feature__grid--split">
-		<div>
+<section class="feature" id="twin" aria-labelledby="twin-title">
+	<div class="wrap feature__grid feature__grid--player">
+		<div class="feature__text">
 			<p class="kicker">Out now</p>
 			<h2 id="twin-title" class="feature__title">Twin</h2>
-		</div>
-		<div class="feature__text">
-			<p class="lede">The first release of Season Two. Breakbeats, UK garage, Miles and Bird, played live in one take at LOSTOSC Studios.</p>
 			<ul class="cta-row">
-				<li><a class="btn btn--solid" href="https://www.youtube.com/watch?v=-nSLUTwDvPc" target="_blank" rel="noopener"><?php echo sk_icon( 'youtube' ); // phpcs:ignore ?>Watch on YouTube</a></li>
 				<li><a class="btn" href="<?php echo esc_url( $sk_twin['spotify'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'spotify' ); // phpcs:ignore ?>Spotify</a></li>
-				<li><a class="btn" href="<?php echo esc_url( $sk_twin['bandcamp'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Bandcamp</a></li>
 				<li><a class="btn" href="<?php echo esc_url( sk_links()['apple']['url'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'apple' ); // phpcs:ignore ?>Apple Music</a></li>
+				<li><a class="btn" href="<?php echo esc_url( $sk_twin['bandcamp'] ); ?>" target="_blank" rel="noopener"><?php echo sk_icon( 'bandcamp' ); // phpcs:ignore ?>Bandcamp</a></li>
 			</ul>
+		</div>
+		<div class="feature__player">
+			<?php echo sk_youtube( '-nSLUTwDvPc', 'Twin, live at LOSTOSC Studios' ); // phpcs:ignore ?>
 		</div>
 	</div>
 </section>
-
-<figure class="bleed" aria-label="The band">
-	<div class="bleed__img" data-parallax>
-		<?php echo sk_img( 'band-wall', 'Slow Karma against a plaster wall, Season Two shoot', array( 'sizes' => '100vw' ) ); // phpcs:ignore ?>
-	</div>
-</figure>
 
 <section class="seasons" aria-labelledby="seasons-title">
 	<div class="wrap">
@@ -145,18 +138,6 @@ $sk_twin     = $sk_releases[0];
 		<div class="film-feature__media">
 			<?php echo sk_youtube( 'UXPGUexqhyo', 'Tell Them Slow Karma Sent You: Season One finale concert film' ); // phpcs:ignore ?>
 		</div>
-	</div>
-</section>
-
-<section class="family" aria-labelledby="family-title">
-	<div class="wrap">
-		<h2 id="family-title" class="h-section">The extended family</h2>
-		<ul class="family__list">
-			<?php foreach ( sk_family() as $sk_f ) : ?>
-				<li><span class="family__name"><?php echo sk_person( $sk_f[0] ); // phpcs:ignore ?></span> <span class="family__role"><?php echo esc_html( $sk_f[1] ); ?></span></li>
-			<?php endforeach; ?>
-		</ul>
-		<p class="family__love">It's all love.</p>
 	</div>
 </section>
 

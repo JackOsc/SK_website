@@ -2830,3 +2830,34 @@ body.menu-open .menu-toggle {
 		display: none;
 	}
 }
+
+/* ---------- v1.12: tighter homepage ---------- */
+
+/* Hero: no forced height, so the title sits just under the header
+   instead of leaving an empty band above it. */
+.hero {
+	min-height: 0;
+	padding-top: clamp(7rem, 5.5rem + 4vw, 9.5rem);
+}
+
+/* Twin: title and streaming links beside the YouTube player. */
+.feature__grid--player {
+	grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+	align-items: end;
+}
+
+.feature__grid--player .feature__title {
+	margin-bottom: 1.5rem;
+}
+
+@media (max-width: 899px) {
+	.feature__grid--player {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Extended family on the Story page (moved from the homepage). */
+.family__intro {
+	max-width: 40em;
+	margin-bottom: 2.5rem;
+}

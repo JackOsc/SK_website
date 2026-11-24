@@ -6,7 +6,7 @@ Custom WordPress theme for Slow Karma. The theme lives in `slowkarma/`.
 
 | Page | Template | What it does |
 | --- | --- | --- |
-| Home | `front-page.php` | Knockout hero, Twin, the Seasons, story teaser, releases, concert film, extended family, live |
+| Home | `front-page.php` | Knockout hero, Twin with YouTube player, the Seasons, story teaser, releases, concert film, live |
 | Story | `page-story.php` | Who the band are, the three pillars, timeline, core five, extended family, the Seasons |
 | Season One | `page-season-one.php` | Voodoo Rooms finale: film, live album, photos, singles, credits and setlist |
 | Season Two | `page-season-two.php` | Liquid Room: how it was made, Twin players, the release run, photos, credits, stage plot |
