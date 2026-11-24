@@ -132,7 +132,7 @@ echo sk_page_hero( // phpcs:ignore
 <section class="section section--paper">
 	<div class="wrap split split--center">
 		<blockquote class="quote">
-			<p>We never serve thin gruel. Everything is gourmet.</p>
+			<p>Never thin gruel<br>Always gourmet</p>
 		</blockquote>
 		<div class="prose">
 			<h2 class="h-sub">The Seasons</h2>

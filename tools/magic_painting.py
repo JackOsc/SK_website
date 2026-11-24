@@ -5,6 +5,7 @@ Needs numpy, scipy and Pillow. Writes into slowkarma/assets/img/:
   dynamite-live-1400/700.webp   the artwork with the moving pieces cut out
   magic-tip1/tip2/tongue.webp   the moving pieces (tail tip in two joints, tongue)
   magic-light.webp              mask of the linework allowed to glow
+  magic-skin.webp               mask of the snake's scales for the travelling glint
 Coordinates are in the 1400px artwork space. If a box or pivot changes,
 update the matching percentages in assets/css/main.css (px / 14 = %).
 """
@@ -109,5 +110,20 @@ light = A * np.clip(sky * (1 - snake_head) * (1 - fuse_zone) + flames + embers, 
 lm = Image.fromarray(np.clip(light * 255, 0, 255).astype(np.uint8)).resize((700, 700), Image.LANCZOS)
 rgba = Image.merge('RGBA', [Image.new('L', (700, 700), 255)] * 3 + [lm])
 rgba.save(OUT + 'magic-light.webp', lossless=True, method=6)
+
+# ---- snake skin mask: scales that catch a slow travelling glint ----
+skin_zone = np.zeros((W, W))
+for pts in [
+    # head and neck, down to the crate
+    [(605, 430), (640, 393), (700, 382), (765, 386), (815, 415), (826, 462), (800, 505), (760, 545), (748, 600), (746, 642), (700, 648), (656, 642), (652, 580), (668, 520), (700, 482), (742, 462), (758, 444), (728, 428), (690, 440), (650, 470), (612, 468)],
+    # left body, from the crate down behind the Maya bag
+    [(252, 690), (298, 648), (362, 638), (378, 660), (372, 702), (338, 716), (322, 760), (328, 820), (322, 852), (300, 855), (248, 855), (242, 800), (247, 730)],
+    # right-hand loop
+    [(1040, 640), (1080, 603), (1152, 603), (1202, 628), (1220, 690), (1207, 762), (1152, 797), (1080, 792), (1040, 772), (1040, 700)],
+]:
+    skin_zone = np.maximum(skin_zone, poly_mask(pts, 2))
+skin = A * skin_zone * (1 - erase_tip) * (1 - erase_tongue) * (1 - fuse_zone)
+sm = Image.fromarray(np.clip(skin * 255, 0, 255).astype(np.uint8)).resize((700, 700), Image.LANCZOS)
+Image.merge('RGBA', [Image.new('L', (700, 700), 255)] * 3 + [sm]).save(OUT + 'magic-skin.webp', lossless=True, method=6)
 
 print(json.dumps(layers))

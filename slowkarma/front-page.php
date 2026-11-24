@@ -97,7 +97,7 @@ $sk_twin     = $sk_releases[0];
 							<div class="magic__joint magic__joint--tongue" data-magic-tongue aria-hidden="true">
 								<?php echo sk_img( 'magic-tongue', '', array( 'sizes' => '5vw', 'class' => 'magic__bit magic__bit--tongue' ) ); // phpcs:ignore ?>
 							</div>
-							<canvas class="magic__fx" data-magic-fx data-light="<?php echo esc_url( sk_asset( 'img/magic-light.webp' ) ); ?>" aria-hidden="true"></canvas>
+							<canvas class="magic__fx" data-magic-fx data-light="<?php echo esc_url( sk_asset( 'img/magic-light.webp' ) ); ?>" data-skin="<?php echo esc_url( sk_asset( 'img/magic-skin.webp' ) ); ?>" aria-hidden="true"></canvas>
 						</div>
 						<span class="gilt__glare" aria-hidden="true"></span>
 					</div>

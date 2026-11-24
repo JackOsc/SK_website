@@ -144,7 +144,9 @@
 	/* The magic painting (homepage Dynamite artwork). Everything is drawn in
 	   the artwork's own 1400px space and scaled to fit. Scroll position
 	   drives the story (stars wake, fuses catch and burn down); scroll speed
-	   drives the snake (tail flick, tongue) and blows the incense smoke. */
+	   drives the snake (tail flick, tongue, light sliding over its scales)
+	   and blows the incense smoke. Kept low-key on purpose (v1.9): the
+	   movement is the point, the glow is just a hint. */
 	(function () {
 		var root = document.querySelector('[data-magic]');
 		if (!root || reduce.matches) return;
@@ -155,9 +157,14 @@
 		var tail = root.querySelector('[data-magic-tail]');
 		var tip = root.querySelector('[data-magic-tip]');
 		var tongue = root.querySelector('[data-magic-tongue]');
-		var light = new Image();
-		light.decoding = 'async';
-		light.src = cvs.getAttribute('data-light');
+		function load(src) {
+			var im = new Image();
+			im.decoding = 'async';
+			im.src = src;
+			return im;
+		}
+		var light = load(cvs.getAttribute('data-light'));
+		var skin = load(cvs.getAttribute('data-skin'));
 		var off = document.createElement('canvas');
 		var octx = off.getContext('2d');
 		var W = 0, S = 1;
@@ -246,6 +253,41 @@
 		];
 		var twinkle = [];
 		for (var si = 0; si < stars.length; si += 3) twinkle.push({ x: stars[si], y: stars[si + 1], s: stars[si + 2], ph: rnd(0, 6.28), sp: rnd(0.7, 1.6) });
+		/* The snake's body in the order it runs: neck, the loop on the right,
+		   then the left side down to the bag. Gaps are where it is hidden. */
+		var body = [
+			trace([[612, 440], [660, 400], [720, 388], [785, 405], [812, 445], [790, 488], [745, 520], [705, 560], [690, 610], [700, 640]]),
+			trace([[1045, 650], [1090, 612], [1160, 612], [1205, 660], [1200, 735], [1150, 785], [1080, 780], [1045, 740]]),
+			trace([[372, 665], [320, 655], [275, 690], [262, 750], [275, 810], [285, 850]])
+		];
+		var GAP = 140;
+		var bodyLen = body.reduce(function (n, b) { return n + b.len + GAP; }, 0);
+		var glint = 0, stir = 0;
+		function onBody(d) {
+			d = ((d % bodyLen) + bodyLen) % bodyLen;
+			for (var b = 0; b < body.length; b++) {
+				if (d < body[b].len) return pointAt(body[b], d);
+				d -= body[b].len + GAP;
+				if (d < 0) return null;
+			}
+			return null;
+		}
+		function masked(mask, paint, colour, alpha) {
+			octx.globalCompositeOperation = 'source-over';
+			octx.globalAlpha = 1;
+			octx.clearRect(0, 0, W, W);
+			paint();
+			octx.globalAlpha = 1;
+			octx.globalCompositeOperation = 'destination-in';
+			octx.drawImage(mask, 0, 0, W, W);
+			octx.globalCompositeOperation = 'source-in';
+			octx.fillStyle = colour;
+			octx.fillRect(0, 0, W, W);
+			ctx.globalCompositeOperation = 'lighter';
+			ctx.globalAlpha = alpha;
+			ctx.drawImage(off, 0, 0);
+			ctx.globalAlpha = 1;
+		}
 		var flames = [[683, 1132], [770, 1188], [667, 1222]];
 		var embers = [[1133, 914], [1193, 972], [1093, 1041]];
 
@@ -256,11 +298,11 @@
 		var running = false;
 
 		function burst(x, y) {
-			for (var i = 0; i < (lite ? 24 : 44); i++) {
-				var ang = rnd(0, 6.28), sp = rnd(120, 420);
-				sparks.push({ x: x, y: y, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 80, life: rnd(0.5, 1.1), age: 0, g: 160, gold: true });
+			for (var i = 0; i < (lite ? 10 : 18); i++) {
+				var ang = rnd(0, 6.28), sp = rnd(80, 260);
+				sparks.push({ x: x, y: y, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 60, life: rnd(0.4, 0.8), age: 0, g: 200, gold: true });
 			}
-			boost = 1;
+			boost = 0.5;
 		}
 
 		function step(now) {
@@ -339,14 +381,14 @@
 				var h = pointAt(f.path, d);
 				var fl = 0.75 + Math.random() * 0.5;
 				ctx.globalCompositeOperation = 'lighter';
-				ctx.globalAlpha = 0.55 * fl;
-				ctx.drawImage(puff, (h[0] - 34 * fl) * S, (h[1] - 34 * fl) * S, 68 * fl * S, 68 * fl * S);
+				ctx.globalAlpha = 0.28 * fl;
+				ctx.drawImage(puff, (h[0] - 20 * fl) * S, (h[1] - 20 * fl) * S, 40 * fl * S, 40 * fl * S);
 				ctx.globalAlpha = 1;
-				ctx.fillStyle = 'rgba(255, 236, 190, 0.95)';
+				ctx.fillStyle = 'rgba(255, 196, 120, 0.9)';
 				ctx.beginPath();
-				ctx.arc(h[0] * S, h[1] * S, 4.5 * fl * S, 0, 6.283);
+				ctx.arc(h[0] * S, h[1] * S, 3 * fl * S, 0, 6.283);
 				ctx.fill();
-				for (var n = 0; n < (lite ? 2 : 4); n++) {
+				for (var n = 0; n < (lite ? 1 : 2); n++) {
 					var ang = rnd(0, 6.28), sp = rnd(60, 220);
 					sparks.push({ x: h[0], y: h[1], vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 60, life: rnd(0.15, 0.45), age: 0, g: 380 });
 				}
@@ -354,7 +396,7 @@
 
 			/* Sparks */
 			ctx.globalCompositeOperation = 'lighter';
-			ctx.lineWidth = 1.6 * S;
+			ctx.lineWidth = 1.3 * S;
 			for (var i = sparks.length - 1; i >= 0; i--) {
 				var s = sparks[i];
 				s.age += dt;
@@ -368,7 +410,7 @@
 				s.x += s.vx * dt;
 				s.y += s.vy * dt;
 				var life = 1 - s.age / s.life;
-				ctx.strokeStyle = s.gold ? 'rgba(255, 214, 140,' + life.toFixed(2) + ')' : 'rgba(255, 190, 110,' + life.toFixed(2) + ')';
+				ctx.strokeStyle = 'rgba(255, 180, 100,' + (life * (s.gold ? 0.6 : 0.8)).toFixed(2) + ')';
 				ctx.beginPath();
 				ctx.moveTo(px * S, py * S);
 				ctx.lineTo(s.x * S, s.y * S);
@@ -395,77 +437,69 @@
 				m.x += m.vx * dt;
 				m.y += m.vy * dt;
 				var rad = 3 + q * 22;
-				ctx.globalAlpha = Math.min(1, m.age * 3) * (1 - q) * 0.2 * awake;
+				ctx.globalAlpha = Math.min(1, m.age * 3) * (1 - q) * 0.16 * awake;
 				ctx.drawImage(puff, (m.x - rad) * S, (m.y - rad) * S, rad * 2 * S, rad * 2 * S);
 			}
 			ctx.globalAlpha = 1;
 
-			/* Light that runs through the linework: stars, rays, flames, embers. */
+			/* Light through the linework: a slow ripple out along the rays,
+			   stars that brighten and dim, the flames and the incense ends. */
 			if (light.complete && light.naturalWidth) {
-				octx.globalCompositeOperation = 'source-over';
-				octx.clearRect(0, 0, W, W);
-				var wake = 0.25 + 0.75 * awake;
-				twinkle.forEach(function (st) {
-					var b = Math.pow(0.5 + 0.5 * Math.sin(t * st.sp * 2.2 + st.ph + p * 9), 3) * wake + boost * 0.8;
-					if (b < 0.03) return;
-					octx.globalAlpha = Math.min(1, b);
-					var z = st.s * 1.3;
-					octx.drawImage(puff, (st.x - z) * S, (st.y - z) * S, z * 2 * S, z * 2 * S);
-				});
-				var ring = ((t % 3.2) / 1.9) * 560 + 40;
-				if (ring < 600) {
-					var g = octx.createRadialGradient(705 * S, 500 * S, Math.max(0, ring - 70) * S, 705 * S, 500 * S, (ring + 30) * S);
-					g.addColorStop(0, 'rgba(255,255,255,0)');
-					g.addColorStop(0.75, 'rgba(255,255,255,' + (0.55 * awake + boost * 0.4).toFixed(2) + ')');
-					g.addColorStop(1, 'rgba(255,255,255,0)');
-					octx.globalAlpha = 1;
-					octx.fillStyle = g;
-					octx.fillRect(0, 0, W, 520 * S);
-				}
-				flames.forEach(function (f, n) {
-					octx.globalAlpha = (0.55 + 0.45 * Math.random()) * (0.3 + 0.7 * awake);
-					octx.drawImage(puff, (f[0] - 26) * S, (f[1] - 30) * S, 52 * S, 60 * S);
-				});
-				embers.forEach(function (e, n) {
-					octx.globalAlpha = (0.6 + 0.4 * Math.sin(t * 2 + n * 2)) * awake;
-					octx.drawImage(puff, (e[0] - 16) * S, (e[1] - 16) * S, 32 * S, 32 * S);
-				});
-				octx.globalAlpha = 1;
-				octx.globalCompositeOperation = 'destination-in';
-				octx.drawImage(light, 0, 0, W, W);
-				octx.globalCompositeOperation = 'source-in';
-				octx.fillStyle = 'rgb(255, 214, 150)';
-				octx.fillRect(0, 0, W, W);
-				ctx.globalCompositeOperation = 'lighter';
-				ctx.drawImage(off, 0, 0);
+				masked(light, function () {
+					var wake = 0.2 + 0.8 * awake;
+					twinkle.forEach(function (st) {
+						var b = Math.pow(0.5 + 0.5 * Math.sin(t * st.sp * 1.6 + st.ph + p * 6), 4) * wake + boost * 0.4;
+						if (b < 0.04) return;
+						octx.globalAlpha = Math.min(1, b);
+						var z = st.s * 1.1;
+						octx.drawImage(puff, (st.x - z) * S, (st.y - z) * S, z * 2 * S, z * 2 * S);
+					});
+					var ring = ((t % 6) / 3) * 560 + 40;
+					if (ring < 600) {
+						var g = octx.createRadialGradient(705 * S, 500 * S, Math.max(0, ring - 90) * S, 705 * S, 500 * S, (ring + 30) * S);
+						g.addColorStop(0, 'rgba(255,255,255,0)');
+						g.addColorStop(0.75, 'rgba(255,255,255,' + (0.5 * awake).toFixed(2) + ')');
+						g.addColorStop(1, 'rgba(255,255,255,0)');
+						octx.globalAlpha = 1;
+						octx.fillStyle = g;
+						octx.fillRect(0, 0, W, 520 * S);
+					}
+					flames.forEach(function (f) {
+						octx.globalAlpha = (0.6 + 0.4 * Math.random()) * awake;
+						octx.drawImage(puff, (f[0] - 26) * S, (f[1] - 30) * S, 52 * S, 60 * S);
+					});
+					embers.forEach(function (e, n) {
+						octx.globalAlpha = (0.6 + 0.4 * Math.sin(t * 2 + n * 2)) * awake;
+						octx.drawImage(puff, (e[0] - 16) * S, (e[1] - 16) * S, 32 * S, 32 * S);
+					});
+				}, 'rgb(240, 160, 90)', 0.45);
 			}
 
-			/* Soft halos: candle light, ember glow, the brightest stars flaring. */
+			/* A sheen sliding along the snake's scales. It idles slowly and
+			   runs faster, and catches more light, while the page moves. */
+			stir += (Math.min(1, Math.abs(vel) / 1400) - stir) * Math.min(1, dt * (Math.abs(vel) > 50 ? 4 : 1.2));
+			glint += dt * (90 + stir * 520);
+			if (skin.complete && skin.naturalWidth && awake > 0.02) {
+				masked(skin, function () {
+					[0, bodyLen / 2].forEach(function (o) {
+						var at = onBody(glint + o);
+						if (!at) return;
+						octx.globalAlpha = 1;
+						octx.drawImage(puff, (at[0] - 60) * S, (at[1] - 60) * S, 120 * S, 120 * S);
+					});
+				}, 'rgb(255, 196, 130)', (0.22 + 0.5 * stir) * awake);
+			}
+
+			/* Soft halos: candle light and the incense ends. */
 			ctx.globalCompositeOperation = 'lighter';
 			flames.forEach(function (f) {
-				var fl = 0.8 + 0.2 * Math.sin(t * 13 + f[0]) * Math.sin(t * 7.3 + f[1]) + Math.random() * 0.08;
-				ctx.globalAlpha = 0.28 * awake * fl;
-				ctx.drawImage(puff, (f[0] - 70 * fl) * S, (f[1] - 75 * fl) * S, 140 * fl * S, 150 * fl * S);
+				var fl = 0.8 + 0.2 * Math.sin(t * 11 + f[0]) * Math.sin(t * 6.3 + f[1]) + Math.random() * 0.06;
+				ctx.globalAlpha = 0.12 * awake * fl;
+				ctx.drawImage(puff, (f[0] - 55 * fl) * S, (f[1] - 60 * fl) * S, 110 * fl * S, 120 * fl * S);
 			});
 			embers.forEach(function (e, n) {
-				ctx.globalAlpha = (0.3 + 0.15 * Math.sin(t * 2 + n * 2)) * awake;
-				ctx.drawImage(puff, (e[0] - 14) * S, (e[1] - 14) * S, 28 * S, 28 * S);
-			});
-			ctx.lineWidth = 1.4 * S;
-			twinkle.forEach(function (st) {
-				var b = Math.pow(0.5 + 0.5 * Math.sin(t * st.sp * 2.2 + st.ph + p * 9), 8) * awake + boost * 0.6;
-				if (b < 0.15 || st.s < 30) return;
-				var z = st.s * (0.9 + b * 0.6);
-				ctx.globalAlpha = Math.min(1, b) * 0.5;
-				ctx.drawImage(puff, (st.x - z * 0.7) * S, (st.y - z * 0.7) * S, z * 1.4 * S, z * 1.4 * S);
-				ctx.globalAlpha = Math.min(1, b) * 0.8;
-				ctx.strokeStyle = 'rgba(255, 228, 180, 1)';
-				ctx.beginPath();
-				ctx.moveTo((st.x - z) * S, st.y * S);
-				ctx.lineTo((st.x + z) * S, st.y * S);
-				ctx.moveTo(st.x * S, (st.y - z) * S);
-				ctx.lineTo(st.x * S, (st.y + z) * S);
-				ctx.stroke();
+				ctx.globalAlpha = (0.18 + 0.1 * Math.sin(t * 2 + n * 2)) * awake;
+				ctx.drawImage(puff, (e[0] - 10) * S, (e[1] - 10) * S, 20 * S, 20 * S);
 			});
 			ctx.globalAlpha = 1;
 			ctx.globalCompositeOperation = 'source-over';
