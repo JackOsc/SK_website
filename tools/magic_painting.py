@@ -72,8 +72,28 @@ tongue = poly_mask([(558, 474), (574, 469), (597, 461), (612, 456), (624, 463), 
 erase_tongue = poly_mask([(558, 474), (574, 469), (597, 461), (606, 458), (610, 469), (602, 482), (598, 511), (555, 512)])
 PT = (615, 465)    # tongue root
 
+
+# ---- v1.10 pieces: each is cut out of the base and moved on its own ----
+yy0, xx0 = np.mgrid[0:W, 0:W]
+def disc(cx, cy, r, feather=1.0):
+    return ndi.gaussian_filter((((xx0 - cx) ** 2 + (yy0 - cy) ** 2) < r * r).astype(float), feather)
+
+PIECES = {
+    # alarm clock bell and its clapper; rattles about the middle of its base
+    'bell': (poly_mask([(571, 640), (571, 618), (590, 606), (604, 604), (606, 597), (624, 597), (628, 608), (640, 612), (644, 596), (652, 590), (660, 594), (652, 640)]), (610, 640)),
+    # the rocket on the right; shudders about the point where it sits in the crate
+    'rocket': (poly_mask([(893, 590), (1009, 449), (1024, 456), (1024, 602), (1005, 608), (1004, 693), (910, 693), (904, 612), (893, 600)]), (955, 692)),
+    # paper crane; rocks about its right wingtip, which rests on the dynamite
+    'crane': (poly_mask([(178, 1078), (300, 1098), (392, 1072), (424, 1064), (426, 1078), (399, 1098), (398, 1206), (382, 1218), (250, 1230), (176, 1100)]), (414, 1078)),
+    # candle flames; flicker from the wick
+    'flame1': (poly_mask([(669, 1108), (697, 1108), (698, 1149), (668, 1149)]), (683, 1150)),
+    'flame2': (poly_mask([(757, 1166), (784, 1166), (785, 1200), (756, 1200)]), (771, 1201)),
+}
+
 # ---- base ----
 base_a = A * (1 - erase_tip) * (1 - erase_tongue)
+for _m, _pv in PIECES.values():
+    base_a = base_a * (1 - _m)
 rgb = BG + base_a[..., None] * (ORANGE - BG)
 base = Image.fromarray(np.clip(rgb + 0.5, 0, 255).astype(np.uint8))
 base.save(OUT + 'dynamite-live-1400.webp', quality=86, method=6)
@@ -94,6 +114,14 @@ def save_layer(name, m, pivots):
 save_layer('tip1', seg1, [P1])
 save_layer('tip2', seg2, [P2])
 save_layer('tongue', tongue, [PT])
+for _n, (_m, _pv) in PIECES.items():
+    save_layer(_n, _m, [_pv])
+
+# CSS for every moving piece (paste into assets/css/main.css if anything changes)
+for _n, _l in layers.items():
+    x0, y0, x1, y1 = _l['box']
+    print('.story-teaser__img .magic__bit--%s { left: %.3f%%; top: %.3f%%; width: %.3f%%; }' % (_n, x0 / 14, y0 / 14, (x1 - x0) / 14))
+    print('.magic__joint--%s { transform-origin: %.3f%% %.3f%%; }' % (_n, _l['pivots'][0][0] / 14, _l['pivots'][0][1] / 14))
 
 # ---- light mask: linework that can glow (rays, stars, candle flames, incense embers) ----
 yy, xx = np.mgrid[0:W, 0:W]
@@ -126,4 +154,3 @@ skin = A * skin_zone * (1 - erase_tip) * (1 - erase_tongue) * (1 - fuse_zone)
 sm = Image.fromarray(np.clip(skin * 255, 0, 255).astype(np.uint8)).resize((700, 700), Image.LANCZOS)
 Image.merge('RGBA', [Image.new('L', (700, 700), 255)] * 3 + [sm]).save(OUT + 'magic-skin.webp', lossless=True, method=6)
 
-print(json.dumps(layers))

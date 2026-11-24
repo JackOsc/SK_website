@@ -85,7 +85,7 @@ $sk_twin     = $sk_releases[0];
 			<figure class="gilt" data-gilt>
 				<div class="gilt__frame">
 					<div class="gilt__mat">
-						<?php // The magic painting: the artwork with the snake's tail tip and tongue cut out as moving pieces, and a canvas on top for fuses, smoke, flames and stars (assets/js/main.js). ?>
+						<?php // The magic painting: the artwork with its moving pieces cut out (tail tip, tongue, clock bell, rocket, crane, candle flames), and a canvas on top for fuses, smoke, glow, stars and the pig's wink (assets/js/main.js). ?>
 						<div class="magic" data-magic>
 							<?php echo sk_img( 'dynamite-live', 'Slow Karma artwork drawn in gold: a crate of dynamite and fireworks, a snake, a horseshoe, incense and candles', array( 'sizes' => '(min-width: 900px) 38vw, 80vw', 'class' => 'gilt__art' ) ); // phpcs:ignore ?>
 							<div class="magic__joint magic__joint--tail" data-magic-tail aria-hidden="true">
@@ -97,6 +97,11 @@ $sk_twin     = $sk_releases[0];
 							<div class="magic__joint magic__joint--tongue" data-magic-tongue aria-hidden="true">
 								<?php echo sk_img( 'magic-tongue', '', array( 'sizes' => '5vw', 'class' => 'magic__bit magic__bit--tongue' ) ); // phpcs:ignore ?>
 							</div>
+							<?php foreach ( array( 'bell', 'rocket', 'crane', 'flame1', 'flame2' ) as $sk_piece ) : ?>
+								<div class="magic__joint magic__joint--<?php echo esc_attr( $sk_piece ); ?>" data-magic-piece="<?php echo esc_attr( $sk_piece ); ?>" aria-hidden="true">
+									<?php echo sk_img( 'magic-' . $sk_piece, '', array( 'sizes' => '10vw', 'class' => 'magic__bit magic__bit--' . $sk_piece ) ); // phpcs:ignore ?>
+								</div>
+							<?php endforeach; ?>
 							<canvas class="magic__fx" data-magic-fx data-light="<?php echo esc_url( sk_asset( 'img/magic-light.webp' ) ); ?>" data-skin="<?php echo esc_url( sk_asset( 'img/magic-skin.webp' ) ); ?>" aria-hidden="true"></canvas>
 						</div>
 						<span class="gilt__glare" aria-hidden="true"></span>

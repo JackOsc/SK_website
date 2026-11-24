@@ -2769,6 +2769,60 @@ body.menu-open .menu-toggle {
 	width: 5.5%;
 }
 
+/* v1.10 pieces. Pivots: bell on its base (610, 640), rocket where it sits
+   in the crate (955, 692), crane on the wingtip resting on the dynamite
+   (414, 1078), flames at the wick. Boxes and pivots are printed by
+   tools/magic_painting.py. */
+.magic__joint--bell {
+	transform-origin: 43.571% 45.714%;
+}
+
+.magic__joint--rocket {
+	transform-origin: 68.214% 49.429%;
+}
+
+.magic__joint--crane {
+	transform-origin: 29.571% 77%;
+}
+
+.magic__joint--flame1 {
+	transform-origin: 48.786% 82.143%;
+}
+
+.magic__joint--flame2 {
+	transform-origin: 55.071% 85.786%;
+}
+
+.story-teaser__img .magic__bit--bell {
+	left: 40.714%;
+	top: 42.357%;
+	width: 6.786%;
+}
+
+.story-teaser__img .magic__bit--rocket {
+	left: 63.5%;
+	top: 33.071%;
+	width: 9.786%;
+}
+
+.story-teaser__img .magic__bit--crane {
+	left: 13.214%;
+	top: 75.929%;
+	width: 17.571%;
+}
+
+.story-teaser__img .magic__bit--flame1 {
+	left: 47.429%;
+	top: 79.429%;
+	width: 2.786%;
+}
+
+.story-teaser__img .magic__bit--flame2 {
+	left: 54.214%;
+	top: 83.429%;
+	width: 2%;
+}
+
 .magic__fx {
 	position: absolute;
 	inset: 0;

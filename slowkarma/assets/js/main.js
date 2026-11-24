@@ -146,7 +146,9 @@
 	   drives the story (stars wake, fuses catch and burn down); scroll speed
 	   drives the snake (tail flick, tongue, light sliding over its scales)
 	   and blows the incense smoke. Kept low-key on purpose (v1.9): the
-	   movement is the point, the glow is just a hint. */
+	   movement is the point, the glow is just a hint. v1.10 adds more small
+	   movements: the clock bell, the rocket, the paper crane, the candle
+	   flames and the pig's wink. */
 	(function () {
 		var root = document.querySelector('[data-magic]');
 		if (!root || reduce.matches) return;
@@ -157,6 +159,13 @@
 		var tail = root.querySelector('[data-magic-tail]');
 		var tip = root.querySelector('[data-magic-tip]');
 		var tongue = root.querySelector('[data-magic-tongue]');
+		var piece = {};
+		root.querySelectorAll('[data-magic-piece]').forEach(function (el) {
+			piece[el.getAttribute('data-magic-piece')] = el;
+		});
+		function move(name, css) {
+			if (piece[name]) piece[name].style.transform = css;
+		}
 		function load(src) {
 			var im = new Image();
 			im.decoding = 'async';
@@ -295,6 +304,9 @@
 		var t = 0, last = 0, lastY = window.scrollY, vel = 0, boost = 0;
 		var a1 = 0, v1 = 0, a2 = 0, v2 = 0;
 		var lick = -1, nextLick = 3;
+		var ring = -1, nextRing = 4;
+		var wink = -1, nextWink = 6;
+		var EYE = [283, 989];
 		var running = false;
 
 		function burst(x, y) {
@@ -350,6 +362,52 @@
 				}
 			}
 
+			/* Small lives of their own, all kept to a few degrees. */
+			var lit = Math.max(smooth(fuses[0].from, fuses[0].to, p), smooth(fuses[1].from, fuses[1].to, p));
+
+			/* Alarm clock bell: a short rattle now and then, and when a fuse goes. */
+			nextRing -= dt;
+			if (ring < 0 && awake > 0.5 && nextRing <= 0) {
+				ring = 0;
+				nextRing = rnd(7, 12);
+			}
+			if (ring >= 0) {
+				ring += dt;
+				var rk = ring / 0.7;
+				if (rk >= 1) {
+					ring = -1;
+					move('bell', '');
+				} else {
+					var amp = 2.6 * Math.sqrt(1 - rk);
+					move('bell', 'rotate(' + (Math.sin(ring * 90) * amp).toFixed(2) + 'deg) translateY(' + (-Math.abs(Math.sin(ring * 45)) * 0.06).toFixed(3) + '%)');
+				}
+			}
+
+			/* Rocket: an idle sway, and a shudder that builds as the fuses burn, as if it might go. */
+			var shake = (0.15 + 0.85 * lit) * awake;
+			move('rocket', 'translateY(' + (-shake * 0.08 * (0.5 + 0.5 * Math.sin(t * 23))).toFixed(3) + '%) rotate(' + (Math.sin(t * 1.3) * 0.35 * awake + shake * 0.55 * Math.sin(t * 29 + Math.sin(t * 5) * 2)).toFixed(2) + 'deg)');
+
+			/* Paper crane: a slow rock on the wingtip that rests on the dynamite. */
+			move('crane', 'rotate(' + ((Math.sin(t * 0.75) * 0.9 + Math.sin(t * 0.31) * 0.4) * (0.4 + 0.6 * awake) + Math.max(-1, Math.min(1, vel * 0.0006))).toFixed(2) + 'deg)');
+
+			/* Candle flames: stretch and lean from the wick. */
+			['flame1', 'flame2'].forEach(function (n, i) {
+				var a = Math.sin(t * 7.1 + i * 2) * 0.6 + Math.sin(t * 13.7 + i) * 0.4;
+				var b = Math.sin(t * 5.3 + i * 3) * 0.5 + Math.sin(t * 17.9 + i * 5) * 0.5;
+				move(n, 'skewX(' + (a * 4 * awake).toFixed(2) + 'deg) scaleY(' + (1 + b * 0.07 * awake).toFixed(3) + ')');
+			});
+
+			/* The pig on the Maya packet winks now and then. */
+			nextWink -= dt;
+			if (wink < 0 && awake > 0.5 && nextWink <= 0) {
+				wink = 0;
+				nextWink = rnd(8, 14);
+			}
+			if (wink >= 0) {
+				wink += dt;
+				if (wink > 0.6) wink = -1;
+			}
+
 			ctx.setTransform(1, 0, 0, 1, 0, 0);
 			ctx.globalCompositeOperation = 'source-over';
 			ctx.clearRect(0, 0, W, W);
@@ -360,6 +418,7 @@
 				var b = smooth(f.from, f.to, p);
 				if (b >= 0.999 && !f.done) {
 					f.done = true;
+					ring = 0;
 					var end = f.path.pts[f.path.pts.length - 1];
 					burst(end[0], end[1]);
 				} else if (b < 0.9) {
@@ -420,7 +479,7 @@
 			/* Incense smoke, pushed sideways by the scroll. */
 			if (awake > 0.05 && smoke.length < (lite ? 50 : 90)) {
 				embers.forEach(function (e) {
-					if (Math.random() < dt * 9 * awake) smoke.push({ x: e[0] + rnd(-2, 2), y: e[1] - 4, vx: rnd(-3, 3), vy: rnd(-26, -16), age: 0, life: rnd(3.5, 5.5), seed: rnd(0, 6.28) });
+					if (Math.random() < dt * 10 * awake) smoke.push({ x: e[0] + rnd(-2, 2), y: e[1] - 4, vx: rnd(-3, 3), vy: rnd(-26, -16), age: 0, life: rnd(3.5, 5.5), seed: rnd(0, 6.28) });
 				});
 			}
 			ctx.globalCompositeOperation = 'source-over';
@@ -437,7 +496,7 @@
 				m.x += m.vx * dt;
 				m.y += m.vy * dt;
 				var rad = 3 + q * 22;
-				ctx.globalAlpha = Math.min(1, m.age * 3) * (1 - q) * 0.16 * awake;
+				ctx.globalAlpha = Math.min(1, m.age * 3) * (1 - q) * 0.18 * awake;
 				ctx.drawImage(puff, (m.x - rad) * S, (m.y - rad) * S, rad * 2 * S, rad * 2 * S);
 			}
 			ctx.globalAlpha = 1;
@@ -501,8 +560,48 @@
 				ctx.globalAlpha = (0.18 + 0.1 * Math.sin(t * 2 + n * 2)) * awake;
 				ctx.drawImage(puff, (e[0] - 10) * S, (e[1] - 10) * S, 20 * S, 20 * S);
 			});
+
+			/* Star glints: a small, faint cross of light on one star at a time. */
+			ctx.lineWidth = 1.1 * S;
+			ctx.strokeStyle = 'rgb(255, 205, 150)';
+			twinkle.forEach(function (st) {
+				if (st.s < 30) return;
+				var b = Math.pow(0.5 + 0.5 * Math.sin(t * st.sp * 1.6 + st.ph + p * 6), 12) * awake;
+				if (b < 0.05) return;
+				var z = st.s * (0.45 + 0.35 * b);
+				ctx.globalAlpha = b * 0.3;
+				ctx.drawImage(puff, (st.x - z * 0.6) * S, (st.y - z * 0.6) * S, z * 1.2 * S, z * 1.2 * S);
+				ctx.globalAlpha = b * 0.45;
+				ctx.beginPath();
+				ctx.moveTo((st.x - z) * S, st.y * S);
+				ctx.lineTo((st.x + z) * S, st.y * S);
+				ctx.moveTo(st.x * S, (st.y - z) * S);
+				ctx.lineTo(st.x * S, (st.y + z) * S);
+				ctx.stroke();
+			});
 			ctx.globalAlpha = 1;
 			ctx.globalCompositeOperation = 'source-over';
+
+			/* Wink: the lid comes down over the pig's eye and back up. */
+			if (wink >= 0) {
+				var shut = Math.min(1, Math.sin(Math.PI * Math.min(1, wink / 0.6)) * 1.8);
+				ctx.fillStyle = '#0a0a0a';
+				ctx.beginPath();
+				ctx.ellipse(EYE[0] * S, EYE[1] * S, 6.5 * S, 7.5 * S, 0, 0, 6.283);
+				ctx.fill();
+				ctx.fillStyle = ctx.strokeStyle = 'rgb(221, 129, 66)';
+				if (shut < 0.75) {
+					ctx.beginPath();
+					ctx.ellipse(EYE[0] * S, (EYE[1] + 2.5 * shut) * S, 4.5 * S, Math.max(0.5, 5.5 * (1 - shut)) * S, 0, 0, 6.283);
+					ctx.fill();
+				} else {
+					ctx.lineWidth = 2.6 * S;
+					ctx.beginPath();
+					ctx.moveTo((EYE[0] - 5.5) * S, (EYE[1] + 1) * S);
+					ctx.quadraticCurveTo(EYE[0] * S, (EYE[1] + 5) * S, (EYE[0] + 5.5) * S, (EYE[1] + 1) * S);
+					ctx.stroke();
+				}
+			}
 		}
 
 		function start() {
