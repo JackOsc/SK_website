@@ -147,7 +147,7 @@
 	   drives the snake (tail flick, tongue, light sliding over its scales)
 	   and blows the incense smoke. Kept low-key on purpose (v1.9): the
 	   movement is the point, the glow is just a hint. v1.10 adds more small
-	   movements: the clock bell, the rocket, the paper crane, the candle
+	   movements: the clock bell, the paper crane, the candle
 	   flames and the pig's wink. */
 	(function () {
 		var root = document.querySelector('[data-magic]');
@@ -363,7 +363,6 @@
 			}
 
 			/* Small lives of their own, all kept to a few degrees. */
-			var lit = Math.max(smooth(fuses[0].from, fuses[0].to, p), smooth(fuses[1].from, fuses[1].to, p));
 
 			/* Alarm clock bell: a short rattle now and then, and when a fuse goes. */
 			nextRing -= dt;
@@ -382,10 +381,6 @@
 					move('bell', 'rotate(' + (Math.sin(ring * 90) * amp).toFixed(2) + 'deg) translateY(' + (-Math.abs(Math.sin(ring * 45)) * 0.06).toFixed(3) + '%)');
 				}
 			}
-
-			/* Rocket: an idle sway, and a shudder that builds as the fuses burn, as if it might go. */
-			var shake = (0.15 + 0.85 * lit) * awake;
-			move('rocket', 'translateY(' + (-shake * 0.08 * (0.5 + 0.5 * Math.sin(t * 23))).toFixed(3) + '%) rotate(' + (Math.sin(t * 1.3) * 0.35 * awake + shake * 0.55 * Math.sin(t * 29 + Math.sin(t * 5) * 2)).toFixed(2) + 'deg)');
 
 			/* Paper crane: a slow rock on the wingtip that rests on the dynamite. */
 			move('crane', 'rotate(' + ((Math.sin(t * 0.75) * 0.9 + Math.sin(t * 0.31) * 0.4) * (0.4 + 0.6 * awake) + Math.max(-1, Math.min(1, vel * 0.0006))).toFixed(2) + 'deg)');

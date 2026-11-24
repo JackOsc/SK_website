@@ -2769,16 +2769,12 @@ body.menu-open .menu-toggle {
 	width: 5.5%;
 }
 
-/* v1.10 pieces. Pivots: bell on its base (610, 640), rocket where it sits
-   in the crate (955, 692), crane on the wingtip resting on the dynamite
-   (414, 1078), flames at the wick. Boxes and pivots are printed by
+/* Moving pieces added in v1.10 (the rocket was dropped in v1.11).
+   Pivots: bell on its base (610, 640), crane on the wingtip resting on
+   the dynamite (414, 1078), flames at the wick. Boxes and pivots are printed by
    tools/magic_painting.py. */
 .magic__joint--bell {
 	transform-origin: 43.571% 45.714%;
-}
-
-.magic__joint--rocket {
-	transform-origin: 68.214% 49.429%;
 }
 
 .magic__joint--crane {
@@ -2797,12 +2793,6 @@ body.menu-open .menu-toggle {
 	left: 40.714%;
 	top: 42.357%;
 	width: 6.786%;
-}
-
-.story-teaser__img .magic__bit--rocket {
-	left: 63.5%;
-	top: 33.071%;
-	width: 9.786%;
 }
 
 .story-teaser__img .magic__bit--crane {

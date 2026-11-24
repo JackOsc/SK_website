@@ -81,8 +81,6 @@ def disc(cx, cy, r, feather=1.0):
 PIECES = {
     # alarm clock bell and its clapper; rattles about the middle of its base
     'bell': (poly_mask([(571, 640), (571, 618), (590, 606), (604, 604), (606, 597), (624, 597), (628, 608), (640, 612), (644, 596), (652, 590), (660, 594), (652, 640)]), (610, 640)),
-    # the rocket on the right; shudders about the point where it sits in the crate
-    'rocket': (poly_mask([(893, 590), (1009, 449), (1024, 456), (1024, 602), (1005, 608), (1004, 693), (910, 693), (904, 612), (893, 600)]), (955, 692)),
     # paper crane; rocks about its right wingtip, which rests on the dynamite
     'crane': (poly_mask([(178, 1078), (300, 1098), (392, 1072), (424, 1064), (426, 1078), (399, 1098), (398, 1206), (382, 1218), (250, 1230), (176, 1100)]), (414, 1078)),
     # candle flames; flicker from the wick
