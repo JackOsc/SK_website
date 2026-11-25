@@ -340,11 +340,14 @@ function sk_releases() {
  * YouTube videos, grouped. id => title, length.
  */
 function sk_videos() {
+	// Each video: YouTube ID, title, length, note, and (optional) the date it
+	// went up on YouTube as YYYY-MM-DD. Videos with a date are described to
+	// Google on /videos/ so they can show as video results.
 	return array(
 		'season-two'  => array(
 			'title'  => 'Season Two',
 			'videos' => array(
-				array( '-nSLUTwDvPc', 'Twin', '4:26', 'Live in one take at LOSTOSC Studios.' ),
+				array( '-nSLUTwDvPc', 'Twin', '4:26', 'Live in one take at LOSTOSC Studios.', '2026-11-17' ),
 				array( 'v9_36MHTrCI', 'Vogelen', '4:09', '' ),
 			),
 		),
@@ -441,33 +444,46 @@ function sk_finales() {
 function sk_page_meta() {
 	return array(
 		''           => array(
-			'title' => 'Slow Karma | Jazz chops, punk ethos, high production',
+			'title' => 'Slow Karma | Edinburgh band. Jazz chops, punk ethos, high production',
 			'desc'  => 'Edinburgh band Slow Karma and their extended family. Season Two is out now, starting with Twin.',
 			'image' => 'og-default.jpg',
+			'alt'   => 'Slow Karma, photographed in Leith',
 		),
 		'story'      => array(
 			'title' => 'Story',
 			'desc'  => 'Five musicians from Leith, a studio, and an extended family of collaborators. How Slow Karma started and how the Seasons work.',
+			'image' => 'og-story.jpg',
+			'alt'   => 'Slow Karma taking a bow on stage at the Liquid Room',
 		),
 		'season-one' => array(
 			'title' => 'Season One: Tell Them Slow Karma Sent You',
 			'desc'  => 'Slow Karma\'s first season: ten singles, then a sold-out Voodoo Rooms with 14 musicians on stage. Watch the full concert film.',
+			'image' => 'og-season-one.jpg',
+			'alt'   => 'Season One artwork: Tell Them Slow Karma Sent You',
 		),
 		'season-two' => array(
 			'title' => 'Season Two: The Liquid Room',
 			'desc'  => 'Slow Karma booked the Liquid Room a year out, wrote a new set and filmed it. Twin is the first studio release.',
+			'image' => 'og-season-two.jpg',
+			'alt'   => 'Season Two poster: Slow Karma at the Liquid Room, 21 March 2026',
 		),
 		'videos'     => array(
 			'title' => 'Videos',
 			'desc'  => 'Twin, the Season One concert film from the Voodoo Rooms, and every Slow Karma single and live session.',
+			'image' => 'og-videos.jpg',
+			'alt'   => 'Slow Karma playing live at the Liquid Room',
 		),
 		'music'      => array(
 			'title' => 'Music',
 			'desc'  => 'Every Slow Karma release, from Still Here with Dara Dubh to Twin. On Bandcamp, Spotify, Apple Music and Tidal.',
+			'image' => 'og-music.jpg',
+			'alt'   => 'Slow Karma release covers',
 		),
 		'press'      => array(
-			'title' => 'Press kit',
-			'desc'  => 'Slow Karma press kit: bio, live and booking info, photos, logos, stage plot and contact.',
+			'title' => 'Press kit (EPK)',
+			'desc'  => 'Slow Karma press kit (EPK): bio, live and booking info, photos, logos, stage plot and contact.',
+			'image' => 'og-press.jpg',
+			'alt'   => 'Slow Karma press photo',
 		),
 	);
 }

@@ -25,7 +25,7 @@ $sk_dl      = array(
 		<div class="epk-top__grid">
 			<div class="epk-top__pitch">
 				<p class="kicker">Press kit. Booking now for spring and summer 2027</p>
-				<h1 id="epk-title" class="knockout epk-top__title" style="<?php echo esc_attr( sk_fill_style( 'lr-crowd' ) ); ?>" data-parallax-fill>Slow Karma</h1>
+				<h1 id="epk-title" class="knockout epk-top__title" style="<?php echo esc_attr( sk_fill_style( 'lr-crowd' ) ); ?>" data-parallax-fill>Slow Karma<span class="screen-reader-text"> press kit (EPK)</span></h1>
 				<p class="epk-top__creed">Jazz chops. Punk ethos. High production.</p>
 				<p class="lede">A five-piece from Leith and an extended family of Scotland's best musicians, running from spiritual jazz to UK dancefloors. Every show is improvised within an architecture, so no two are the same.</p>
 				<ul class="epk-proof">

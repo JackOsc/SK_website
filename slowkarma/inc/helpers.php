@@ -130,7 +130,13 @@ function sk_fill_style( $slug, $want = 1400 ) {
 	if ( file_exists( get_theme_file_path( 'assets/img/' . $slug . '-ko.webp' ) ) ) {
 		return '--fill:url(' . esc_url( sk_asset( 'img/' . $slug . '-ko.webp' ) ) . ')';
 	}
-	return '--fill:url(' . esc_url( sk_img_url( $slug, $want ) ) . ')';
+	$style = '--fill:url(' . esc_url( sk_img_url( $slug, $want ) ) . ')';
+	// Phones get a smaller file when one exists (see .knockout in main.css).
+	$small = sk_img_url( $slug, 1400 );
+	if ( $small && $small !== sk_img_url( $slug, $want ) ) {
+		$style .= ';--fill-sm:url(' . esc_url( $small ) . ')';
+	}
+	return $style;
 }
 
 /**

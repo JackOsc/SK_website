@@ -195,6 +195,12 @@ ol {
 	filter: saturate(1.12) contrast(1.05);
 }
 
+@media (max-width: 900px) {
+	.knockout {
+		background-image: var(--fill-sm, var(--fill));
+	}
+}
+
 @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
 	.knockout {
 		background: none;
