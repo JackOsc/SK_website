@@ -27,7 +27,13 @@ $sk_dl      = array(
 				<p class="kicker">Press kit. Booking now for spring and summer 2027</p>
 				<h1 id="epk-title" class="knockout epk-top__title" style="<?php echo esc_attr( sk_fill_style( 'lr-crowd' ) ); ?>" data-parallax-fill>Slow Karma</h1>
 				<p class="epk-top__creed">Jazz chops. Punk ethos. High production.</p>
-				<p class="lede">A five-piece from Leith and an extended family of Scotland's best musicians, running from spiritual jazz to UK dancefloors. We wrote an all-new set for the Liquid Room and packed it. Every show is improvised within an architecture, so no two are the same.</p>
+				<p class="lede">A five-piece from Leith and an extended family of Scotland's best musicians, running from spiritual jazz to UK dancefloors. Every show is improvised within an architecture, so no two are the same.</p>
+				<ul class="epk-proof">
+					<li>Packed the 700-cap Liquid Room with an all-new set</li>
+					<li>Sold out the Voodoo Rooms and The Jazz Bar</li>
+					<li>Kelburn Garden Party, Hidden Door, support for Knats</li>
+					<li>Played by Soweto Kinch on BBC Radio 3</li>
+				</ul>
 				<p class="epk-top__ffo"><span>For fans of</span> Snarky Puppy, Yussef Dayes, corto.alto</p>
 				<ul class="cta-row">
 					<li><a class="btn btn--solid btn--big" href="mailto:<?php echo esc_attr( $sk_contact['email'] ); ?>?subject=<?php echo rawurlencode( 'Booking Slow Karma 2027' ); ?>"><?php echo sk_icon( 'mail' ); // phpcs:ignore ?>Book us</a></li>
@@ -38,6 +44,10 @@ $sk_dl      = array(
 			<div class="epk-top__clip">
 				<?php echo sk_youtube( '-nSLUTwDvPc', 'Slow Karma, Twin', 'player--feature' ); // phpcs:ignore ?>
 				<p class="epk-top__caption"><strong>Twin</strong>, the new single, played live in one take at LOSTOSC Studios. 4:26</p>
+				<blockquote class="epk-top__quote">
+					<p>Slow Karma's bold vision, high energy and prolific output have set them apart.</p>
+					<footer><a href="https://www.theskinny.co.uk/music/interviews/spotlight-on-slow-karma" target="_blank" rel="noopener">The Skinny, July 2025</a></footer>
+				</blockquote>
 			</div>
 		</div>
 
@@ -59,13 +69,24 @@ $sk_dl      = array(
 	</div>
 </header>
 
+<?php
+// Edinburgh Jazz and Blues Festival, Mardi Gras 2026. Shows once assets/img/ejbf-mardi-gras-*.webp exists.
+$sk_ejbf = sk_img( 'ejbf-mardi-gras', 'Slow Karma playing the Mardi Gras at Edinburgh Jazz and Blues Festival, 2026', array( 'sizes' => '100vw' ) );
+if ( $sk_ejbf ) :
+	?>
+	<figure class="epk-photo">
+		<?php echo $sk_ejbf; // phpcs:ignore ?>
+		<figcaption>Edinburgh Jazz and Blues Festival, Mardi Gras, 2026</figcaption>
+	</figure>
+<?php endif; ?>
+
 <section class="section section--tight" aria-label="Key facts">
 	<div class="wrap">
 		<div class="facts">
 			<div class="fact"><span class="fact__big">2024</span>Formed in Leith, Edinburgh.</div>
 			<div class="fact"><span class="fact__big">50k+</span>Streams in our first year.</div>
 			<div class="fact"><span class="fact__big">Radio 3</span>Played by Soweto Kinch on 'Round Midnight, BBC Radio 3, plus BBC Radio Scotland, BBC Introducing and Amazing Radio.</div>
-			<div class="fact"><span class="fact__big"><?php echo (int) count( sk_family() ); ?></span>Guest musicians in the extended family so far.</div>
+			<div class="fact"><span class="fact__big"><?php echo (int) count( sk_family() ); ?></span>Musicians in the extended family so far.</div>
 		</div>
 	</div>
 </section>
@@ -107,7 +128,7 @@ $sk_dl      = array(
 	</div>
 </section>
 
-<section class="section" id="bio" aria-labelledby="bio-title">
+<section class="section section--alt" id="bio" aria-labelledby="bio-title">
 	<div class="wrap bios">
 		<div>
 			<h2 id="bio-title" class="h-section">Bio</h2>
@@ -126,16 +147,7 @@ $sk_dl      = array(
 	</div>
 </section>
 
-<section class="section section--paper" aria-label="Press">
-	<div class="wrap">
-		<blockquote class="quote quote--solo">
-			<p>Slow Karma's bold vision, high energy and prolific output have set them apart.</p>
-			<footer><a href="https://www.theskinny.co.uk/music/interviews/spotlight-on-slow-karma" target="_blank" rel="noopener">The Skinny, Spotlight On... Slow Karma, July 2025. Read the piece</a></footer>
-		</blockquote>
-	</div>
-</section>
-
-<section class="section section--alt" aria-labelledby="lineup-title">
+<section class="section" aria-labelledby="lineup-title">
 	<div class="wrap">
 		<h2 id="lineup-title" class="h-section">Line-up</h2>
 		<ul class="members">
@@ -151,7 +163,7 @@ $sk_dl      = array(
 	</div>
 </section>
 
-<section class="section" id="downloads" aria-labelledby="downloads-title">
+<section class="section section--alt" id="downloads" aria-labelledby="downloads-title">
 	<div class="wrap">
 		<div class="section-head">
 			<h2 id="downloads-title" class="h-section">Photos, logos and artwork</h2>
@@ -173,7 +185,7 @@ $sk_dl      = array(
 	</div>
 </section>
 
-<section class="section section--alt" id="contact" aria-labelledby="contact-title">
+<section class="section" id="contact" aria-labelledby="contact-title">
 	<div class="wrap split split--center">
 		<div class="contact-block">
 			<h2 id="contact-title" class="h-section">Contact</h2>

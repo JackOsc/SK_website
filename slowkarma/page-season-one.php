@@ -64,7 +64,19 @@ echo sk_page_hero( // phpcs:ignore
 	</div>
 </section>
 
-<section class="section" aria-labelledby="singles-title">
+<section class="section" aria-labelledby="first-five-title">
+	<div class="wrap split split--center">
+		<?php echo sk_gilt_portrait( 'member-jmf', 'Jack McKay Fletcher, smiling, at a candlelit table', 'Jack McKay Fletcher, percussion' ); // phpcs:ignore ?>
+		<div class="prose">
+			<h2 id="first-five-title" class="h-section">The first five</h2>
+			<p class="lede">Season One was the first line-up: Jack Elliot, Kyle Grieve, David Lloyd, Callum Stevenson and Jack McKay Fletcher.</p>
+			<p>JMF was our percussionist, and the beating heart and smile of Slow Karma.</p>
+			<p>The music went all over the place, in a good way. Every single took its own twists and turns, often ones we didn't see coming.</p>
+		</div>
+	</div>
+</section>
+
+<section class="section section--alt" aria-labelledby="singles-title">
 	<div class="wrap">
 		<div class="section-head">
 			<h2 id="singles-title" class="h-section">The singles</h2>

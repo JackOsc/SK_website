@@ -104,6 +104,7 @@ function sk_members_s1() {
  */
 function sk_family() {
 	return array(
+		array( 'Jack McKay Fletcher', 'Percussion' ),
 		array( 'Dara Dubh', 'Harp' ),
 		array( 'Sithu Aye', 'Guitar' ),
 		array( 'Jurnalist', 'Vocals' ),

@@ -407,3 +407,20 @@ function sk_person( $name ) {
 	}
 	return sprintf( '<a class="person" href="%1$s" target="_blank" rel="noopener">%2$s</a>', esc_url( $links[ $name ] ), esc_html( $name ) );
 }
+
+/**
+ * A portrait hung in the gilt frame (the same frame as the Dynamite
+ * artwork on the homepage). It tilts and catches the light on scroll.
+ *
+ * @param string $slug    Image slug in assets/img.
+ * @param string $alt     Alt text.
+ * @param string $caption Small plate under the frame.
+ */
+function sk_gilt_portrait( $slug, $alt, $caption = '' ) {
+	$img = sk_img( $slug, $alt, array( 'sizes' => '(min-width: 900px) 30vw, 70vw', 'class' => 'gilt__art' ) );
+	if ( ! $img ) {
+		return '';
+	}
+	$plate = $caption ? '<figcaption class="gilt__plate">' . esc_html( $caption ) . '</figcaption>' : '';
+	return '<div class="gilt-hang"><figure class="gilt gilt--portrait" data-gilt><div class="gilt__frame"><div class="gilt__mat">' . $img . '<span class="gilt__glare" aria-hidden="true"></span></div></div>' . $plate . '</figure></div>';
+}
