@@ -410,20 +410,19 @@ function sk_person( $name ) {
 }
 
 /**
- * A portrait hung in the gilt frame (the same frame as the Dynamite
- * artwork on the homepage). It tilts and catches the light on scroll.
+ * A plain portrait with a small caption.
  *
  * @param string $slug    Image slug in assets/img.
  * @param string $alt     Alt text.
- * @param string $caption Small plate under the frame.
+ * @param string $caption Caption under the photo.
  */
-function sk_gilt_portrait( $slug, $alt, $caption = '' ) {
-	$img = sk_img( $slug, $alt, array( 'sizes' => '(min-width: 900px) 30vw, 70vw', 'class' => 'gilt__art' ) );
+function sk_portrait( $slug, $alt, $caption = '' ) {
+	$img = sk_img( $slug, $alt, array( 'sizes' => '(min-width: 900px) 30vw, 80vw' ) );
 	if ( ! $img ) {
 		return '';
 	}
-	$plate = $caption ? '<figcaption class="gilt__plate">' . esc_html( $caption ) . '</figcaption>' : '';
-	return '<div class="gilt-hang"><figure class="gilt gilt--portrait" data-gilt><div class="gilt__frame"><div class="gilt__mat">' . $img . '<span class="gilt__glare" aria-hidden="true"></span></div></div>' . $plate . '</figure></div>';
+	$cap = $caption ? '<figcaption>' . esc_html( $caption ) . '</figcaption>' : '';
+	return '<figure class="portrait">' . $img . $cap . '</figure>';
 }
 
 /**
@@ -434,11 +433,11 @@ function sk_gilt_portrait( $slug, $alt, $caption = '' ) {
 function sk_whatsapp_join( $class = '' ) {
 	$wa = sk_whatsapp();
 	return sprintf(
-		'<div class="wa-join %1$s"><p class="wa-join__line"><strong>%2$s.</strong> %3$s</p><a class="btn" href="%4$s" target="_blank" rel="noopener">%5$sJoin %2$s</a></div>',
+		'<div class="wa-join %1$s"><p class="wa-join__line">%2$s</p><a class="btn" href="%3$s" target="_blank" rel="noopener">%4$s%5$s</a></div>',
 		esc_attr( $class ),
-		esc_html( $wa['name'] ),
 		esc_html( $wa['line'] ),
 		esc_url( $wa['url'] ),
-		sk_icon( 'whatsapp' )
+		sk_icon( 'whatsapp' ),
+		esc_html( $wa['button'] )
 	);
 }

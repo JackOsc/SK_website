@@ -62,7 +62,7 @@ echo sk_page_hero( // phpcs:ignore
 			<p class="lede">After the Voodoo Rooms, Jack McKay Fletcher left the band and Jose Rojas joined on percussion, bringing a whole new energy and a deep rhythmic sensibility.</p>
 			<p>That's part of the idea of the Seasons. Between one set of material and the next, we leave room for radical change. Season One took lots of unexpected twists and turns. The Season Two songs hang together: the lyrics share their themes, and the music has an intensity and a certainty of step that's new for us.</p>
 		</div>
-		<?php echo sk_gilt_portrait( 'member-jose', 'Jose Rojas with a shaker, behind the congas', 'Jose Rojas, percussion' ); // phpcs:ignore ?>
+		<?php echo sk_portrait( 'member-jose', 'Jose Rojas with a shaker, behind the congas', 'Jose Rojas' ); // phpcs:ignore ?>
 	</div>
 	<div class="wrap split split--center" style="margin-top:clamp(1.5rem, 1rem + 2vw, 3rem)">
 		<div class="prose">

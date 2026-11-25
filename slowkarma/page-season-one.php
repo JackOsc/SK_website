@@ -66,7 +66,7 @@ echo sk_page_hero( // phpcs:ignore
 
 <section class="section" aria-labelledby="first-five-title">
 	<div class="wrap split split--center">
-		<?php echo sk_gilt_portrait( 'member-jmf', 'Jack McKay Fletcher, smiling, at a candlelit table', 'Jack McKay Fletcher, percussion' ); // phpcs:ignore ?>
+		<?php echo sk_portrait( 'member-jmf', 'Jack McKay Fletcher, smiling, at a candlelit table', 'Jack McKay Fletcher' ); // phpcs:ignore ?>
 		<div class="prose">
 			<h2 id="first-five-title" class="h-section">The first five</h2>
 			<p class="lede">Season One was the first line-up: Jack Elliot, Kyle Grieve, David Lloyd, Callum Stevenson and Jack McKay Fletcher.</p>
