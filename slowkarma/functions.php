@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SK_VERSION', '1.17.0' );
+define( 'SK_VERSION', '1.18.0' );
 
 require get_template_directory() . '/inc/data.php';
 require get_template_directory() . '/inc/helpers.php';
@@ -141,6 +141,7 @@ function sk_nav_items() {
 		'videos'     => 'Videos',
 		'music'      => 'Music',
 		'press'      => 'Press kit',
+		'https://slowkarma.bandcamp.com/merch' => 'Merch',
 	);
 }
 
@@ -163,6 +164,10 @@ function sk_nav( $class = 'nav__list' ) {
 	}
 	echo '<ul class="' . esc_attr( $class ) . '">';
 	foreach ( sk_nav_items() as $slug => $label ) {
+		if ( 0 === strpos( $slug, 'http' ) ) {
+			printf( '<li><a href="%1$s" target="_blank" rel="noopener">%2$s</a></li>', esc_url( $slug ), esc_html( $label ) );
+			continue;
+		}
 		$current = sk_is( $slug ) ? ' aria-current="page"' : '';
 		printf( '<li><a href="%1$s"%2$s>%3$s</a></li>', esc_url( sk_page_url( $slug ) ), $current, esc_html( $label ) ); // phpcs:ignore WordPress.Security.EscapeOutput
 	}
