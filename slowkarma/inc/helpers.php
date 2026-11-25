@@ -223,6 +223,7 @@ function sk_icon( $name ) {
 		'instagram' => '<rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor"/>',
 		'mail'      => '<rect x="2" y="4.5" width="20" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/>',
 		'play'      => '<path d="M7 4.5 19.5 12 7 19.5Z" fill="currentColor"/>',
+		'whatsapp'  => '<path d="M3.5 20.5 4.8 16A8.8 8.8 0 1 1 8 19.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.2c.3-.5.6-.5.9-.5h.4c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.4c0 .3 0 .6-.5.9-.5.4-1.4.6-2.3.3a8.2 8.2 0 0 1-5.4-5.4c-.3-.9-.1-1.8.3-2.3Z" fill="currentColor"/>',
 		'download'  => '<path d="M12 3v12m-5-5 5 5 5-5M4 20h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
 	);
 	if ( ! isset( $icons[ $name ] ) ) {
@@ -423,4 +424,21 @@ function sk_gilt_portrait( $slug, $alt, $caption = '' ) {
 	}
 	$plate = $caption ? '<figcaption class="gilt__plate">' . esc_html( $caption ) . '</figcaption>' : '';
 	return '<div class="gilt-hang"><figure class="gilt gilt--portrait" data-gilt><div class="gilt__frame"><div class="gilt__mat">' . $img . '<span class="gilt__glare" aria-hidden="true"></span></div></div>' . $plate . '</figure></div>';
+}
+
+/**
+ * Join the WhatsApp group: a short line and a button.
+ *
+ * @param string $class Extra class.
+ */
+function sk_whatsapp_join( $class = '' ) {
+	$wa = sk_whatsapp();
+	return sprintf(
+		'<div class="wa-join %1$s"><p class="wa-join__line"><strong>%2$s.</strong> %3$s</p><a class="btn" href="%4$s" target="_blank" rel="noopener">%5$sJoin %2$s</a></div>',
+		esc_attr( $class ),
+		esc_html( $wa['name'] ),
+		esc_html( $wa['line'] ),
+		esc_url( $wa['url'] ),
+		sk_icon( 'whatsapp' )
+	);
 }

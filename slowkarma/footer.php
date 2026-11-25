@@ -19,6 +19,7 @@ $sk_contact = sk_contact();
 		<div class="footer__col">
 			<h2 class="footer__head">Listen and follow</h2>
 			<?php echo sk_link_list( 'links--footer' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+			<?php echo sk_whatsapp_join( 'wa-join--footer' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		</div>
 
 		<div class="footer__col">

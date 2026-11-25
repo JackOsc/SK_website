@@ -135,6 +135,7 @@ echo sk_page_hero( // phpcs:ignore
 			<h2 id="film-title" class="h-section">The film</h2>
 			<p class="lede">The full Liquid Room film comes out in 2027, on the anniversary of the show.</p>
 			<p>Follow on <a href="<?php echo esc_url( sk_links()['youtube']['url'] ); ?>" target="_blank" rel="noopener">YouTube</a> and <a href="<?php echo esc_url( sk_links()['instagram']['url'] ); ?>" target="_blank" rel="noopener">Instagram</a> for each new release.</p>
+			<?php echo sk_whatsapp_join(); // phpcs:ignore ?>
 		</div>
 		<div class="split__media">
 			<?php echo sk_img( 'lr-crowd-seated', 'The Liquid Room crowd', array( 'sizes' => '(min-width: 900px) 50vw, 100vw' ) ); // phpcs:ignore ?>

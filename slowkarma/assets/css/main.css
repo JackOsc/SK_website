@@ -3056,3 +3056,27 @@ body.menu-open .menu-toggle {
 		font-size: 1.12rem;
 	}
 }
+
+/* v1.15: the WhatsApp group (The Karmy). */
+.wa-join {
+	margin-top: 1.6rem;
+	display: grid;
+	gap: 0.8rem;
+	justify-items: start;
+}
+
+.wa-join__line {
+	margin: 0;
+	max-width: 30em;
+}
+
+.wa-join__line strong {
+	color: var(--accent);
+}
+
+.wa-join--footer {
+	margin-top: 1.4rem;
+	padding-top: 1.2rem;
+	border-top: 1px solid var(--line);
+	font-size: var(--step--1);
+}

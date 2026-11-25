@@ -43,6 +43,18 @@ function sk_links() {
 }
 
 /**
+ * The WhatsApp group for announcements. Change 'name' here and it
+ * changes everywhere.
+ */
+function sk_whatsapp() {
+	return array(
+		'name' => 'The Karmy',
+		'url'  => 'https://chat.whatsapp.com/GvRiXZuR3lk4XfCNyihaWj',
+		'line' => 'Our WhatsApp group. New releases and big gigs in Scotland, nothing else. Nae spam.',
+	);
+}
+
+/**
  * Contact details.
  */
 function sk_contact() {
