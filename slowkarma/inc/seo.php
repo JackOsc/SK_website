@@ -94,7 +94,7 @@ function sk_head_meta() {
 	}
 	$out[] = sprintf( '<meta property="og:image" content="%s">', esc_url( $meta['image'] ) );
 	$out[] = '<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">';
-	$out[] = '<meta property="og:image:alt" content="Slow Karma, photographed in Leith">';
+	$out[] = sprintf( '<meta property="og:image:alt" content="%s">', esc_attr( isset( $meta['alt'] ) ? $meta['alt'] : 'Slow Karma, photographed in Leith' ) );
 	$out[] = '<meta name="twitter:card" content="summary_large_image">';
 	$out[] = '<meta name="theme-color" content="#0f2628">';
 	echo implode( "\n", $out ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
@@ -203,6 +203,43 @@ function sk_schema() {
 		);
 	}
 
+	if ( sk_is( 'videos' ) ) {
+		$list = array();
+		foreach ( sk_videos() as $group ) {
+			foreach ( $group['videos'] as $v ) {
+				if ( empty( $v[4] ) ) {
+					continue;
+				}
+				$list[] = array(
+					'@type'        => 'VideoObject',
+					'name'         => 'Slow Karma - ' . $v[1],
+					'description'  => $v[3] ? $v[3] : $v[1] . ' by Slow Karma.',
+					'thumbnailUrl' => 'https://i.ytimg.com/vi/' . rawurlencode( $v[0] ) . '/hqdefault.jpg',
+					'uploadDate'   => $v[4],
+					'duration'     => sk_iso_duration( $v[2] ),
+					'embedUrl'     => 'https://www.youtube.com/embed/' . rawurlencode( $v[0] ),
+					'url'          => 'https://www.youtube.com/watch?v=' . rawurlencode( $v[0] ),
+					'publisher'    => array( '@id' => $home . '#band' ),
+				);
+			}
+		}
+		if ( $list ) {
+			$items = array();
+			foreach ( $list as $i => $video ) {
+				$items[] = array(
+					'@type'    => 'ListItem',
+					'position' => $i + 1,
+					'item'     => $video,
+				);
+			}
+			$graph[] = array(
+				'@type'           => 'ItemList',
+				'name'            => 'Slow Karma videos',
+				'itemListElement' => $items,
+			);
+		}
+	}
+
 	$data = array(
 		'@context' => 'https://schema.org',
 		'@graph'   => $graph,
@@ -210,3 +247,17 @@ function sk_schema() {
 	echo '<script type="application/ld+json">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
 }
 add_action( 'wp_head', 'sk_schema', 20 );
+
+/**
+ * "4:26" or "1:01:50" as an ISO 8601 duration (PT4M26S).
+ *
+ * @param string $length Length as shown on the page.
+ */
+function sk_iso_duration( $length ) {
+	$parts = array_map( 'intval', explode( ':', $length ) );
+	while ( count( $parts ) < 3 ) {
+		array_unshift( $parts, 0 );
+	}
+	list( $h, $m, $s ) = $parts;
+	return 'PT' . ( $h ? $h . 'H' : '' ) . ( $m ? $m . 'M' : '' ) . $s . 'S';
+}

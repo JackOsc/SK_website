@@ -22,9 +22,9 @@ Almost everything lives in **`slowkarma/inc/data.php`**:
 
 - `sk_releases()`: add a new release at any position (they sort by `date`). Put its cover in `assets/img/cover-<slug>.webp` (400x400).
 - `sk_season_two_run()`: Season Two release order, with title cards from the Liquid Room film (`assets/img/title-*.webp`, all scaled to the same letter height). Set `'out' => true` and add the YouTube `link` as each track lands.
-- `sk_videos()`: YouTube IDs, titles, lengths.
+- `sk_videos()`: YouTube IDs, titles, lengths, and the date each went up on YouTube (optional; videos with a date are described to Google as video results on `/videos/`).
 - `sk_members()`, `sk_family()`, `sk_finales()`: line-ups, collaborators, credits and setlists. `sk_people_links()`: where each collaborator's name links to.
-- `sk_page_meta()`: SEO titles and descriptions per page.
+- `sk_page_meta()`: SEO titles, descriptions, share images (`assets/img/og-<page>.jpg`, 1200x630) and their alt text per page.
 
 Plain captioned portraits use `sk_portrait( $slug, $alt, $caption )`. Page headers use `sk_page_hero()` (title plus three drifting photo columns) and galleries use `sk_reel()` (a row of photos that slides sideways as you scroll), both in `inc/helpers.php`. Images are WebP in `assets/img/` named `<slug>-<width>.webp`; the theme builds `srcset` automatically from whatever widths exist. Knockout headings use `<slug>-ko.webp` when present (the photo with its shadows lifted to orange).
 
@@ -33,10 +33,13 @@ The Dynamite artwork on the homepage is a "magic painting" that comes alive as y
 ## Performance and SEO
 
 - No jQuery, no page builder, no block CSS on the front end. One CSS file (~30KB) and one small deferred script.
-- Fonts self-hosted and subset: Niagara Solid (headings, the band's own font; needs a webfont licence), Literata (body and italic voice lines), SIL OFL.
+- Fonts self-hosted, subset and served as WOFF2 (WOFF as a fallback): Niagara Solid (headings, the band's own font; needs a webfont licence), Literata (body and italic voice lines), SIL OFL.
 - YouTube, Spotify and Bandcamp players load nothing from those sites until someone presses play.
 - Titles, meta descriptions, canonical links, Open Graph / Twitter cards, and JSON-LD (`MusicGroup`, members, `sameAs` socials, releases, breadcrumbs). Stands down if Yoast, Rank Math or Jetpack SEO is active.
-- Images have width/height set, so there is no layout shift.
+- Images have width/height set, so there is no layout shift. The homepage hero preloads a 1400px file on phones and the 2600px file on bigger screens.
+- `assets/.htaccess` tells browsers to cache CSS and JS for a year (their URLs change on every edit), fonts for a year and images for 30 days. It needs Apache with `AllowOverride` on; on another server, set the same `Cache-Control` headers there.
+- `inc/cleanup.php`: WordPress's Hello World post and Sample Page are kept out of search and the sitemap (deleting them is still best), author archives redirect home, the sitemap has no users or category lists, the REST user list is hidden from visitors, pages are marked `lang="en-GB"`, and every page sends `nosniff`, `Referrer-Policy`, `X-Frame-Options` and `Permissions-Policy` headers without the PHP version.
+- `/epk/`, `/press-kit/` and `/electronic-press-kit/` redirect to the press kit, `/about/` to the story.
 
 ## Domain
 

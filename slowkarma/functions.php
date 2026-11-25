@@ -7,13 +7,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SK_VERSION', '1.18.0' );
+define( 'SK_VERSION', '1.19.0' );
 
 require get_template_directory() . '/inc/data.php';
 require get_template_directory() . '/inc/helpers.php';
 require get_template_directory() . '/inc/seo.php';
 require get_template_directory() . '/inc/setup-pages.php';
 require get_template_directory() . '/inc/routing.php';
+require get_template_directory() . '/inc/cleanup.php';
 
 /**
  * Theme supports.
@@ -61,12 +62,21 @@ add_action( 'wp_enqueue_scripts', 'sk_assets', 20 );
 function sk_preload() {
 	foreach ( array( 'niagara-solid', 'literata-400' ) as $font ) {
 		printf(
-			'<link rel="preload" href="%s" as="font" type="font/woff" crossorigin>' . "\n",
-			esc_url( sk_asset( 'fonts/' . $font . '.woff' ) )
+			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+			esc_url( sk_asset( 'fonts/' . $font . '.woff2' ) )
 		);
 	}
 	if ( is_front_page() ) {
-		printf( '<link rel="preload" as="image" href="%s" fetchpriority="high">' . "\n", esc_url( sk_img_url( 'hero-fill', 1800 ) ) );
+		// Same breakpoint as the --fill-sm rule in main.css, so each screen
+		// preloads exactly the hero file it will paint.
+		$small = sk_img_url( 'hero-fill', 1400 );
+		$large = sk_img_url( 'hero-fill', 2600 );
+		if ( $small && $small !== $large ) {
+			printf( '<link rel="preload" as="image" href="%s" media="(max-width: 900px)" fetchpriority="high">' . "\n", esc_url( $small ) );
+			printf( '<link rel="preload" as="image" href="%s" media="(min-width: 901px)" fetchpriority="high">' . "\n", esc_url( $large ) );
+		} else {
+			printf( '<link rel="preload" as="image" href="%s" fetchpriority="high">' . "\n", esc_url( $large ) );
+		}
 	}
 	echo '<link rel="preconnect" href="https://i.ytimg.com">' . "\n";
 }
@@ -85,8 +95,9 @@ function sk_font_faces() {
 	$css = '';
 	foreach ( $fonts as $f ) {
 		$css .= sprintf(
-			'@font-face{font-family:"%1$s";src:url(%2$s) format("woff");font-weight:%3$d;font-style:%4$s;font-display:swap}',
+			'@font-face{font-family:"%1$s";src:url(%2$s) format("woff2"),url(%3$s) format("woff");font-weight:%4$d;font-style:%5$s;font-display:swap}',
 			$f[0],
+			esc_url( sk_asset( 'fonts/' . $f[1] . '.woff2' ) ),
 			esc_url( sk_asset( 'fonts/' . $f[1] . '.woff' ) ),
 			$f[2],
 			$f[3]

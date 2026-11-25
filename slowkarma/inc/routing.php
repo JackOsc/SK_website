@@ -68,6 +68,34 @@ function sk_route_status() {
 add_action( 'template_redirect', 'sk_route_status', 1 );
 
 /**
+ * Addresses people guess for the designed pages. Promoters type /epk/.
+ */
+function sk_page_aliases() {
+	return array(
+		'epk'                  => 'press',
+		'press-kit'            => 'press',
+		'electronic-press-kit' => 'press',
+		'about'                => 'story',
+	);
+}
+
+/**
+ * Send a guessed address (a 404) to the real page with a permanent redirect.
+ */
+function sk_alias_redirect() {
+	if ( ! is_404() ) {
+		return;
+	}
+	$path    = strtolower( trim( (string) wp_parse_url( isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '', PHP_URL_PATH ), '/' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	$aliases = sk_page_aliases();
+	if ( isset( $aliases[ $path ] ) ) {
+		wp_safe_redirect( sk_page_url( $aliases[ $path ] ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sk_alias_redirect', 2 );
+
+/**
  * Use the designed template for a virtual page.
  *
  * @param string $template Template WordPress picked.
