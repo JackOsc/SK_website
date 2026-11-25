@@ -91,11 +91,8 @@ echo sk_page_hero( // phpcs:ignore
 				<h2 id="twin-title" class="h-section">Twin</h2>
 				<p>Jazz chops, punk energy and UK dancefloor rhythms. Played and filmed live in one take at LOSTOSC Studios.</p>
 				<p class="voice" style="color:var(--accent)">Twin is a heater like.</p>
+				<p>Listen on <a href="https://open.spotify.com/album/5T6Hz4Z63i0VTUogOy0ct4" target="_blank" rel="noopener">Spotify</a> or <a href="https://slowkarma.bandcamp.com/track/twin" target="_blank" rel="noopener">Bandcamp</a>.</p>
 			</div>
-		</div>
-		<div class="split">
-			<?php echo sk_spotify( 'album', '5T6Hz4Z63i0VTUogOy0ct4', 'Twin', 352 ); // phpcs:ignore ?>
-			<?php echo sk_bandcamp( 'track', '2768887722', 'Twin', 'https://slowkarma.bandcamp.com/track/twin', 352 ); // phpcs:ignore ?>
 		</div>
 	</div>
 </section>
